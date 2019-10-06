@@ -4,6 +4,6 @@ import ReactDOM from 'react-dom'
 import App from './App'
 
 // Others
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootswatch/dist/minty/bootstrap.min.css'
 
 ReactDOM.render(<App />, document.getElementById('root'))

@@ -2,14 +2,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Components
+import Header from '../Header'
+import Sidebar from '../Sidebar'
+import Main from '../content/Main'
+
 // Styles
-// import {} from './style'
+import { DashboardWrapper, ContentWrapper } from './style'
 
 // Dashboard
 const Dashboard = () => {
   return (
-    <div>
-
+    <div class="d-flex" id="wrapper">
+      <Sidebar />
+      <div id="page-content-wrapper">
+        <Header />
+        <div class="container-fluid">
+          <Main />
+        </div>
+      </div>
     </div>
   )
 }
