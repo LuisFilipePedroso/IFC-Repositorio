@@ -1,23 +1,52 @@
 // React & Redux
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 // Styles
+import { ListGroup, NavbarBrand } from 'reactstrap'
 import { SibebarWrapper } from './style'
 
 // Sidebar
 const Sidebar = () => {
   return (
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Dashboard logo aqui</div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Início</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Artigos</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Cursos</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Anos</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Cadastro</a>
+    <SibebarWrapper className="border-right-lg bg-white shadow">
+      <div className="sidebar-heading pb-4">
+        <NavbarBrand>ifbox</NavbarBrand>
       </div>
-    </div>
+      <ListGroup className="list-group-flush bg-dark">
+        <Link
+          to="/dashboard"
+          className="list-group-item list-group-item-action border-0"
+        >
+          Início
+        </Link>
+        <Link
+          to="/dashboard/artigos"
+          className="list-group-item list-group-item-action border-0"
+        >
+          Artigos
+        </Link>
+        <Link
+          to="/dashboard/"
+          className="list-group-item list-group-item-action border-0"
+        >
+          Cursos
+        </Link>
+        <Link
+          to="/dashboard/"
+          className="list-group-item list-group-item-action border-0"
+        >
+          Anos
+        </Link>
+        <Link
+          to="/dashboard/"
+          className="list-group-item list-group-item-action border-0"
+        >
+          Cadastro
+        </Link>
+      </ListGroup>
+    </SibebarWrapper>
   )
 }
 

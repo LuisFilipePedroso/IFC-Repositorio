@@ -5,10 +5,13 @@ import styled from 'styled-components'
 export const DashboardWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  box-sizing: border-box;
 `
 // ContentWrapper
 export const ContentWrapper = styled.div`
   min-width: 100vw;
-  width: 100%;
+
+  @media (min-width: 768px) {
+    min-width: 0;
+    width: 100%;
+  }
 `
