@@ -1,4 +1,4 @@
-class UserController {
+class EventController {
 
   async find(req, res) {
     res.json({ nome: 'test' })
@@ -7,6 +7,11 @@ class UserController {
   async findById(req, res) {
     const { id } = req.params;
     res.json({ param: id })
+  }
+
+  async findByYear(req, res) {
+    const { year } = req.params;
+    res.json({ param: year })
   }
 
   async create(req, res) {
@@ -21,7 +26,6 @@ class UserController {
     const { id } = req.params
     res.json({ param: id })
   }
-
 }
 
-module.exports = new UserController()
+module.exports = new EventController;

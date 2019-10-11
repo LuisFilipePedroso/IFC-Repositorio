@@ -1,4 +1,4 @@
-class UserController {
+class CourseController {
 
   async find(req, res) {
     res.json({ nome: 'test' })
@@ -21,7 +21,6 @@ class UserController {
     const { id } = req.params
     res.json({ param: id })
   }
-
 }
 
-module.exports = new UserController()
+module.exports = new CourseController;
