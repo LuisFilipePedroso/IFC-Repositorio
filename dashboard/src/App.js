@@ -5,20 +5,29 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 // Styles
 import { Container } from 'reactstrap'
 import GlobalStyle from './style/global'
+import { ContentWrapper, DashboardWrapper } from './style/dashboard'
 
 // Components
-import Login from './components/Login'
-import Register from './components/Register'
-import Dashboard from './components/Dashboard'
+import Sidebar from './components/Sidebar'
+import Header from './components/Header'
+import Main from './components/content/Main'
+import Artigos from './components/content/Artigos'
 
 // App
 const App = () => {
 	return (
 		<Router>
       <Switch>
-        <Route exact path="/" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        <DashboardWrapper>
+          <Sidebar />
+          <ContentWrapper>
+            <Header />
+            <Container className="container-fluid p-3">
+              <Route exact path="/dashboard/" component={Main} />
+              <Route exact path="/dashboard/artigos" component={Artigos} />
+            </Container>
+          </ContentWrapper>
+        </DashboardWrapper>
       </Switch>
       <GlobalStyle />
 		</Router>
