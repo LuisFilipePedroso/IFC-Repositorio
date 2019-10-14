@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     Courses.associate = models => {
-        Courses.belongsToMany(models.Article, { through: 'courses_articles' })
-        Courses.hasMany(models.ArticleStatistic)
+        Courses.belongsToMany(models.articles, { through: 'courses_articles' })
+        Courses.hasMany(models.articles_statistics)
     }
 
     return Courses;

@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     Article.associate = models => {
-        Courses.belongsToMany(models.Course, { through: 'courses_articles' })
+        Article.belongsToMany(models.courses, { through: 'courses_articles' })
     }
 
     return Article;

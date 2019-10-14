@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     User.associate = models => {
-        User.belongsToMany(models.Article, { through: 'users_articles' })
-        User.belongsTo(models.UserStatistic) 
+        User.belongsToMany(models.articles, { through: 'users_articles' })
+        User.belongsTo(models.users_statistics) 
     }
     return User;
 }
