@@ -8,11 +8,10 @@ import { Button, Collapse, DropdownItem, DropdownMenu, DropdownToggle, Nav, Navb
 
 // Header
 const Header = () => {
+  // Local state
   const [open, isOpen] = useState(false)
 
-  /**
-   * Toggle mobile menu
-   */
+  // Toggle mobile menu
   const toggle = () => isOpen(!open)
 
   return (
@@ -28,20 +27,12 @@ const Header = () => {
             <NavLink href="/">GitHub</NavLink>
           </NavItem>
           <UncontrolledDropdown nav inNavbar>
-            <DropdownToggle nav caret>
-              Options
-            </DropdownToggle>
+            <DropdownToggle nav caret>Options</DropdownToggle>
             <DropdownMenu right>
-              <DropdownItem>
-                Option 1
-              </DropdownItem>
-              <DropdownItem>
-                Option 2
-              </DropdownItem>
+              <DropdownItem>Option 1</DropdownItem>
+              <DropdownItem>Option 2</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem>
-                Reset
-              </DropdownItem>
+              <DropdownItem>Reset</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>

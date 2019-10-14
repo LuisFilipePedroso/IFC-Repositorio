@@ -22,13 +22,7 @@ const Sidebar = () => {
           Início
         </Link>
         <Link
-          to="/dashboard/artigos"
-          className="list-group-item list-group-item-action border-0"
-        >
-          Artigos
-        </Link>
-        <Link
-          to="/dashboard/"
+          to="/dashboard/courses"
           className="list-group-item list-group-item-action border-0"
         >
           Cursos
@@ -38,12 +32,6 @@ const Sidebar = () => {
           className="list-group-item list-group-item-action border-0"
         >
           Anos
-        </Link>
-        <Link
-          to="/dashboard/"
-          className="list-group-item list-group-item-action border-0"
-        >
-          Cadastro
         </Link>
       </ListGroup>
     </SibebarWrapper>
