@@ -14,7 +14,7 @@ const Header = () => {
   const toggle = () => isOpen(!open)
 
   return (
-    <Navbar color="dark" light expand="md" className="bg-gradient-primary">
+    <Navbar color="primary" light expand="md">
       <Button color=" white">Menu</Button>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={open} navbar>

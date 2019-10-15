@@ -1,11 +1,12 @@
 // Action types
-import { GET_COURSES } from './types'
+import { GET_COURSES, SET_LOADING } from './types'
 
 // Others
 import { api } from '../config/api'
 
-// Login
+// Get all courses
 export const getAllCourses = () => async dispatch => {
+  dispatch({ type: SET_LOADING })
   try {
     const res = await api.get('/courses')
     dispatch({
