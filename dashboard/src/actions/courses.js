@@ -8,12 +8,10 @@ import { api } from '../config/api'
 export const getAllCourses = () => async dispatch => {
   try {
     const res = await api.get('/courses')
-    console.log(res.data);
     dispatch({
       type: GET_COURSES,
-      payload: res.data
+      payload: res.data.courses
     })
-    console.log('error try')
   } catch (err) {
     console.log('error catch' + err)
   }

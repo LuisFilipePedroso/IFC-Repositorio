@@ -1,10 +1,9 @@
 // React & Redux
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 
 // Styles
 // import { SidebarToggler } from './style'
-import { Button, Collapse, DropdownItem, DropdownMenu, DropdownToggle, Nav, Navbar, NavbarBrand, NavbarToggler, NavLink, NavItem, UncontrolledDropdown } from 'reactstrap'
+import { Button, Collapse, DropdownItem, DropdownMenu, DropdownToggle, Nav, Navbar, NavbarToggler, NavLink, NavItem, UncontrolledDropdown } from 'reactstrap'
 
 // Header
 const Header = () => {
@@ -40,7 +39,5 @@ const Header = () => {
     </Navbar>
   )
 }
-
-Header.propTypes = {}
 
 export default Header

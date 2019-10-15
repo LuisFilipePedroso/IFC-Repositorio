@@ -1,6 +1,5 @@
 // React & Redux
 import React from 'react'
-import PropTypes from 'prop-types'
 
 // Styles
 
@@ -14,7 +13,5 @@ const Main = () => {
     </>
   )
 }
-
-Main.propTypes = {}
 
 export default Main

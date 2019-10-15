@@ -1,6 +1,5 @@
 // React & Redux
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 // Styles
@@ -27,17 +26,9 @@ const Sidebar = () => {
         >
           Cursos
         </Link>
-        <Link
-          to="/dashboard/"
-          className="list-group-item list-group-item-action border-0"
-        >
-          Anos
-        </Link>
       </ListGroup>
     </SibebarWrapper>
   )
 }
-
-Sidebar.propTypes = {}
 
 export default Sidebar

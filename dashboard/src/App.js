@@ -26,7 +26,7 @@ const App = () => {
             <ContentWrapper>
               <Header />
               <Container className="container-fluid p-3">
-                <Route exact path="/dashboard/" component={Main} />
+                <Route exact path="/dashboard" component={Main} />
                 <Route exact path="/dashboard/courses" component={Courses} />
               </Container>
             </ContentWrapper>

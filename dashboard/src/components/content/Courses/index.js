@@ -1,6 +1,5 @@
 // React & Redux
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 // Actions
@@ -10,22 +9,24 @@ import { getAllCourses } from '../../../actions/courses'
 
 // Courses
 const Courses = () => {
-  const courses = useSelector(state => state.courses)
-
   // Dispatch
   const dispatch = useDispatch()
 
+  // Component mount
   useEffect(() => {
-    dispatch(getAllCourses)
-  }, [])
+    dispatch(getAllCourses())
+  }, [dispatch])
+
+  // Courses state
+  const courses = useSelector(state => state.courses)
 
   return (
     <>
-      <h1>Courses</h1>
+      {console.log(courses)}
+      {typeof courses}
+      {/* {courses.map(course => <h2>{course.name}</h2>)} */}
     </>
   )
 }
-
-Courses.propTypes = {}
 
 export default Courses
