@@ -1,5 +1,5 @@
 // Action types
-import { GET_COURSES, SET_LOADING } from '../actions/types'
+import { GET_COURSES, SET_LOADING, REMOVE_LOADING } from '../actions/types'
 
 // Initial state
 const INITIAL_STATE = {
@@ -23,6 +23,12 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: true
+      }
+
+    case REMOVE_LOADING:
+      return {
+        ...state,
+        loading: false
       }
 
     default:
