@@ -25,8 +25,8 @@ const App = () => (
           <Sidebar />
           <ContentWrapper>
             <Header />
-            <Alert />
             <Container className="container-fluid p-3">
+              <Alert />
               <Route exact path="/dashboard" component={Main} />
               <Route exact path="/dashboard/courses" component={Courses} />
             </Container>

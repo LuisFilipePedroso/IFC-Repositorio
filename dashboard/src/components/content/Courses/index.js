@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 // Actions
 import { getAllCourses } from '../../../actions/courses'
+import { removeAlert } from '../../../actions/alert'
 
 // Components
 import Spinner from '../../layout/Spinner'
@@ -14,7 +15,9 @@ const Courses = () => {
   const dispatch = useDispatch()
 
   // Component mount
-  useEffect(() => { dispatch(getAllCourses()) }, [])
+  useEffect(() => {
+    dispatch(getAllCourses())
+  }, [])
 
   // Courses state
   const courses = useSelector(state => state.courses.courses)
