@@ -11,7 +11,7 @@ import { api } from '../config/api'
 export const getAllCourses = () => async dispatch => {
   dispatch({ type: SET_LOADING })
   try {
-    const res = await api.get('/course9u1bd2u9d')
+    const res = await api.get('/courses')
     dispatch({
       type: GET_COURSES,
       payload: res.data.courses
