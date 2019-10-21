@@ -25,11 +25,11 @@ const App = () => (
           <Sidebar />
           <ContentWrapper>
             <Header />
-            <Container className="container-fluid p-3">
-              <Alert />
-              <Route exact path="/dashboard" component={Main} />
-              <Route exact path="/dashboard/courses" component={Courses} />
-            </Container>
+            {/* <Container className="container-fluid p-3"> */}
+              {/* <Alert /> */}
+              {/* <Route exact path="/dashboard" component={Main} />
+              <Route exact path="/dashboard/courses" component={Courses} /> */}
+            {/* </Container> */}
           </ContentWrapper>
         </DashboardWrapper>
       </Switch>

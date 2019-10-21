@@ -3,7 +3,7 @@ import { GET_COURSES, SET_LOADING, REMOVE_LOADING } from '../actions/types'
 
 // Initial state
 const INITIAL_STATE = {
-  courses: null,
+  courses: [],
   loading: false
 }
 
