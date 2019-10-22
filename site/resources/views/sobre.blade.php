@@ -24,6 +24,9 @@
         #card {
             margin: auto;
         }
+        #sobre {
+            margin-top: 10px;
+        }
     }
 </style>
 
@@ -31,7 +34,7 @@
     <div class="col-md-6">
         <img src="storage/icon-devs/devs.png" alt="Dev Team" width='100%;'>
     </div>
-    <div class="col-md-6">
+    <div id='sobre' class="col-md-6">
         <p id='texto'>O ifbox é um repositório de trabalhos do Instituto Federal Catarinense - 
             Campus Rio do Sul, no qual possui como objetivo o compartilhamento e a 
             visualização de artigos e trabalhos desenvolvidos a partir de disciplinas e eventos.<p>
