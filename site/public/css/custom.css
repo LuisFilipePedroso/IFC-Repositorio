@@ -1,3 +1,26 @@
+.site #container-sobre-nos {
+    margin-top: 80px;
+}
+
+.site #icon_dev {
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.site #texto {
+    text-align: justify;
+}
+
+@media (orientation: portrait) {
+    #card {
+        margin: auto;
+    }
+    #sobre {
+        margin-top: 10px;
+    }
+}
+
 .site .borda-superior {
     border-top: 2px solid #dbdcde;
     padding-top: 20px;

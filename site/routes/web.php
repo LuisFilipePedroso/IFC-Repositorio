@@ -1,9 +1,4 @@
 <?php
-
-<<<<<<< HEAD
-// Home
-Route::get('/', 'HomeController@index')->name('home');
-=======
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +10,7 @@ Route::get('/', 'HomeController@index')->name('home');
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Home
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/sobre', 'SobreController@index')->name('sobre');
->>>>>>> master

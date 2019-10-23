@@ -81,22 +81,12 @@
             </div>
         </header>
         <main id="main-container">
-            <p style="margin-top:120px">Teste</p>
-            {{-- @component('banners')
-                @slot('banners', $banners)
-            @endcomponent
-
+            
             @component('sobre')@endcomponent
 
-            @component('politica')@endcomponent
-
-            @component('valores')@endcomponent
-
-            @component('servicos')@endcomponent
-
-            @component('contato')@endcomponent
-
-            @component('mapa')@endcomponent --}}
+            {{-- @component('banners')
+                @slot('banners', $banners)
+            {{-- @endcomponent --}}
             
         </main>       
         <footer>
