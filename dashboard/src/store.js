@@ -5,6 +5,7 @@ import thunk from 'redux-thunk'
 
 // Reducers
 import courses from './reducers/courses'
+import alert from './reducers/alert'
 
 // State
 const initialState = {}
@@ -15,7 +16,8 @@ const middlewares = [thunk]
 // Store
 const store = createStore(
 	combineReducers({
-		courses
+    courses,
+    alert
 	}),
 	initialState,
 	composeWithDevTools(applyMiddleware(...middlewares))

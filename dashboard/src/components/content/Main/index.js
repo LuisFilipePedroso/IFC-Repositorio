@@ -1,11 +1,16 @@
 // React & Redux
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+
+// Actions
 
 // Styles
 
 // Main
 const Main = () => {
+  // Dispatch
+  const dispatch = useDispatch()
+
   return (
     <>
       <h1>Main</h1>
@@ -14,7 +19,5 @@ const Main = () => {
     </>
   )
 }
-
-Main.propTypes = {}
 
 export default Main

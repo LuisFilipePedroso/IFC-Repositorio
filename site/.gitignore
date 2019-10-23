@@ -1,7 +1,10 @@
 /node_modules
 /public/hot
+<<<<<<< HEAD
 /public/storage
 /public/*.htaccess
+=======
+>>>>>>> master
 /storage/*.key
 /vendor
 .env

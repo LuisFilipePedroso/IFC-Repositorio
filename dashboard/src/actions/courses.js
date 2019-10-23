@@ -1,20 +1,23 @@
 // Action types
-import { GET_COURSES } from './types'
+import { GET_COURSES, SET_LOADING, REMOVE_LOADING } from './types'
+
+// Actions
+import { setAlert } from '../actions/alert'
 
 // Others
 import { api } from '../config/api'
 
-// Login
+// Get all courses
 export const getAllCourses = () => async dispatch => {
+  dispatch({ type: SET_LOADING })
   try {
     const res = await api.get('/courses')
-    console.log(res.data);
     dispatch({
       type: GET_COURSES,
-      payload: res.data
+      payload: res.data.courses
     })
-    console.log('error try')
   } catch (err) {
-    console.log('error catch' + err)
+    dispatch(setAlert('Um erro inesperado ocorreu', 'danger', 100000))
+    dispatch({ type: REMOVE_LOADING })
   }
 }

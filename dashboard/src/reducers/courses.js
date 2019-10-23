@@ -1,8 +1,11 @@
 // Action types
-import { GET_COURSES } from '../actions/types'
+import { GET_COURSES, SET_LOADING, REMOVE_LOADING } from '../actions/types'
 
 // Initial state
-const INITIAL_STATE = {}
+const INITIAL_STATE = {
+  courses: [],
+  loading: false
+}
 
 // Reducer
 export default (state = INITIAL_STATE, action) => {
@@ -10,7 +13,23 @@ export default (state = INITIAL_STATE, action) => {
 
   switch (type) {
     case GET_COURSES:
-      return payload
+      return {
+        ...state,
+        courses: payload,
+        loading: false
+      }
+
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true
+      }
+
+    case REMOVE_LOADING:
+      return {
+        ...state,
+        loading: false
+      }
 
     default:
       return state
