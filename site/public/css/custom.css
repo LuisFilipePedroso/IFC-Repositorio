@@ -1,1 +1,248 @@
-/* font-family: 'Source Sans Pro', sans-serif; */
+.site .borda-superior {
+    border-top: 2px solid #dbdcde;
+    padding-top: 20px;
+}
+
+.hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08);
+}
+
+.site #link-home-upload {
+    color: #5e72e4!important;
+    background-color: #fff;
+    font-weight: bold!important;
+    padding: 10px;
+}
+
+.site #link-home-upload:hover {
+    color: #212529!important;
+    border-color: #fff;
+    background-color: #fff;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.site * {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.rounded {
+    border-radius:15px!important;
+    margin-bottom: 80px;
+}
+
+.borda {
+    border-radius:5px!important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.site h1, .site h2, .site h3, .site h4, .site h5, .site h6 {
+    font-weight: bold;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #fdfdfd;
+}
+
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+img#logo {
+    max-width: 100%;
+    display: inline;
+    max-height: 100px;
+}
+
+.site header div#menu {
+    background: #172b4d;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+    top: 0;
+}
+
+.site header div#menu ul li {
+    display: inline-block;
+    position: relative;
+    margin-right: 30px;
+}
+
+.site header h1#logo {
+    cursor: pointer;
+}
+
+.site header div#menu ul li a {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.site header div#menu ul {
+    display: block;
+}
+
+header {
+    position: relative;
+}
+
+.site.home main#main-container {
+    margin-top: 0px;
+}
+
+@media (min-width: 768px) {
+    .site header div#menu ul li a.ativo,
+    .site header div#menu ul li a:hover {
+        color: rgba(255,255,255,.65);
+        padding-bottom: 10px;       
+    }
+
+    .site header div#menu ul {
+        display: inline-flex;
+    }   
+}
+
+@media (min-width: 1024px) {
+    .site header div#menu ul {
+        margin-right: 120px;
+    }
+}
+
+.site .navbar {
+    width: 100%;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+@media (max-width: 767px) {
+
+    .site div#navbarSupportedContent {
+        display: block;
+    }
+
+    .site div#navbarSupportedContent .col-sm-12 ul li:last-of-type {
+        border: none;
+        padding: 0;
+    }
+
+    .site div#navbarSupportedContent .col-sm-12:first-of-type {
+        text-align: center;
+    }
+
+    .site div#navbarSupportedContent .col-sm-12:first-of-type h1 {
+        display: inline-block;
+    }
+
+    .site div#navbarSupportedContent .col-sm-12 ul li {
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid #717171;
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+}
+
+
+.site footer {
+    background: #f3f4f6;
+    position: relative; 
+}
+
+.site footer span{
+    color: #6286ec;
+}
+
+.site footer span:hover {
+    color: #233dd2;
+}
+
+div.chosen-container.chosen-container-single {
+    width: inherit !important;
+}
+
+div.chosen-container a.chosen-single {
+    display: block;
+    width: 100%;
+    height: calc(2.19rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #495057 !important;
+    background: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+#main-container-first form .col-1, #main-container-first form .col-2, #main-container-first form .col-3, #main-container-first form .col-4, #main-container-first form .col-5, #main-container-first form .col-6, #main-container-first form .col-7, #main-container-first form .col-8, #main-container-first form .col-9, #main-container-first form .col-10, #main-container-first form .col-11, #main-container-first form .col-12, #main-container-first form .col, #main-container-first form .col-auto, #main-container-first form .col-sm-1, #main-container-first form .col-sm-2, #main-container-first form .col-sm-3, #main-container-first form .col-sm-4, #main-container-first form .col-sm-5, #main-container-first form .col-sm-6, #main-container-first form .col-sm-7, #main-container-first form .col-sm-8, #main-container-first form .col-sm-9, #main-container-first form .col-sm-10, #main-container-first form .col-sm-11, #main-container-first form .col-sm-12, #main-container-first form .col-sm, #main-container-first form .col-sm-auto, #main-container-first form .col-md-1, #main-container-first form .col-md-2, #main-container-first form .col-md-3, #main-container-first form .col-md-4, #main-container-first form .col-md-5, #main-container-first form .col-md-6, #main-container-first form .col-md-7, #main-container-first form .col-md-8, #main-container-first form .col-md-9, #main-container-first form .col-md-10, #main-container-first form .col-md-11, #main-container-first form .col-md-12, #main-container-first form .col-md, #main-container-first form .col-md-auto, #main-container-first form .col-lg-1, #main-container-first form .col-lg-2, #main-container-first form .col-lg-3, #main-container-first form .col-lg-4, #main-container-first form .col-lg-5, #main-container-first form .col-lg-6, #main-container-first form .col-lg-7, #main-container-first form .col-lg-8, #main-container-first form .col-lg-9, #main-container-first form .col-lg-10, #main-container-first form .col-lg-11, #main-container-first form .col-lg-12, #main-container-first form .col-lg, #main-container-first form .col-lg-auto, #main-container-first form .col-xl-1, #main-container-first form .col-xl-2, #main-container-first form .col-xl-3, #main-container-first form .col-xl-4, #main-container-first form .col-xl-5, #main-container-first form .col-xl-6, #main-container-first form .col-xl-7, #main-container-first form .col-xl-8, #main-container-first form .col-xl-9, #main-container-first form .col-xl-10, #main-container-first form .col-xl-11, #main-container-first form .col-xl-12, #main-container-first form .col-xl, #main-container-first form .col-xl-auto {
+    padding-left: 0;
+    display: inline-block;
+}
+
+.margem-superior-15 {
+    margin-top: 15px !important;
+}
+
+.margem-superior-30 {
+    margin-top: 30px !important;
+}
+
+.margem-superior-50 {
+    margin-top: 50px !important;
+}
+
+.margem-superior-100 {
+    margin-top: 100px !important;
+}
+
+.margem-superior-20 {
+    margin-top: 20px !important;
+}
+
+.margem-superior-10 {
+    margin-top: 10px !important;
+}
+
+.margem-inferior-10 {
+    margin-bottom: 10px !important;
+}
+
+.margem-inferior-20 {
+    margin-bottom: 20px !important;
+}
+
+.margem-inferior-50 {
+    margin-bottom: 50px !important;
+}
+
+.chosen-container-single .chosen-single div b,
+.chosen-container-single .chosen-search input[type="text"] {
+    background-size: 52px 37px !important;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single div b {
+    background-position: -16px 2px !important;
+}
+
+.hide {
+    display: none !important;
+}
