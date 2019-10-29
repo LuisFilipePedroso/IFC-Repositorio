@@ -6,7 +6,7 @@
 
         <div class="row">
             <div class="col-md-6">
-                <img src="storage/icon-devs/devs.png" alt="Dev Team" width='100%;'>
+                <img src="{{ asset('img/icon-devs/devs.png') }}" alt="Dev Team" width='100%;'>
             </div>
             <div id='sobre' class="col-md-6">
                 <p id='texto'>
@@ -26,7 +26,7 @@
         <div class="card-deck">
             <div id='card' class="card text-center border-0 bg-transparent" style="width: 18rem; min-width: 200px;">
                 <div class="mx-auto">
-                    <img id='icon_dev' src="storage/icon-devs/carlos-torres.png" 
+                    <img id='icon_dev' src="{{ asset('img/icon-devs/carlos-torres.png') }}" 
                         class="card-img-top rounded-circle" alt="Carlos-T" style="width: 200px;">
                 </div>
                 <div class="card-body">
@@ -34,14 +34,14 @@
                     <h6 class="card-subtitle mb-2 text-primary">DASHBOARD DEVELOPER</h6>
                     <p class="card-text font-italic">carlos_at5@hotmail.com<br>
                         <a href="https://github.com/Carlos-T" target="_blank">
-                            <img width="30" src="storage/icon-social-media/icon-github.png" alt="github">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-github.png') }}" alt="github">
                         </a>
                     </p>
                 </div>
             </div>
             <div id='card' class="card text-center border-0 bg-transparent" style="width: 18rem; min-width: 200px;">
                 <div class="mx-auto">
-                    <img id='icon_dev' src="storage/icon-devs/filipe-pedroso.jpeg" 
+                    <img id='icon_dev' src="{{ asset('img/icon-devs/filipe-pedroso.jpeg') }}" 
                         class="card-img-top rounded-circle" alt="LuisFilipePedroso" style="width: 200px;">
                 </div>
                 <div class="card-body">
@@ -49,18 +49,18 @@
                     <h6 class="card-subtitle mb-2 text-primary">BACKEND DEVELOPER</h6>
                     <p class="card-text font-italic">luis_filipe42@outlook.com<br>
                         <a href="https://github.com/LuisFilipePedroso" target="_blank" style="margin-right: 10px;">
-                            <img width="30" src="storage/icon-social-media/icon-github.png" alt="github">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-github.png') }}" alt="github">
                         </a>
                         <a href=""></a>
                         <a href="https://www.linkedin.com/in/luisfilipe42/" target="_blank">
-                            <img width="30" src="storage/icon-social-media/icon-linkedin.png" alt="linkedin">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-linkedin.png') }}" alt="linkedin">
                         </a>
                     </p>
                 </div>
             </div>
             <div id='card' class="card text-center border-0 bg-transparent" style="width: 18rem; min-width: 200px;">
                 <div class="mx-auto">
-                    <img id='icon_dev' src="storage/icon-devs/gabriel-frontorio.jpeg" 
+                    <img id='icon_dev' src="{{ asset('img/icon-devs/gabriel-frontorio.jpeg') }}" 
                         class="card-img-top rounded-circle" alt="frontorio" style="width: 200px;">
                 </div>
                 <div class="card-body">
@@ -68,18 +68,18 @@
                     <h6 class="card-subtitle mb-2 text-primary">FRONTEND DEVELOPER</h6>
                     <p class="card-text font-italic">gabrielfrontorio@hotmail.com<br>
                         <a href="https://github.com/frontorio" target="_blank" style="margin-right: 10px;">
-                            <img width="30" src="storage/icon-social-media/icon-github.png" alt="github">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-github.png') }}" alt="github">
                         </a>
                         <a href=""></a>
                         <a href="https://www.linkedin.com/in/frontorio/" target="_blank">
-                            <img width="30" src="storage/icon-social-media/icon-linkedin.png" alt="linkedin">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-linkedin.png') }}" alt="linkedin">
                         </a>
                     </p>
                 </div>
             </div>
             <div id='card' class="card text-center border-0 bg-transparent" style="width: 18rem; min-width: 200px;">
                 <div class="mx-auto">
-                    <img id='icon_dev' src="storage/icon-devs/gabriel-peron.jpg" 
+                    <img id='icon_dev' src="{{ asset('img/icon-devs/gabriel-peron.jpg') }}" 
                         class="card-img-top rounded-circle" alt="GabiPeron" style="width: 200px;">
                 </div>
                 <div class="card-body">
@@ -87,18 +87,18 @@
                     <h6 class="card-subtitle mb-2 text-primary">FRONTEND DEVELOPER</h6>
                     <p class="card-text font-italic">Peronn07@gmail.com<br>
                         <a href="https://github.com/GabiPeron" target="_blank" style="margin-right: 10px;">
-                            <img width="30" src="storage/icon-social-media/icon-github.png" alt="github">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-github.png') }}" alt="github">
                         </a>
                         <a href=""></a>
                         <a href="https://www.linkedin.com/in/gabriel-peron-740bba187/" target="_blank">
-                            <img width="30" src="storage/icon-social-media/icon-linkedin.png" alt="linkedin">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-linkedin.png') }}" alt="linkedin">
                         </a>
                     </p>
                 </div>
             </div>
             <div id='card' class="card text-center border-0 bg-transparent" style="width: 18rem; min-width: 200px;">
                 <div class="mx-auto">
-                    <img id='icon_dev' src="storage/icon-devs/joao-back.jpeg" 
+                    <img id='icon_dev' src="{{ asset('img/icon-devs/joao-back.jpeg') }}" 
                         class="card-img-top rounded-circle" alt="backjoao88" style="width: 200px;">
                 </div>
                 <div class="card-body">
@@ -106,18 +106,18 @@
                     <h6 class="card-subtitle mb-2 text-primary">BACKEND DEVELOPER</h6>
                     <p class="card-text font-italic">joaoback47@gmail.com<br>
                         <a href="https://github.com/backjoao88" target="_blank" style="margin-right: 10px;">
-                            <img width="30" src="storage/icon-social-media/icon-github.png" alt="github">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-github.png') }}" alt="github">
                         </a>
                         <a href=""></a>
                         <a href="https://www.linkedin.com/in/jo%C3%A3o-paulo-back-90874614b/" target="_blank">
-                            <img width="30" src="storage/icon-social-media/icon-linkedin.png" alt="linkedin">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-linkedin.png') }}" alt="linkedin">
                         </a>
                     </p>
                 </div>
             </div>
             <div id='card' class="card text-center border-0 bg-transparent" style="width: 18rem; min-width: 200px;">
                 <div class="mx-auto">
-                    <img id='icon_dev' src="storage/icon-devs/luigi-kita.png" 
+                    <img id='icon_dev' src="{{ asset('img/icon-devs/luigi-kita.png') }}" 
                         class="card-img-top rounded-circle" alt="LuigiTakeoKita" style="width: 200px;">
                 </div>
                 <div class="card-body">
@@ -125,18 +125,18 @@
                     <h6 class="card-subtitle mb-2 text-primary">DASHBOARD DEVELOPER</h6>
                     <p class="card-text font-italic">luigikita@gmail.com<br>
                         <a href="https://github.com/LuigiTakeoKita" target="_blank" style="margin-right: 10px;">
-                            <img width="30" src="storage/icon-social-media/icon-github.png" alt="github">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-github.png') }}" alt="github">
                         </a>
                         <a href=""></a>
                         <a href="https://www.linkedin.com/in/luigi-takeo-kita-54554b16b/" target="_blank">
-                            <img width="30" src="storage/icon-social-media/icon-linkedin.png" alt="linkedin">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-linkedin.png') }}" alt="linkedin">
                         </a>
                     </p>
                 </div>
             </div>
             <div id='card' class="card text-center border-0 bg-transparent" style="width: 18rem; min-width: 200px;">
                 <div class="mx-auto">
-                    <img id='icon_dev' src="storage/icon-devs/luis-nienkotter.png" 
+                    <img id='icon_dev' src="{{ asset('img/icon-devs/luis-nienkotter.png') }}" 
                         class="card-img-top rounded-circle" alt="LuisGustavoBlockNienkotter" style="width: 200px;">
                 </div>
                 <div class="card-body">
@@ -144,14 +144,14 @@
                     <h6 class="card-subtitle mb-2 text-primary">BACKEND DEVELOPER</h6>
                     <p class="card-text font-italic">luis.block.nienk@gmail.com<br>
                         <a href="https://github.com/LuisGustavoBlockNienkotter" target="_blank">
-                            <img width="30" src="storage/icon-social-media/icon-github.png" alt="github">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-github.png') }}" alt="github">
                         </a>
                     </p>
                 </div>
             </div>
             <div id='card' class="card text-center border-0 bg-transparent" style="width: 18rem; min-width: 200px;">
                 <div class="mx-auto">
-                    <img id='icon_dev' src="storage/icon-devs/mathias-schulz.jpg" 
+                    <img id='icon_dev' src="{{ asset('img/icon-devs/mathias-schulz.jpg') }}" 
                         class="card-img-top rounded-circle" alt="mathiasarturschulz" style="width: 200px;">
                 </div>
                 <div class="card-body">
@@ -159,18 +159,18 @@
                     <h6 class="card-subtitle mb-2 text-primary">FRONTEND DEVELOPER</h6>
                     <p class="card-text font-italic">MathiasSchulz34@gmail.com<br>
                         <a href="https://github.com/mathiasarturschulz" target="_blank" style="margin-right: 10px;">
-                            <img width="30" src="storage/icon-social-media/icon-github.png" alt="github">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-github.png') }}" alt="github">
                         </a>
                         <a href=""></a>
                         <a href="https://www.linkedin.com/in/mathiasschulz34/" target="_blank">
-                            <img width="30" src="storage/icon-social-media/icon-linkedin.png" alt="linkedin">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-linkedin.png') }}" alt="linkedin">
                         </a>
                     </p>
                 </div>
             </div>
             <div id='card' class="card text-center border-0 bg-transparent" style="width: 18rem; min-width: 200px;">
                 <div class="mx-auto">
-                    <img id='icon_dev' src="storage/icon-devs/victor-fiamoncini.jpeg" 
+                    <img id='icon_dev' src="{{ asset('img/icon-devs/victor-fiamoncini.jpeg') }}" 
                         class="card-img-top rounded-circle" alt="Victor-Fiamoncini" style="width: 200px;">
                 </div>
                 <div class="card-body">
@@ -178,30 +178,30 @@
                     <h6 class="card-subtitle mb-2 text-primary">DASHBOARD DEVELOPER</h6>
                     <p class="card-text font-italic">victor.fiamoncini@gmail.com<br>
                         <a href="https://github.com/Victor-Fiamoncini" target="_blank" style="margin-right: 10px;">
-                            <img width="30" src="storage/icon-social-media/icon-github.png" alt="github">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-github.png') }}" alt="github">
                         </a>
                         <a href=""></a>
                         <a href="https://www.linkedin.com/in/victor-fiamoncini-b74b72159/" target="_blank">
-                            <img width="30" src="storage/icon-social-media/icon-linkedin.png" alt="linkedin">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-linkedin.png') }}" alt="linkedin">
                         </a>
                     </p>
                 </div>
             </div>
             <div id='card' class="card text-center border-0 bg-transparent" style="width: 18rem; min-width: 200px;">
                 <div class="mx-auto">
-                    <img id='icon_dev' src="storage/icon-devs/rodrigo-curvello.jpeg" 
-                        class="card-img-top rounded-circle" alt="GabiPeron" style="width: 200px;">
+                    <img id='icon_dev' src="{{ asset('img/icon-devs/rodrigo-curvello.jpeg') }}" 
+                        class="card-img-top rounded-circle" alt="rodrigocurvello" style="width: 200px;">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title text-sucess font-weight-bold">Rodrigo Curvêllo</h5>
                     <h6 class="card-subtitle mb-2 text-primary">PROJECT MANAGER</h6>
                     <p class="card-text font-italic">rodrigo.curvello@ifc.edu.br<br>
                         <a href="https://github.com/rodrigocurvello" target="_blank" style="margin-right: 10px;">
-                            <img width="30" src="storage/icon-social-media/icon-github.png" alt="github">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-github.png') }}" alt="github">
                         </a>
-                        <a href=""></a>
+                        {{-- <a href=""></a> --}}
                         <a href="https://www.linkedin.com/in/rodrigocurvello/" target="_blank">
-                            <img width="30" src="storage/icon-social-media/icon-linkedin.png" alt="linkedin">
+                            <img width="30" src="{{ asset('img/icon-social-media/icon-linkedin.png') }}" alt="linkedin">
                         </a>
                     </p>
                 </div>
