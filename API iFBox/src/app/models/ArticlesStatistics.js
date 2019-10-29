@@ -11,6 +11,8 @@ class ArticleStatistic extends Model {
                 sequelize,
             }
         )
+
+        return this
     }
 }
 

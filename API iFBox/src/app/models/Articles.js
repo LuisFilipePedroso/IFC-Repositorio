@@ -20,6 +20,8 @@ class Articles extends Model {
                 sequelize,
             }
         )
+
+        return this
     }
 }
 

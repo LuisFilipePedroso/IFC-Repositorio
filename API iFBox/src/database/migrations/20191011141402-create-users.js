@@ -7,15 +7,16 @@ module.exports = {
                 primaryKey: true,
                 type: DataTypes.INTEGER,
             },
-            subscription: {
+            registration_id: {
                 allowNull: true,
                 type: DataTypes.STRING,
             },
             username: {
                 allowNull: false,
                 type: DataTypes.STRING,
+                unique: true,
             },
-            password: {
+            password_hash: {
                 allowNull: false,
                 type: DataTypes.STRING,
             },
@@ -43,14 +44,16 @@ module.exports = {
             email: {
                 allowNull: false,
                 type: DataTypes.STRING,
+                unique: true,
             },
             birthday: {
                 allowNull: false,
                 type: DataTypes.DATE,
             },
             aproved: {
-                allowNull: false,
+                allowNull: true,
                 type: DataTypes.BOOLEAN,
+                default: false,
             },
             created_at: {
                 allowNull: false,

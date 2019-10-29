@@ -12,6 +12,8 @@ class Events extends Model {
                 sequelize,
             }
         )
+
+        return this
     }
 }
 

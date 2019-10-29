@@ -1,6 +1,6 @@
-import Sequelize, { Models } from 'sequelize'
+import Sequelize, { Model } from 'sequelize'
 
-class UserStatistics extends Models {
+class UserStatistics extends Model {
     static init(sequelize) {
         super.init(
             {
@@ -10,6 +10,8 @@ class UserStatistics extends Models {
                 sequelize,
             }
         )
+
+        return this
     }
 }
 

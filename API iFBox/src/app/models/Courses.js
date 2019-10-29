@@ -10,6 +10,8 @@ class Courses extends Model {
                 sequelize,
             }
         )
+
+        return this
     }
 }
 

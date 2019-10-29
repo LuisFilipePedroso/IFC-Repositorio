@@ -23,6 +23,7 @@ module.exports = {
     "camelcase": "off",
     "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
     "semi": [0, "never"],
-    "no-console": "off"
+    "no-console": "off",
+    "consistent-return": "off"
   },
 };
