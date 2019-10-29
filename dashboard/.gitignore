@@ -3,3 +3,8 @@ node_modules
 
 # Env
 .env
+
+# Static CSS, JS, etc
+public/static/js/*
+public/static/css/*
+public/static/images/*
