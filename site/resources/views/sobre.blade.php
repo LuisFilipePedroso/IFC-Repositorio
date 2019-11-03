@@ -17,7 +17,8 @@
                 <p>
                     Foi desenvolvido pelos alunos da 6ª fase do do curso de bacharelado em Ciência 
                     da Computação, integrantes da disciplina de Desenvolvimento Web II, juntamente 
-                    com o professor MSc. Rodrigo Curvêllo.
+                    com o professor MSc. Rodrigo Curvêllo e da disciplina de Engenharia de Software 
+                    II com a professora MSc. María Elena Villarreal.
                 </p>
             </div>
         </div>
@@ -198,9 +199,21 @@
                     </p>
                 </div>
             </div>
+            <div class="card text-center border-0 bg-transparent">
+                <div class="mx-auto">
+                    <img src="{{ asset('img/icon-devs/maria-villarreal.jpeg') }}" 
+                        class="card-img-top rounded-circle" alt="maria-villarreal">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-sucess font-weight-bold">Maria Villarreal</h5>
+                    <h6 class="card-subtitle mb-2 text-primary">PROJECT MANAGER</h6>
+                    <p class="card-text font-italic">maria.villarreal@ifc.edu.br<br>
+                        <a href="https://www.linkedin.com/in/maria-elena-villarreal/" target="_blank">
+                            <img src="{{ asset('img/icon-social-media/icon-linkedin.png') }}" alt="linkedin">
+                        </a>
+                    </p>
+                </div>
+            </div>
         </div>
-
-        {{-- https://www.linkedin.com/in/maria-elena-villarreal/ --}}
-
     </div>
 </div>
