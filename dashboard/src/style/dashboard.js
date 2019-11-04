@@ -8,7 +8,10 @@ export const DashboardWrapper = styled.div`
 `
 // ContentWrapper
 export const ContentWrapper = styled.div`
-  position: relative;
-  margin-left: 250px;
-  width: 100%;
+  min-width: 100vw;
+
+  @media screen and (min-width: 768px) {
+    min-width: 0;
+    width: 100%;
+  }
 `
