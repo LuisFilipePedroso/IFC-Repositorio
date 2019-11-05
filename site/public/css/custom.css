@@ -1,25 +1,48 @@
+
+/* Sobre - Início */
 .site #container-sobre-nos {
     margin-top: 80px;
 }
 
-.site #icon_dev {
-    width: 250px;
+.site #container-sobre-nos .mx-auto img {
+    width: 200px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
 
-.site #texto {
+.site #container-sobre-nos #dev-team {
+    width: 100%;
+}
+
+.site #container-sobre-nos #sobre {
     text-align: justify;
 }
 
-@media (orientation: portrait) {
-    #card {
+.site #container-sobre-nos .icon-github {
+    margin-right: 10px;
+}
+
+.site #container-sobre-nos .card-body img {
+    width: 30px;
+}
+
+.site #container-sobre-nos .card {
+    width: 18rem;
+    min-width: 200px;
+}
+
+@media (max-width: 767px) {
+    .site #container-sobre-nos {
+        margin-top: 230px;
+    }
+    .site #container-sobre-nos .card {
         margin: auto;
     }
-    #sobre {
+    .site #container-sobre-nos #sobre {
         margin-top: 10px;
     }
 }
+/* Sobre - Fim */
 
 .site .borda-superior {
     border-top: 2px solid #dbdcde;

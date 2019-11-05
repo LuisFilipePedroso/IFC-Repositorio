@@ -14,3 +14,5 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/sobre', 'SobreController@index')->name('sobre');
+
+Route::get('/trabalho/{id}', 'TrabalhoController@index')->name('trabalho');

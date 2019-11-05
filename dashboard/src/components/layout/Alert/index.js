@@ -1,8 +1,8 @@
-// React & Redux:
+// React & Redux
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-// Alert:
+// Alert
 const Alert = () => {
   // Alert state
   const alerts = useSelector(state => state.alert)
@@ -14,10 +14,7 @@ const Alert = () => {
         className={`alert alert-${alert.type} alert-dismissible fade show`}
         role="alert"
       >
-        <span className="alert-inner--icon">
-          <i className="ni ni-like-2"></i>
-        </span>
-        <span className="alert-inner--text">{alert.msg}</span>
+        <span className="alert-inner--text">{alert.message}</span>
         <button
           type="button"
           class="close"

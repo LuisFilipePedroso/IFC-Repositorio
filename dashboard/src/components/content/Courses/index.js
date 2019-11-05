@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 // Actions
 import { getAllCourses } from '../../../actions/courses'
-import { removeAlert } from '../../../actions/alert'
 
 // Components
 import Spinner from '../../layout/Spinner'
@@ -64,7 +63,6 @@ const Courses = () => {
         }
       ]
     })
-    console.log(graphData);
   }, [courses])
 
   if (loading || alert.length > 0) {
@@ -72,18 +70,12 @@ const Courses = () => {
   } else {
     return (
       <>
-        {/* {courses.map(course => (
-          <div key={course.id}>
-            <h1>{course.name}</h1>
-            <p>{course.id}</p>
-          </div>
-        ))} */}
         <Chart
           options={graphData.options}
           series={graphData.series}
           type="bar"
-          width="100%"
-          height={520}
+          width="80%"
+          height={400}
         />
       </>
     )
