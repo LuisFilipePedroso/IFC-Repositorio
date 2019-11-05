@@ -29,19 +29,47 @@ rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
 
 
+<style>
+    /* Lembrar de adicionar => .site #container-trabalho  */
+    .titulo {
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .texto {
+        text-align: justify;
+    }
+    .conteudo {
+        margin-bottom: 15px;
+    }
+</style>
+
 
 
 
 <div id="container-trabalho" class="container-fluid">
     <div class='container'>
         <br><br>
-        <h2><?= $aTrabalho['title'] ?></h2>
+        <h2>{{$aTrabalho['title']}}</h2>
         <br>
 
         <div class="row">
-            <div class="col-sm-3">.col-sm-4</div>
-            <div class="col-sm-9">.col-sm-4</div>
+            <div class="col-sm-3">
+                <div class="titulo">Autor</div>
+                <div>Mathias Artur Schulz</div>
+            </div>
+            <div class="col-sm-9">
+                <div class="titulo">Resumo</div>
+                <div class='conteudo texto'>{{$aTrabalho['abstract']}}</div>
+                <div class="titulo">Abstract</div>
+                <div class='conteudo texto'>{{$aTrabalho['altabstract']}}</div>
+            </div>
         </div>
+        {{-- <div class="row">
+            <div class="col-sm-3">Mathias Artur Schulz</div>
+            <div class="col-sm-9">.col-sm-4</div>
+        </div> --}}
+        <br>
+        <br><br><br>
 
         <?= $aTrabalho['title'] ?>
 
