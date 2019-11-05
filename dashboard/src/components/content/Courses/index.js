@@ -9,7 +9,6 @@ import { getAllCourses } from '../../../actions/courses'
 import Spinner from '../../layout/Spinner'
 import Chart from 'react-apexcharts'
 
-
 // Courses
 const Courses = () => {
   // Local state

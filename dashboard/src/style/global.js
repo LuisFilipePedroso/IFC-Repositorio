@@ -15,9 +15,34 @@ export default createGlobalStyle`
   body,
   :root {
     height: 100%;
+    width: 100%;
   }
 
   body {
     overflow-x: hidden;
+  }
+
+  .main-content {
+    @media screen and (min-width: 769px) {
+      width: 100%;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    @media screen and (min-width: 769px) {
+      width: 10px;
+    }
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5e72e4;
   }
 `

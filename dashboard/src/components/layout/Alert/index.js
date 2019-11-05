@@ -17,7 +17,7 @@ const Alert = () => {
         <span className="alert-inner--text">{alert.message}</span>
         <button
           type="button"
-          class="close"
+          className="close"
           data-dismiss="alert"
           aria-label="Close"
         >

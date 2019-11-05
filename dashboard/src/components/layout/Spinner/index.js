@@ -10,7 +10,7 @@ const Spinner = ({ loading }) => (
   <BeatLoader
     css={style}
     sizeUnit="px"
-    size={100}
+    size={96}
     color="#5e72e4"
     loading={loading}
   />

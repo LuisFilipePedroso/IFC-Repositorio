@@ -23,14 +23,11 @@ const App = () => (
       <Switch>
         <DashboardWrapper>
           <Sidebar />
-          <ContentWrapper>
+          <div class="main-content">
             <Header />
-            <Container className="container-fluid p-3">
-              <Alert />
-              <Route exact path="/" component={Main} />
-              <Route exact path="/cursos" component={Courses} />
-            </Container>
-          </ContentWrapper>
+            <Route exact path="/" component={Main} />
+            <Route exact path="/cursos" component={Courses} />
+          </div>
         </DashboardWrapper>
       </Switch>
       <GlobalStyle />

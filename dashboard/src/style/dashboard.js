@@ -5,13 +5,8 @@ import styled from 'styled-components'
 export const DashboardWrapper = styled.div`
   display: flex;
   flex-direction: row;
-`
-// ContentWrapper
-export const ContentWrapper = styled.div`
-  min-width: 100vw;
-
-  @media screen and (min-width: 768px) {
-    min-width: 0;
-    width: 100%;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
   }
 `
