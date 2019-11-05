@@ -15,10 +15,10 @@ class Events extends Model {
 
         return this
     }
-}
 
-Events.associate = models => {
-    models.hasMany(models.Article)
+    static associate(models) {
+        this.belongsTo(models.Articles, { foreignKey: 'event_id' })
+    }
 }
 
 export default Events

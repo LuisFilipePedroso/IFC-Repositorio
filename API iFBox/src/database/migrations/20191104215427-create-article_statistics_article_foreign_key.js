@@ -1,10 +1,10 @@
 module.exports = {
     up: (queryInterface, DataTypes) => {
-        return queryInterface.addColumn('articles', 'event_id', {
+        return queryInterface.addColumn('articles_statistics', 'article_id', {
             allowNull: false,
             type: DataTypes.INTEGER,
             references: {
-                model: 'events',
+                model: 'articles',
                 key: 'id',
             },
             onDelete: 'cascade',
@@ -14,8 +14,8 @@ module.exports = {
 
     down: queryInterface => {
         return queryInterface.removeColumn(
-            'articles', // name of the Target model
-            'event_id' // key we want to remove
+            'articles_statistics', // name of the Target model
+            'article_id' // key we want to remove
         )
     },
 }

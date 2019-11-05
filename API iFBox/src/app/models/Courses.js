@@ -13,11 +13,11 @@ class Courses extends Model {
 
         return this
     }
-}
 
-Courses.associate = models => {
-    Courses.belongsToMany(models.articles, { through: 'courses_articles' })
-    Courses.hasMany(models.articles_statistics)
+    static associate(models) {
+        this.belongsToMany(models.Articles, { through: 'courses_articles' })
+        // this.hasMany(models.ArticleStatistic)
+    }
 }
 
 export default Courses

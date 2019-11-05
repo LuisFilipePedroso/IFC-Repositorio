@@ -17,13 +17,13 @@ module.exports = {
                         model: 'articles',
                         key: 'id',
                     },
-                    onDelete: 'cascade',
-                    onUpdate: 'cascade',
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL',
                 })
             })
     },
 
-    down: (queryInterface, DataTypes) => {
+    down: queryInterface => {
         return queryInterface
             .removeColumn('users_articles', 'user_id')
             .then(() => {
