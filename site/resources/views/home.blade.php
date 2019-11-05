@@ -48,19 +48,27 @@
     <div id="app" class="site {{Route::currentRouteName()}}">
         <header>           
             <div id="menu">
+                <div class="container mt-1">
+                    <div class="row">
+                        <div class="col-md-8 mr-3"></div>
+                        <div class="col-md-4">
+                            <a href="#" id="botao-login">Login</a>
+                            <a href="#" id="botao-cadastro">Cadastre-se</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="container">
                     <div class="row">
                         <nav class="navbar navbar-expand-md navbar-light">
                             <input type="hidden" id="app-url" value="{{ url('/') }}"/>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <div class="col-md-3 col-xs-12 col-sm-12" id="container-logo">
+                                <div class="col-md-2 col-xs-12 col-sm-12 mr-4" id="container-logo">
                                     <h1 id="logo">
                                         <a href="{{route('home')}}" title="iFBox">
                                             <img class="img-responsive" alt="menu" src="{{asset('img/iFBox_white.png')}}" />
                                         </a>
                                     </h1>
                                 </div>
-                                <div class="col-md-2"></div>
                                 <div class="col-md-5 col-xs-12 col-sm-12 text-left">
                                     <ul class="navbar-nav" id="container-menu-item">
                                         <li><a href="#" title="Pesquisar" id="">Pesquisar</a></li>
@@ -68,10 +76,17 @@
                                         <li><a href="#" title="A equipe" id="">A equipe</a></li>                                   
                                     </ul>
                                 </div>
-                                <div class="col-md-2 col-xs-12 col-sm-12">                                   
-                                    <a href="#" title="Guarde Seus Trabalhos" id="link-home-upload" class="btn borda hover">
-                                        <i class="fas fa-cloud-upload-alt mr-2"></i>
+                                <div class="col-md-1">
+                                    <a target="_blank" href="//github.com/LuisFilipePedroso/IFC-Repositorio" title="Github"><i class="fab fa-github icone-navbar"></i></a>
+                                </div>
+                                <div class="col-md-4 col-xs-12 col-sm-12">                                   
+                                    <a href="#" title="Guarde Seus Trabalhos" id="link-home-upload" class="btn borda hover mr-3">
+                                        <i class="fas fa-cloud-upload-alt"></i>
                                         UPLOAD
+                                    </a>
+                                    <a href="#" title="Conheça nossa Dashboard" id="link-home-dashboard" class="btn borda hover">
+                                        <i class="fas fa-chart-line mr-2"></i>
+                                        DASHBOARD
                                     </a>
                                 </div>
                             </div>
@@ -79,6 +94,16 @@
                     </div>
                 </div>
             </div>
+            {{-- <div class="container position-relative">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <a href="#" title="Conheça nossa Dashboard" id="link-home-dashboard" class="btn borda hover position-absolute margem-superior-130">
+                            <i class="fas fa-chart-line mr-2 mt-1 float-left"></i>
+                            DASHBOARD
+                        </a>
+                    </div>  
+                </div>
+            </div> --}}
         </header>
         <main id="main-container">
             

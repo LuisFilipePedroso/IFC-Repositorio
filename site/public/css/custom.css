@@ -1,5 +1,7 @@
+.site #container-sobre-nos p {
 
-/* Sobre - Início */
+}
+
 .site #container-sobre-nos {
     margin-top: 80px;
 }
@@ -44,6 +46,31 @@
 }
 /* Sobre - Fim */
 
+.site #botao-login {
+    border-right: 2px solid #ffffff;
+    padding-right: 10px;
+    color: #ffffff;
+}
+
+.site .icone-navbar {
+    font-size: 35px;
+    float: right;
+    color: #ffffff;
+}
+
+.site #botao-login:hover {
+    color: rgba(255,255,255,.65);
+}
+
+.site #botao-cadastro:hover {
+    color: rgba(255,255,255,.65);
+}
+
+.site #botao-cadastro {
+    padding-left: 5px;
+    color: #ffffff;
+}
+
 .site .borda-superior {
     border-top: 2px solid #dbdcde;
     padding-top: 20px;
@@ -61,10 +88,25 @@
     padding: 10px;
 }
 
+.site #link-home-dashboard {
+    color: #fff;
+    border-color: #222;
+    background-color: #222;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+    width: 150px;
+    height: 47px;
+    padding-top: 10px;
+    font-weight: bold !important;
+}
+
 .site #link-home-upload:hover {
     color: #212529!important;
     border-color: #fff;
     background-color: #fff;
+}
+
+.site #link-home-dashboard:hover {
+    color: #212529!important;
 }
 
 .no-padding {
@@ -258,6 +300,10 @@ div.chosen-container a.chosen-single {
 
 .margem-superior-100 {
     margin-top: 100px !important;
+}
+
+.margem-superior-130 {
+    margin-top: 130px !important;
 }
 
 .margem-superior-20 {
