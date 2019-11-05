@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize'
 
-class UserStatistics extends Model {
+class UsersStatistics extends Model {
     static init(sequelize) {
         super.init(
             {
@@ -13,6 +13,10 @@ class UserStatistics extends Model {
 
         return this
     }
+
+    static associate(models) {
+        this.belongsTo(models.Users, { foreignKey: 'user_id' })
+    }
 }
 
-export default UserStatistics
+export default UsersStatistics

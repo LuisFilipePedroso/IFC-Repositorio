@@ -15,16 +15,6 @@ module.exports = {
                 allowNull: false,
                 type: DataTypes.INTEGER,
             },
-            article_id: {
-                allowNull: false,
-                type: DataTypes.INTEGER,
-                references: {
-                    model: 'courses',
-                    field: 'id',
-                },
-                onDelete: 'cascade',
-                onUpdate: 'cascade',
-            },
             created_at: {
                 allowNull: false,
                 type: DataTypes.DATE,

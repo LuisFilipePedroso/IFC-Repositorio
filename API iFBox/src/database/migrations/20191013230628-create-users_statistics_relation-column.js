@@ -11,7 +11,7 @@ module.exports = {
         })
     },
 
-    down: (queryInterface, DataTypes) => {
+    down: queryInterface => {
         return queryInterface.removeColumn(
             'users_statistics', // name of the Target model
             'user_id' // key we want to remove

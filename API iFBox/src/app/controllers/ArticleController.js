@@ -1,9 +1,17 @@
 import Articles from '../models/Articles'
+import ArticlesStatistics from '../models/ArticlesStatistics'
 
 class ArticleController {
     async index(req, res) {
         try {
-            const articles = await Articles.findAll()
+            const articles = await Articles.findAll({
+                attributes: { exclude: ['article_id'] },
+                include: [
+                    {
+                        model: ArticlesStatistics,
+                    },
+                ],
+            })
             return res.json(articles)
         } catch (e) {
             return res

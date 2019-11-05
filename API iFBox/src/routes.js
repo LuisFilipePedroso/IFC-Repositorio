@@ -3,6 +3,7 @@ import UserController from './app/controllers/UserController'
 import ArticleController from './app/controllers/ArticleController'
 import CourseController from './app/controllers/CourseController'
 import EventController from './app/controllers/EventController'
+import UsersArticlesController from './app/controllers/UsersArticlesController'
 
 const router = express.Router()
 
@@ -34,5 +35,7 @@ router.get('/events/:year/years', EventController.findByYear)
 router.post('/events', EventController.store)
 router.put('/events/:id', EventController.update)
 router.delete('/events/:id', EventController.delete)
+
+router.get('/usersarticles', UsersArticlesController.index)
 
 export default router

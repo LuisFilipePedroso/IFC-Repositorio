@@ -2,10 +2,17 @@ import * as Yup from 'yup'
 import { Op } from 'sequelize'
 
 import Users from '../models/Users'
+import UsersStatistics from '../models/UsersStatistics'
 
 class UserController {
     async index(req, res) {
-        const users = await Users.findAll()
+        const users = await Users.findAll({
+            include: [
+                {
+                    model: UsersStatistics,
+                },
+            ],
+        })
         res.json(users)
     }
 

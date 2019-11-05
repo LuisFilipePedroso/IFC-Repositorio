@@ -19,6 +19,11 @@ class UsersArticles extends Model {
 
         return this
     }
+
+    static associate(models) {
+        this.belongsToMany(models.Users, { through: 'users_articles' })
+        this.belongsToMany(models.Articles, { through: 'users_articles' })
+    }
 }
 
 export default UsersArticles

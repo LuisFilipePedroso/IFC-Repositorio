@@ -51,11 +51,11 @@ class Users extends Model {
     comparePassword(password) {
         return bcrypt.compare(password, this.password_hash)
     }
-}
 
-Users.associate = models => {
-    Users.belongsToMany(models.articles, { through: 'users_articles' })
-    Users.belongsTo(models.users_statistics)
+    static associate(models) {
+        this.belongsToMany(models.Articles, { through: 'users_articles' })
+        this.hasOne(models.UsersStatistics, { foreignKey: 'user_id' })
+    }
 }
 
 export default Users
