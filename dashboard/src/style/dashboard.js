@@ -3,15 +3,11 @@ import styled from 'styled-components'
 
 // DashboardWrapper
 export const DashboardWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
-`
-// ContentWrapper
-export const ContentWrapper = styled.div`
-  min-width: 100vw;
-
-  @media screen and (min-width: 768px) {
-    min-width: 0;
-    width: 100%;
+  /* =========== Mobile ============  */
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
   }
 `
