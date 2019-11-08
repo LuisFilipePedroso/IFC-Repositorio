@@ -16,7 +16,6 @@ class Courses extends Model {
 
     static associate(models) {
         this.belongsToMany(models.Articles, { through: 'courses_articles' })
-        // this.hasMany(models.ArticleStatistic)
     }
 }
 

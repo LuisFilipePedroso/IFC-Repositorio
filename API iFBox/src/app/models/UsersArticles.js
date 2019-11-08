@@ -4,6 +4,8 @@ class UsersArticles extends Model {
     static init(sequelize) {
         super.init(
             {
+                user_id: Sequelize.INTEGER,
+                article_id: Sequelize.INTEGER,
                 type: Sequelize.ENUM(
                     'AUTOR',
                     'COAUTOR',
@@ -21,8 +23,14 @@ class UsersArticles extends Model {
     }
 
     static associate(models) {
-        this.belongsToMany(models.Users, { through: 'users_articles' })
-        this.belongsToMany(models.Articles, { through: 'users_articles' })
+        this.belongsToMany(models.Users, {
+            through: 'users_articles',
+            foreignKey: 'user_id',
+        })
+        this.belongsToMany(models.Articles, {
+            through: 'users_articles',
+            foreignKey: 'article_id',
+        })
     }
 }
 

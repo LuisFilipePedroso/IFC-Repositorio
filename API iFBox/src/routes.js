@@ -3,7 +3,9 @@ import UserController from './app/controllers/UserController'
 import ArticleController from './app/controllers/ArticleController'
 import CourseController from './app/controllers/CourseController'
 import EventController from './app/controllers/EventController'
-import UsersArticlesController from './app/controllers/UsersArticlesController'
+import UserArticlesController from './app/controllers/UserArticlesController'
+import UserStatisticsController from './app/controllers/UserStatisticsController'
+import CourseArticlesController  from './app/controllers/CourseArticlesController'
 
 const router = express.Router()
 
@@ -13,6 +15,8 @@ router.get('/users/:id', UserController.show)
 router.post('/users', UserController.store)
 router.put('/users/:id', UserController.update)
 router.delete('/users/:id', UserController.delete)
+// UserStatistics
+router.post('/users/statistics', UserStatisticsController.store)
 
 // Courses
 router.get('/courses', CourseController.index)
@@ -36,6 +40,8 @@ router.post('/events', EventController.store)
 router.put('/events/:id', EventController.update)
 router.delete('/events/:id', EventController.delete)
 
-router.get('/usersarticles', UsersArticlesController.index)
+router.get('/usersarticles', UserArticlesController.index)
+router.get('/coursesarticles', CourseArticlesController.index)
+router.get('/coursesarticles/:id', CourseArticlesController.show)
 
 export default router

@@ -24,7 +24,7 @@ module.exports = {
                 type: DataTypes.STRING,
             },
             tags: {
-                allowNull: false,
+                allowNull: true,
                 type: DataTypes.STRING,
             },
             year: {
