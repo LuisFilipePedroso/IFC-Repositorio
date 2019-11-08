@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 const Sidebar = () => {
   return (
     <nav
-      className="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white"
+      className="navbar navbar-vertical fixed-left navbar-expand-md bg-white"
       id="sidenav-main"
     >
       <div className="container-fluid">
@@ -51,8 +51,8 @@ const Sidebar = () => {
                   aria-expanded="false"
                   aria-label="Toggle sidenav"
                 >
-                  <span></span>
-                  <span></span>
+                  <span className="bg-primary"></span>
+                  <span className="bg-primary"></span>
                 </button>
               </div>
             </div>
@@ -60,17 +60,17 @@ const Sidebar = () => {
           <ul className="navbar-nav">
             <li className="nav-item active">
               <Link className="nav-link active" to="/">
-                <i className="ni ni-tv-2 text-primary"></i> Dashboard
+                <i className="ni ni-app text-primary"></i> Dashboard
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link " to="/cursos">
-                <i className="ni ni-planet text-blue"></i> Cursos
+              <Link className="nav-link" to="/cursos">
+                <i className="ni ni-book-bookmark text-orange"></i> Cursos
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link " to="/artigos">
-                <i className="ni ni-pin-3 text-orange"></i> Artigos
+              <Link className="nav-link" to="/artigos">
+                <i className="ni ni-align-center text-blue"></i> Artigos
               </Link>
             </li>
             <li className="nav-item">
@@ -82,24 +82,24 @@ const Sidebar = () => {
                 aria-expanded="false"
                 aria-controls="tagsSubMenu"
               >
-                <i className="ni ni-single-02 text-yellow"></i> Tags
+                <i className="ni ni-tag text-yellow"></i> Tags
               </a>
             </li>
             <div class="collapse multi-collapse my-0 mx-auto" id="tagsSubMenu">
               <ul className="navbar-nav mf-4">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">
-                    <i className="ni ni-tv-2 text-primary"></i> Web
+                  <Link className="nav-link" to="/tags/web">
+                    <i className="ni ni-html5 text-primary"></i> Web
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link " to="/cursos">
+                  <Link className="nav-link" to="/tags/framework">
                     <i className="ni ni-planet text-primary"></i> Framework
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link " to="/artigos">
-                    <i className="ni ni-pin-3 text-primary"></i> Bigdata
+                  <Link className="nav-link" to="/tags/bigdata">
+                    <i className="ni ni-chart-pie-35 text-primary"></i> Bigdata
                   </Link>
                 </li>
               </ul>
@@ -114,7 +114,7 @@ const Sidebar = () => {
                 href="https://github.com/LuisFilipePedroso/IFC-Repositorio"
                 target="_blank"
               >
-                <i className="ni ni-spaceship"></i> Github
+                <i class="fab fa-github-alt"></i> Github
               </a>
             </li>
             <li className="nav-item">
@@ -123,7 +123,7 @@ const Sidebar = () => {
                 href="#"
                 target="_blank"
               >
-                <i className="ni ni-palette"></i> Site
+                <i class="fas fa-file"></i> Site
               </a>
             </li>
           </ul>

@@ -43,7 +43,7 @@ const Main = () => {
         animationEnabled: true,
         data: [
           {
-            type: "column",
+            type: "bar",
             dataPoints: [
               { label: "Apple",  y: 10 },
               { label: "Orange", y: 15 },
@@ -53,7 +53,21 @@ const Main = () => {
             ]
           }
         ]
-      }
+      },
+      graph02: {
+        theme: "light1",
+        animationEnabled: true,
+        data: [
+          {
+            type: "column",
+            dataPoints: [
+              { label: "Apple",  y: 10 },
+              { label: "Orange", y: 15 },
+              { label: "Banana", y: 25 }
+            ]
+          }
+        ]
+      },
     })
   }, [courses])
 
@@ -72,7 +86,7 @@ const Main = () => {
                 </div>
                 <div className="col-12 m-0 p-0">
                   {loading || alert.length > 0 ? (
-                    <Spinner loading={loading} size={90} />
+                    <Spinner loading={loading} size={92} />
                   ) : (
                     <CanvasJSChart options={graphsData.graph01} />
                   )}
@@ -86,12 +100,16 @@ const Main = () => {
             <div className="card-header bg-transparent">
               <div className="row align-items-center">
                 <div className="col">
-                  <h6 className="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                  <h2 className="mb-0">Total orders</h2>
+                  <h2 className="mb-0">Tags Recentes</h2>
                 </div>
               </div>
             </div>
             <div className="card-body">
+              {loading || alert.length > 0 ? (
+                <Spinner loading={loading} size={92} />
+              ) : (
+                <CanvasJSChart options={graphsData.graph02} />
+              )}
             </div>
           </div>
         </div>

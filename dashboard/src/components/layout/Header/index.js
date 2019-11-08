@@ -2,6 +2,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+// Components
+import Alert from '../Alert'
+
 // Header
 const Header = () => {
   return (
@@ -11,6 +14,7 @@ const Header = () => {
         id="navbar-main"
       >
         <div className="container-fluid">
+
           <Link
             className="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
             to="/"
@@ -20,6 +24,9 @@ const Header = () => {
         </div>
       </nav>
       <div className="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+        <div className="container-fluid">
+          <Alert />
+        </div>
         {/* <div className="container-fluid">
           <div className="header-body"> */}
             {/* <div className="row"> */}

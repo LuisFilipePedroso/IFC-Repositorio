@@ -11,7 +11,6 @@ import { DashboardWrapper } from './style/dashboard'
 // Components
 import Sidebar from './components/layout/Sidebar'
 import Header from './components/layout/Header'
-import Alert from './components/layout/Alert'
 import Main from './components/content/Main'
 import Courses from './components/content/Courses'
 
@@ -24,7 +23,6 @@ const App = () => (
           <Sidebar />
           <div className="main-content">
             <Header />
-            <Alert />
             <Route exact path="/" component={Main} />
             <Route exact path="/cursos" component={Courses} />
           </div>
