@@ -1,9 +1,29 @@
-.site #container-sobre-nos p {
-
+.site #caixa-roxa {
+    margin: 120px auto;
 }
 
-.site #container-sobre-nos {
-    margin-top: 80px;
+.site #busque-na-caixa {
+    margin-top: -90px;
+}
+
+.site #icone-search {
+    position: absolute;
+    top: 4px;
+    right: 30px;
+    font-size: 25px;
+    background: none;
+    border: none;
+}
+
+.site #searchbar {
+    border-radius: 30px!important;
+    border: 2px solid #222222;
+    height: 50px;
+    text-align: center;
+}
+
+.site #searchbar::placeholder {
+    text-align: center;
 }
 
 .site #container-sobre-nos .mx-auto img {

@@ -1,9 +1,11 @@
 <div id="container-sobre-nos" class="container-fluid">
     <div class='container'>
-        <br><br>
-        <h1>Sobre</h1>
-        <br>
-
+        <div class="row mb-5 mt-5">
+            <div class="col-md-4">
+                <h1>Sobre</h1>
+            </div>
+            <div></div>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <img id="dev-team" src="{{ asset('img/icon-devs/devs.png') }}" alt="Dev Team">
