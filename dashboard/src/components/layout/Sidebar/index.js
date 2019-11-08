@@ -74,13 +74,39 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link " to="/tags">
+              <a
+                className="nav-link"
+                data-toggle="collapse"
+                href="#tagsSubMenu"
+                role="button"
+                aria-expanded="false"
+                aria-controls="tagsSubMenu"
+              >
                 <i className="ni ni-single-02 text-yellow"></i> Tags
-              </Link>
+              </a>
             </li>
+            <div class="collapse multi-collapse my-0 mx-auto" id="tagsSubMenu">
+              <ul className="navbar-nav mf-4">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/">
+                    <i className="ni ni-tv-2 text-primary"></i> Web
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link " to="/cursos">
+                    <i className="ni ni-planet text-primary"></i> Framework
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link " to="/artigos">
+                    <i className="ni ni-pin-3 text-primary"></i> Bigdata
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </ul>
           <hr className="my-3" />
-          <h6 className="navbar-heading text-muted">Documentação</h6>
+          <h6 className="navbar-heading text-muted">Links Úteis</h6>
           <ul className="navbar-nav mb-md-3">
             <li className="nav-item">
               <a

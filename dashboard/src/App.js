@@ -24,6 +24,7 @@ const App = () => (
           <Sidebar />
           <div className="main-content">
             <Header />
+            <Alert />
             <Route exact path="/" component={Main} />
             <Route exact path="/cursos" component={Courses} />
           </div>
