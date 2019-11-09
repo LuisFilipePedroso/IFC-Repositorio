@@ -32,7 +32,7 @@ class Articles extends Model {
         this.hasOne(models.ArticlesStatistics, {
             foreignKey: 'article_id',
         })
-        this.hasMany(models.Events, { foreignKey: 'event_id' })
+        this.belongsTo(models.Events, { foreignKey: 'event_id' })
     }
 }
 export default Articles

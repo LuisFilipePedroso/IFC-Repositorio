@@ -15,6 +15,8 @@ class CourseArticlesController {
                     required: true,
                 },
             ],
+            subQuery: false,
+            raw: true,
         })
         return res.json(coursesArticles)
     }
