@@ -1,25 +1,13 @@
-// Imports
 import styled from 'styled-components'
 
-// SibebarWrapper
-export const SibebarWrapper = styled.div`
-  min-height: 100vh;
-  margin-left: -15rem;
-  -webkit-transition: margin .25s ease-out;
-  -moz-transition: margin .25s ease-out;
-  -o-transition: margin .25s ease-out;
-  transition: margin .25s ease-out;
-
-  .sidebar-heading {
-    padding: 0.875rem 1.25rem;
-    font-size: 1.2rem;
+export const BrandImage = styled.img`
+  width: 100%;
+  height: 82px;
+  max-height: unset !important;
+  @media screen and (max-width: 768px) {
+    width: unset;
   }
-
-  .list-group {
-    width: 15rem;
-  }
-
-  @media (min-width: 768px) {
-    margin-left: 0;
+  @media screen and (max-width: 325px) {
+    width: 230px;
   }
 `
