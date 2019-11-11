@@ -16,6 +16,9 @@ class Articles extends Model {
                 aproved: Sequelize.BOOLEAN,
                 url: Sequelize.STRING,
                 event_id: Sequelize.INTEGER,
+                users_id: Sequelize.VIRTUAL,
+                user_article_type: Sequelize.VIRTUAL,
+                courses_id: Sequelize.VIRTUAL,
             },
             {
                 sequelize,
@@ -26,8 +29,6 @@ class Articles extends Model {
     }
 
     static associate(models) {
-        this.belongsToMany(models.Courses, { through: 'courses_articles' })
-        this.belongsToMany(models.Users, { through: 'users_articles' })
         this.hasOne(models.ArticlesStatistics, {
             foreignKey: 'article_id',
         })

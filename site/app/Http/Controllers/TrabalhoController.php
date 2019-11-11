@@ -6,13 +6,6 @@ class TrabalhoController extends Controller
 {
     public function index($id)
     {
-        // Campos:do json
-        // id event_id title abstract altabstract keywords tags year date language type aproved file url
-        // altabstract => resumo em outra lingua
-        // tags => palavras-chaves adicionais
-        // language => Linguagem que foi escrito
-        // type => se é artigo / tcc / etc...
-
         // Realiza um get, buscando o trabalho (article) com o id = $id
         $jsonTrabalho = '
             {
@@ -29,14 +22,22 @@ class TrabalhoController extends Controller
                 "type": "TCC",
                 "aproved": "true",
                 "file": "arquivo",
-                "url": "url"
+                "url": "http://google.com"
             }
         ';
         // Decodifica retornando um array (não um stdClass)
         $aTrabalho = json_decode($jsonTrabalho, true);
 
-        $aUsuario = ['firstname' => 'Jeferson Luiz Rodrigues', 'lastname' => 'SOUZA'];
+        $aUsuario = ['firstname' => 'Mathias Artur', 'lastname' => 'Schulz'];
+
+        $aCurso = ['name' => 'Ciência da Computação'];
+
+        $aEvento = [
+            'name' => '4C - Congresso Catarinense de Ciência da Computação',
+            'year' => 2019,
+            'url' => 'http://google.com'
+        ];
         
-        return view('trabalho', compact('aTrabalho', 'aUsuario'));
+        return view('trabalho', compact('aTrabalho', 'aUsuario', 'aCurso', 'aEvento'));
     }
 }

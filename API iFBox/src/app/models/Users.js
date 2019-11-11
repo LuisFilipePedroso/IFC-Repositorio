@@ -53,7 +53,6 @@ class Users extends Model {
     }
 
     static associate(models) {
-        this.belongsToMany(models.Articles, { through: 'users_articles' })
         this.hasOne(models.UsersStatistics, { foreignKey: 'user_id' })
     }
 }

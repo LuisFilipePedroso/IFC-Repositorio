@@ -1,45 +1,32 @@
 // React & Redux
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+// Components
+import Alert from '../Alert'
 
 // Header
 const Header = () => {
   return (
     <>
-      <nav className="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+      <nav
+        className="navbar navbar-top navbar-expand-md navbar-dark"
+        id="navbar-main"
+      >
         <div className="container-fluid">
-          <a className="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="#">
+
+          <Link
+            className="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
+            to="/"
+          >
             Dashboard
-          </a>
-          <ul className="navbar-nav align-items-center d-none d-md-flex">
-            <li className="nav-item dropdown">
-              <div className="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-                <a href="./examples/profile.html" className="dropdown-item">
-                  <i className="ni ni-single-02"></i>
-                  <span>My profile</span>
-                </a>
-                <a href="./examples/profile.html" className="dropdown-item">
-                  <i className="ni ni-settings-gear-65"></i>
-                  <span>Settings</span>
-                </a>
-                <a href="./examples/profile.html" className="dropdown-item">
-                  <i className="ni ni-calendar-grid-58"></i>
-                  <span>Activity</span>
-                </a>
-                <a href="./examples/profile.html" className="dropdown-item">
-                  <i className="ni ni-support-16"></i>
-                  <span>Support</span>
-                </a>
-                <div className="dropdown-divider"></div>
-                <a href="#!" className="dropdown-item">
-                  <i className="ni ni-user-run"></i>
-                  <span>Logout</span>
-                </a>
-              </div>
-            </li>
-          </ul>
+          </Link>
         </div>
       </nav>
       <div className="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+        <div className="container-fluid">
+          <Alert />
+        </div>
         {/* <div className="container-fluid">
           <div className="header-body"> */}
             {/* <div className="row"> */}

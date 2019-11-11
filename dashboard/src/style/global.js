@@ -1,14 +1,15 @@
 // Imports
 import { createGlobalStyle } from 'styled-components'
 
-// Global style
+/**
+ * Global styles: classes & html resets
+ */
 export default createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    font-size: 1rem;
   }
 
   html,
@@ -40,9 +41,16 @@ export default createGlobalStyle`
 
   ::-webkit-scrollbar-thumb {
     background: #888;
+    &:hover {
+      background: #5e72e4;
+    }
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: #5e72e4;
+  .bg-dark-graph {
+    background: #2a2a2a !important;
+  }
+
+  .bg-light-graph {
+    background: #fff !important;
   }
 `

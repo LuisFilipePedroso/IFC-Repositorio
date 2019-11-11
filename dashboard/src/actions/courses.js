@@ -17,7 +17,7 @@ export const getAllCourses = () => async dispatch => {
       payload: res.data.courses
     })
   } catch (err) {
-    dispatch(setAlert('Um erro inesperado ocorreu', 'danger'))
+    dispatch(setAlert('Um erro inesperado ocorreu - Tente novamente mais tarde', 'danger'))
     dispatch({ type: REMOVE_LOADING })
   }
 }

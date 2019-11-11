@@ -14,7 +14,7 @@ const Alert = () => {
         className={`alert alert-${alert.type} alert-dismissible fade show`}
         role="alert"
       >
-        <span className="alert-inner--text">{alert.message}</span>
+        <h2 className="h2 text-white m-0">{alert.message}</h2>
         <button
           type="button"
           className="close"

@@ -8,10 +8,11 @@ class UsersArticlesController {
             include: [
                 {
                     model: Users,
-                    attributes: { include: ['username'], exclude: ['user_id'] },
+                    required: true,
                 },
                 {
                     model: Articles,
+                    required: true,
                 },
             ],
         })
