@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" id="container-search">
   <div class="container">
     <form action="#" method="GET">
       <div class="row">
@@ -11,8 +11,7 @@
         <div class="form-group col-md-12">
             <input id="searchbar" type="text" autocomplete="off"
             value="{{old('nome')}}" class="form-control borda" name="nome"/>
-            <button type="submit" id="icone-search"><i class="fas fa-search"></i></button>
-            
+            <button type="submit" id="icone-search"><i class="fas fa-search"></i></button>     
         </div>
       </div>
     </form>

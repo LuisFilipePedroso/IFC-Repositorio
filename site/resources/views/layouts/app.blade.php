@@ -71,9 +71,9 @@
                                 </div>
                                 <div class="col-md-5 col-xs-12 col-sm-12 text-left">
                                     <ul class="navbar-nav" id="container-menu-item">
-                                        <li><a href="#" title="Pesquisar" id="">Pesquisar</a></li>
-                                        <li><a href="#" title="Sobre nós" id="">Sobre nós</a></li>
-                                        <li><a href="#" title="A equipe" id="">A equipe</a></li>                                   
+                                        <li><a href="#container-search" title="Pesquisar" id="menu-pesquisar">Pesquisar</a></li>
+                                        <li><a href="#container-sobre-nos" title="Sobre nós" id="menu-sobre-nos">Sobre nós</a></li>
+                                        <li><a href="#container-time" title="A equipe" id="menu-a-equipe">A equipe</a></li>                                   
                                     </ul>
                                 </div>
                                 <div class="col-md-1">
