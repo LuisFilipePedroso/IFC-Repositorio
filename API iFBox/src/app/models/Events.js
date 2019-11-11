@@ -17,7 +17,7 @@ class Events extends Model {
     }
 
     static associate(models) {
-        this.belongsTo(models.Articles, { foreignKey: 'event_id' })
+        this.hasMany(models.Articles, { foreignKey: 'event_id' })
     }
 }
 

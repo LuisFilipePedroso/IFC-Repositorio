@@ -47,10 +47,15 @@ export default createGlobalStyle`
   }
 
   .bg-dark-graph {
-    background: #2a2a2a !important;
+    background: #172b4d !important;
   }
 
   .bg-light-graph {
     background: #fff !important;
+  }
+
+  .navbar-dark .navbar-toggler-icon {
+    background-color: red !important;
+    background: red !important;
   }
 `

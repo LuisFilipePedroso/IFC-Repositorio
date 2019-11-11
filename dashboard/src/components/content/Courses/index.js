@@ -30,28 +30,16 @@ const Courses = () => {
 
   // Courses update
   useEffect(() => {
-    const names = courses.map(course => course.name)
-    const ids = courses.map(course => course.id)
     setGraphData({
 
     })
   }, [courses])
 
-  if (loading || alert.length > 0) {
-    return <Spinner loading={loading} />
-  } else {
     return (
       <>
-        {/* <Chart
-          options={graphData.options}
-          series={graphData.series}
-          type="bar"
-          width="80%"
-          height={400}
-        /> */}
+
       </>
     )
-  }
 }
 
 export default Courses

@@ -4,6 +4,7 @@ import Articles from '../models/Articles'
 import ArticlesStatistics from '../models/ArticlesStatistics'
 import UsersArticles from '../models/UsersArticles'
 import CoursesArticles from '../models/CoursesArticles'
+import Events from '../models/Events'
 
 class ArticleController {
     async index(req, res) {
@@ -13,6 +14,9 @@ class ArticleController {
                 include: [
                     {
                         model: ArticlesStatistics,
+                    },
+                    {
+                        model: Events,
                     },
                 ],
             })

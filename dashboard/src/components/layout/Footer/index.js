@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Footer
-export const Footer = () => (
+const Footer = () => (
   <footer className="footer">
     <div
       className="row align-items-center justify-content-xl-between">
@@ -13,6 +13,7 @@ export const Footer = () => (
             href="http://www.ifc-riodosul.edu.br/site/"
             className="ml-1"
             target="_blank"
+            rel="noopener noreferrer"
           >
             - IFC Rio do Sul
           </a>

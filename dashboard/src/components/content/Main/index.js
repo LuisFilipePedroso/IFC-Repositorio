@@ -9,13 +9,21 @@ import { getAllCourses } from '../../../actions/courses'
 import Footer from '../../layout/Footer'
 import Spinner from '../../layout/Spinner'
 
-// Others
+// Chart configs
 import CanvasJSReact from '../../../assets/js/canvasjs.react'
+CanvasJSReact.CanvasJS.addColorSet('argon-default', [
+  "#5e72e4",
+  "#ffd600",
+  "#11cdef",
+  "#2dce89",
+  "#f5365c",
+  "#fb6340",
+])
 
 // Main
 const Main = () => {
-  // Canvas Charts
-  const CanvasJSChart = CanvasJSReact.CanvasJSChart
+  // Chart component
+  const Chart = CanvasJSReact.CanvasJSChart
 
   // Local state
   const [graphsData, setGraphsData] = useState({})
@@ -31,26 +39,23 @@ const Main = () => {
   // Component mount
   useEffect(() => {
     dispatch(getAllCourses())
-  }, [])
+  }, [dispatch])
 
   // Courses update
   useEffect(() => {
-    const names = courses.map(course => course.name)
-    const ids = courses.map(course => course.id)
     setGraphsData({
       graph01: {
         theme: "dark1",
+        colorSet: "argon-default",
+        backgroundColor: "#172b4d",
         animationEnabled: true,
         data: [
           {
             type: "bar",
-            dataPoints: [
-              { label: "Apple",  y: 10 },
-              { label: "Orange", y: 15 },
-              { label: "Banana", y: 25 },
-              { label: "Mango",  y: 30 },
-              { label: "Grape",  y: 28 }
-            ]
+            dataPoints: courses.map(course => ({
+              label: course.name,
+              y: course.id
+            }))
           }
         ]
       },
@@ -75,7 +80,7 @@ const Main = () => {
     <div className="container-fluid mt--7">
       <div className="row">
         <div className="col-xl-8 mb-5 mb-xl-0">
-          <div className="card bg-dark-graph shadow">
+          <div className="card bg-dark-graph">
             <div className="card-header bg-transparent">
               <div className="row align-items-center">
                 <div className="col mb-3">
@@ -88,7 +93,7 @@ const Main = () => {
                   {loading || alert.length > 0 ? (
                     <Spinner loading={loading} size={92} />
                   ) : (
-                    <CanvasJSChart options={graphsData.graph01} />
+                    <Chart options={graphsData.graph01} />
                   )}
                 </div>
               </div>
@@ -108,7 +113,7 @@ const Main = () => {
               {loading || alert.length > 0 ? (
                 <Spinner loading={loading} size={92} />
               ) : (
-                <CanvasJSChart options={graphsData.graph02} />
+                <Chart options={graphsData.graph02} />
               )}
             </div>
           </div>
