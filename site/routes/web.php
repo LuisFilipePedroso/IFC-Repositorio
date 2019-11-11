@@ -13,6 +13,11 @@
 // Home
 Route::get('/', 'HomeController@index')->name('home');
 
+// Sobre
 Route::get('/sobre', 'SobreController@index')->name('sobre');
 
+// Trabalho
 Route::get('/trabalho/{id}', 'TrabalhoController@index')->name('trabalho');
+
+// Upload
+Route::get('/upload', 'UploadController@index')->name('upload');

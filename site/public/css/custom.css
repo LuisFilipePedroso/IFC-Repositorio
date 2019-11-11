@@ -4,6 +4,12 @@
 
 .site #busque-na-caixa {
     margin-top: -90px;
+}
+
+#menuLateral{    
+    margin-top: 107px;
+    border-right: 2px solid #5e72e4;
+}
 
 /* Trabalho - Fim */
 
@@ -18,6 +24,10 @@
     font-size: 25px;
     background: none;
     border: none;
+    cursor: pointer;
+    z-index: 99;
+}
+
 .site #container-trabalho .titulo {
     font-weight: bold;
     font-size: 15px;
