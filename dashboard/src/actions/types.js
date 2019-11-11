@@ -2,6 +2,7 @@
 export const GET_COURSES = 'GET_COURSES'
 
 // Articles
+export const GET_ARTICLES = 'GET_ARTICLES'
 
 // Tags
 
