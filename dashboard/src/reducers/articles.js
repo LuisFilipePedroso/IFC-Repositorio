@@ -1,9 +1,9 @@
 // Action types
-import { GET_COURSES, SET_LOADING, REMOVE_LOADING } from '../actions/types'
+import { SET_LOADING, REMOVE_LOADING, GET_ARTICLES } from '../actions/types'
 
 // Initial state
 const INITIAL_STATE = {
-  courses: [],
+  articles: [],
   loading: false,
 }
 
@@ -12,10 +12,10 @@ export default (state = INITIAL_STATE, action) => {
   const { type, payload } = action
 
   switch (type) {
-    case GET_COURSES:
+    case GET_ARTICLES:
       return {
         ...state,
-        courses: payload,
+        articles: payload,
         loading: false
       }
 

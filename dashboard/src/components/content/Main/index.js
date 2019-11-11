@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 // Actions
-import { getAllCourses } from '../../../actions/courses'
+import { getArticlesPublishedByYear } from '../../../actions/articles'
 
 // Components
 import Footer from '../../layout/Footer'
@@ -12,11 +12,11 @@ import Spinner from '../../layout/Spinner'
 // Chart configs
 import CanvasJSReact from '../../../assets/js/canvasjs.react'
 CanvasJSReact.CanvasJS.addColorSet('argon-default', [
-  "#5e72e4",
   "#ffd600",
   "#11cdef",
-  "#2dce89",
+  "#5e72e4",
   "#f5365c",
+  "#2dce89",
   "#fb6340",
 ])
 
@@ -29,8 +29,8 @@ const Main = () => {
   const [graphsData, setGraphsData] = useState({})
 
   // Global states
-  const courses = useSelector(state => state.courses.courses)
-  const loading = useSelector(state => state.courses.loading)
+  const articles = useSelector(state => state.articles.articles)
+  const loading = useSelector(state => state.articles.loading)
   const alert = useSelector(state => state.alert)
 
   // Dispatch
@@ -38,7 +38,7 @@ const Main = () => {
 
   // Component mount
   useEffect(() => {
-    dispatch(getAllCourses())
+    dispatch(getArticlesPublishedByYear())
   }, [dispatch])
 
   // Courses update
@@ -51,16 +51,15 @@ const Main = () => {
         animationEnabled: true,
         data: [
           {
-            type: "bar",
-            dataPoints: courses.map(course => ({
-              label: course.name,
-              y: course.id
-            }))
+            type: "spline",
+            dataPoints: articles
           }
         ]
       },
       graph02: {
-        theme: "light1",
+        theme: "dark1",
+        colorSet: "argon-default",
+        backgroundColor: "#172b4d",
         animationEnabled: true,
         data: [
           {
@@ -73,12 +72,49 @@ const Main = () => {
           }
         ]
       },
+      graph03: {
+        theme: "light1",
+        animationEnabled: true,
+        data: [
+          {
+            type: "pie",
+            dataPoints: [
+              { label: "Apple",  y: 10 },
+              { label: "Orange", y: 15 },
+              { label: "Banana", y: 25 }
+            ]
+          }
+        ]
+      },
     })
-  }, [courses])
+  }, [articles])
 
   return (
     <div className="container-fluid mt--7">
       <div className="row">
+        <div className="col-xl-12 mb-5 mb-xl-0">
+          <div className="card bg-dark-graph">
+            <div className="card-header bg-transparent">
+              <div className="row align-items-center">
+                <div className="col mb-3">
+                  <h6 className="text-uppercase text-light ls-1 mb-1">
+                    Visão Geral
+                  </h6>
+                  <h2 className="text-white mb-0">Publicações de Artigos por Ano</h2>
+                </div>
+                <div className="col-12 m-0 p-0">
+                  {loading || alert.length > 0 ? (
+                    <Spinner loading={loading} size={92} />
+                  ) : (
+                    <Chart options={graphsData.graph01} />
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="row mt-3">
         <div className="col-xl-8 mb-5 mb-xl-0">
           <div className="card bg-dark-graph">
             <div className="card-header bg-transparent">
@@ -87,13 +123,13 @@ const Main = () => {
                   <h6 className="text-uppercase text-light ls-1 mb-1">
                     Visão Geral
                   </h6>
-                  <h2 className="text-white mb-0">Cursos Recentes</h2>
+                  <h2 className="text-white mb-0">Publicações de Artigos por Ano</h2>
                 </div>
                 <div className="col-12 m-0 p-0">
                   {loading || alert.length > 0 ? (
                     <Spinner loading={loading} size={92} />
                   ) : (
-                    <Chart options={graphsData.graph01} />
+                    <Chart options={graphsData.graph02} />
                   )}
                 </div>
               </div>
@@ -113,7 +149,7 @@ const Main = () => {
               {loading || alert.length > 0 ? (
                 <Spinner loading={loading} size={92} />
               ) : (
-                <Chart options={graphsData.graph02} />
+                <Chart options={graphsData.graph03} />
               )}
             </div>
           </div>
