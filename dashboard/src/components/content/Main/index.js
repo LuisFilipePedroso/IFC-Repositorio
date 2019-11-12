@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 // Actions
-import { getArticlesPublishedByYear, getArticlesWithMoreDownloads } from '../../../actions/articles'
+import { getArticlesPublishedByYear, getArticlesAndDownloads, getArticlesAndViews } from '../../../actions/articles'
 
 // Components
 import Footer from '../../layout/Footer'
@@ -30,7 +30,8 @@ const Main = () => {
 
   // Global states
   const articlesPublishedByYear = useSelector(state => state.articles.articles.articlesPublishedByYear)
-  const articlesWithMoreDownloads = useSelector(state => state.articles.articles.articlesWithMoreDownloads)
+  const articlesAndDownloads = useSelector(state => state.articles.articles.articlesAndDownloads)
+  const articlesAndViews = useSelector(state => state.articles.articles.articlesAndViews)
   const loading = useSelector(state => state.articles.loading)
   const alert = useSelector(state => state.alert)
 
@@ -40,7 +41,8 @@ const Main = () => {
   // Component mount
   useEffect(() => {
     dispatch(getArticlesPublishedByYear())
-    dispatch(getArticlesWithMoreDownloads())
+    dispatch(getArticlesAndDownloads())
+    dispatch(getArticlesAndViews())
   }, [dispatch])
 
   // Courses update
@@ -59,6 +61,16 @@ const Main = () => {
         ]
       },
       graph02: {
+        theme: "light1",
+        animationEnabled: true,
+        data: [
+          {
+            type: "column",
+            dataPoints: articlesAndViews
+          }
+        ]
+      },
+      graph03: {
         theme: "dark1",
         colorSet: "argon-default",
         backgroundColor: "#172b4d",
@@ -66,26 +78,12 @@ const Main = () => {
         data: [
           {
             type: "column",
-            dataPoints: articlesWithMoreDownloads
+            dataPoints: articlesAndDownloads
           }
         ]
-      },
-      graph03: {
-        theme: "light1",
-        animationEnabled: true,
-        data: [
-          {
-            type: "pie",
-            dataPoints: [
-              { label: "Apple",  y: 10 },
-              { label: "Orange", y: 15 },
-              { label: "Banana", y: 25 }
-            ]
-          }
-        ]
-      },
+      }
     })
-  }, [articlesPublishedByYear, articlesWithMoreDownloads])
+  }, [articlesPublishedByYear, articlesAndDownloads, articlesAndViews])
 
   return (
     <div className="container-fluid mt--7">
@@ -98,7 +96,9 @@ const Main = () => {
                   <h6 className="text-uppercase text-light ls-1 mb-1">
                     Visão Geral
                   </h6>
-                  <h2 className="text-white mb-0">Publicações de Artigos por Ano</h2>
+                  <h2 className="text-white mb-0">
+                    Publicações de Artigos por Ano
+                  </h2>
                 </div>
                 <div className="col-12 m-0 p-0">
                   {loading || alert.length > 0 ? (
@@ -112,43 +112,56 @@ const Main = () => {
           </div>
         </div>
       </div>
-      <div className="row mt-3">
-        <div className="col-xl-8 mb-5 mb-xl-0">
-          <div className="card bg-dark-graph">
+      <div className="row">
+        <div className="col-xl-12 mt-3">
+          <div className="card shadow bg-light-graph">
+            <div className="card-header bg-transparent">
+              <div className="row align-items-center">
+                <div className="col mb-3">
+                  <h6 className="text-uppercase text-dark ls-1 mb-1">
+                    Visão Geral
+                  </h6>
+                  <h2 className="text-dark mb-0">
+                    Número de Visulizações dos Artigos mais Recentes
+                  </h2>
+                </div>
+                <div className="col-12 m-0 p-0">
+                  <div className="card-body">
+                    {loading || alert.length > 0 ? (
+                      <Spinner loading={loading} />
+                    ) : (
+                      <Chart options={graphsData.graph02} />
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-xl-12 mt-3">
+          <div className="card shadow bg-dark-graph">
             <div className="card-header bg-transparent">
               <div className="row align-items-center">
                 <div className="col mb-3">
                   <h6 className="text-uppercase text-light ls-1 mb-1">
                     Visão Geral
                   </h6>
-                  <h2 className="text-white mb-0">Número de Downloads por Artigo</h2>
+                  <h2 className="text-white mb-0">
+                    Número de Downloads dos Artigos mais Recentes
+                  </h2>
                 </div>
                 <div className="col-12 m-0 p-0">
-                  {loading || alert.length > 0 ? (
-                    <Spinner loading={loading} size={92} />
-                  ) : (
-                    <Chart options={graphsData.graph02} />
-                  )}
+                  <div className="card-body">
+                    {loading || alert.length > 0 ? (
+                      <Spinner loading={loading} />
+                    ) : (
+                      <Chart options={graphsData.graph03} />
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-xl-4">
-          <div className="card shadow">
-            <div className="card-header bg-transparent">
-              <div className="row align-items-center">
-                <div className="col">
-                  <h2 className="mb-0">Número de Visualizações por Artigo</h2>
-                </div>
-              </div>
-            </div>
-            <div className="card-body">
-              {loading || alert.length > 0 ? (
-                <Spinner loading={loading} />
-              ) : (
-                <Chart options={graphsData.graph03} />
-              )}
             </div>
           </div>
         </div>

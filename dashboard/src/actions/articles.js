@@ -1,12 +1,11 @@
 // Action types
-import { SET_LOADING, REMOVE_LOADING, GET_ARTICLES_PUBLISHED_BY_YEAR, GET_ARTICLES_WITH_MORE_DOWNLOADS } from './types'
+import { SET_LOADING, REMOVE_LOADING, GET_ARTICLES_PUBLISHED_BY_YEAR, GET_ARTICLES_AND_DOWNLOADS, GET_ARTICLES_AND_VIEWS } from './types'
 
 // Actions
 import { setAlert } from '../actions/alert'
 
 // Others
 import { api } from '../config/api'
-import moment from 'moment'
 import { countBy, forIn, isEmpty } from 'lodash'
 
 // Artigos publicados por ano
@@ -33,17 +32,17 @@ export const getArticlesPublishedByYear = () => async dispatch => {
   }
 }
 
-// Artigos com mais downloads
-export const getArticlesWithMoreDownloads = () => async dispatch => {
+// Artigos por data de publicação e seus downloads
+export const getArticlesAndDownloads = () => async dispatch => {
   dispatch({ type: SET_LOADING })
   try {
     const res = await api.get('/articles')
 
-    let articlesWithMoreDownloads = []
+    let articlesAndDownloads = []
     let count = 0
     forIn(res.data, value => {
       if (!isEmpty(value.ArticlesStatistic)) {
-        articlesWithMoreDownloads = [...articlesWithMoreDownloads, {
+        articlesAndDownloads = [...articlesAndDownloads, {
           label: `${value.title.substr(0, 15)}...`,
           y: value.ArticlesStatistic.downloads
         }]
@@ -55,8 +54,39 @@ export const getArticlesWithMoreDownloads = () => async dispatch => {
     })
 
     dispatch({
-      type: GET_ARTICLES_WITH_MORE_DOWNLOADS,
-      payload: articlesWithMoreDownloads
+      type: GET_ARTICLES_AND_DOWNLOADS,
+      payload: articlesAndDownloads
+    })
+  } catch (err) {
+    dispatch(setAlert('Ops, um erro inesperado ocorreu - Tente novamente mais tarde', 'danger'))
+    dispatch({ type: REMOVE_LOADING })
+  }
+}
+
+// Artigos por data de publicação e suas visualizações
+export const getArticlesAndViews = () => async dispatch => {
+  dispatch({ type: SET_LOADING })
+  try {
+    const res = await api.get('/articles')
+
+    let articlesAndViews = []
+    let count = 0
+    forIn(res.data, value => {
+      if (!isEmpty(value.ArticlesStatistic)) {
+        articlesAndViews = [...articlesAndViews, {
+          label: `${value.title.substr(0, 15)}...`,
+          y: value.ArticlesStatistic.views
+        }]
+        count ++
+        if (count >= 10) {
+          return false
+        }
+      }
+    })
+
+    dispatch({
+      type: GET_ARTICLES_AND_VIEWS,
+      payload: articlesAndViews
     })
   } catch (err) {
     dispatch(setAlert('Ops, um erro inesperado ocorreu - Tente novamente mais tarde', 'danger'))
