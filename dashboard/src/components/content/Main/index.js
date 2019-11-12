@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 // Actions
-import { getArticlesPublishedByYear } from '../../../actions/articles'
+import { getArticlesPublishedByYear, getArticlesWithMoreDownloads } from '../../../actions/articles'
 
 // Components
 import Footer from '../../layout/Footer'
@@ -29,7 +29,8 @@ const Main = () => {
   const [graphsData, setGraphsData] = useState({})
 
   // Global states
-  const articles = useSelector(state => state.articles.articles)
+  const articlesPublishedByYear = useSelector(state => state.articles.articles.articlesPublishedByYear)
+  const articlesWithMoreDownloads = useSelector(state => state.articles.articles.articlesWithMoreDownloads)
   const loading = useSelector(state => state.articles.loading)
   const alert = useSelector(state => state.alert)
 
@@ -39,6 +40,7 @@ const Main = () => {
   // Component mount
   useEffect(() => {
     dispatch(getArticlesPublishedByYear())
+    dispatch(getArticlesWithMoreDownloads())
   }, [dispatch])
 
   // Courses update
@@ -52,7 +54,7 @@ const Main = () => {
         data: [
           {
             type: "spline",
-            dataPoints: articles
+            dataPoints: articlesPublishedByYear
           }
         ]
       },
@@ -64,11 +66,7 @@ const Main = () => {
         data: [
           {
             type: "column",
-            dataPoints: [
-              { label: "Apple",  y: 10 },
-              { label: "Orange", y: 15 },
-              { label: "Banana", y: 25 }
-            ]
+            dataPoints: articlesWithMoreDownloads
           }
         ]
       },
@@ -87,7 +85,7 @@ const Main = () => {
         ]
       },
     })
-  }, [articles])
+  }, [articlesPublishedByYear, articlesWithMoreDownloads])
 
   return (
     <div className="container-fluid mt--7">
@@ -104,7 +102,7 @@ const Main = () => {
                 </div>
                 <div className="col-12 m-0 p-0">
                   {loading || alert.length > 0 ? (
-                    <Spinner loading={loading} size={92} />
+                    <Spinner loading={loading} />
                   ) : (
                     <Chart options={graphsData.graph01} />
                   )}
@@ -123,7 +121,7 @@ const Main = () => {
                   <h6 className="text-uppercase text-light ls-1 mb-1">
                     Visão Geral
                   </h6>
-                  <h2 className="text-white mb-0">Publicações de Artigos por Ano</h2>
+                  <h2 className="text-white mb-0">Número de Downloads por Artigo</h2>
                 </div>
                 <div className="col-12 m-0 p-0">
                   {loading || alert.length > 0 ? (
@@ -141,13 +139,13 @@ const Main = () => {
             <div className="card-header bg-transparent">
               <div className="row align-items-center">
                 <div className="col">
-                  <h2 className="mb-0">Tags Recentes</h2>
+                  <h2 className="mb-0">Número de Visualizações por Artigo</h2>
                 </div>
               </div>
             </div>
             <div className="card-body">
               {loading || alert.length > 0 ? (
-                <Spinner loading={loading} size={92} />
+                <Spinner loading={loading} />
               ) : (
                 <Chart options={graphsData.graph03} />
               )}
