@@ -11,6 +11,7 @@ import { DashboardWrapper } from './style/dashboard'
 // Components
 import Sidebar from './components/layout/Sidebar'
 import Header from './components/layout/Header'
+import NotFound from './components/pages/NotFound'
 import Main from './components/content/Main'
 import Courses from './components/content/Courses'
 
@@ -26,6 +27,8 @@ const App = () => (
             <Route exact path="/" render={() => <Redirect to="/dashboard"/>}/>
             <Route exact path="/dashboard" component={Main} />
             <Route exact path="/cursos" component={Courses} />
+            <Route path="/404" component={NotFound} />
+            <Redirect to="/404"/>
           </div>
         </DashboardWrapper>
       </Switch>
