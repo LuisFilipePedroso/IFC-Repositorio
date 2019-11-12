@@ -1,9 +1,11 @@
 <div id="container-sobre-nos" class="container-fluid">
     <div class='container'>
-        <br><br>
-        <h1>Sobre</h1>
-        <br>
-
+        <div class="row mb-5 mt-5">
+            <div class="col-md-4">
+                <h1>Sobre</h1>
+            </div>
+            <div></div>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <img id="dev-team" src="{{ asset('img/icon-devs/devs.png') }}" alt="Dev Team">
@@ -23,7 +25,7 @@
             </div>
         </div>
 
-        <br><h2>Dev Team</h2><br>
+        <br><h2 id="container-time">Dev Team</h2><br>
         <div class="card-deck">
             <div class="card text-center border-0 bg-transparent">
                 <div class="mx-auto">

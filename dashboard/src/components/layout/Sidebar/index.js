@@ -2,8 +2,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// Styles
+import { BrandImage } from './style'
+
 // Others
-// import boxLogo from '../../../assets/img/brand/box.png'
+import ifcLogo from '../../../assets/img/ifc-riodosul-logo.png'
+import boxLogo from '../../../assets/img/box.png'
 
 // Sidebar
 const Sidebar = () => {
@@ -17,27 +21,32 @@ const Sidebar = () => {
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
-          data-target="#sidenav-collapse-main"
+          data-target="#mobile-menu"
           aria-controls="sidenav-main"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <a className="navbar-brand pt-0" href="#">
-          <img
-            src="#"
-            alt="IF Box"
+        <a
+          className="navbar-brand pt-0"
+          href="http://www.ifc-riodosul.edu.br/site/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <BrandImage
+            src={ifcLogo}
+            alt="IFC - Rio do Sul"
           />
         </a>
-        <div className="collapse navbar-collapse" id="sidenav-collapse-main">
+        <div className="collapse navbar-collapse" id="mobile-menu">
           <div className="navbar-collapse-header d-md-none">
             <div className="row">
               <div className="col-6 collapse-brand">
                 <a href="#">
                   <img
-                    src="#"
-                    alt="Logo IFBox "
+                    src={boxLogo}
+                    alt="Logo IFBox"
                   />
                 </a>
               </div>
@@ -70,7 +79,7 @@ const Sidebar = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/artigos">
-                <i className="ni ni-align-center text-blue"></i> Artigos
+                <i className="ni ni-align-center text-info"></i> Artigos
               </Link>
             </li>
             <li className="nav-item">
@@ -85,7 +94,7 @@ const Sidebar = () => {
                 <i className="ni ni-tag text-yellow"></i> Tags
               </a>
             </li>
-            <div class="collapse multi-collapse my-0 mx-auto" id="tagsSubMenu">
+            <div className="collapse multi-collapse my-0 mx-auto" id="tagsSubMenu">
               <ul className="navbar-nav mf-4">
                 <li className="nav-item">
                   <Link className="nav-link" to="/tags/web">
@@ -113,8 +122,9 @@ const Sidebar = () => {
                 className="nav-link"
                 href="https://github.com/LuisFilipePedroso/IFC-Repositorio"
                 target="_blank"
+                rel="noopener noreferrer"
               >
-                <i class="fab fa-github-alt"></i> Github
+                <i className="fab fa-github-alt"></i> Github
               </a>
             </li>
             <li className="nav-item">
@@ -122,8 +132,9 @@ const Sidebar = () => {
                 className="nav-link"
                 href="#"
                 target="_blank"
+                rel="noopener noreferrer"
               >
-                <i class="fas fa-file"></i> Site
+                <i className="fas fa-file"></i> Site
               </a>
             </li>
           </ul>

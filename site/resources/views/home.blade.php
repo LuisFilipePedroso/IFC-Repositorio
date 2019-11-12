@@ -2,6 +2,8 @@
 
 @section('content')
 
+@component('search')@endcomponent
+
 @component('sobre')@endcomponent
 
 @endsection

@@ -1,9 +1,35 @@
+.site #caixa-roxa {
+    margin: 120px auto;
+}
 
+.site #busque-na-caixa {
+    margin-top: -90px;
+}
+
+#menuLateral{    
+    margin-top: 107px;
+    border-right: 2px solid #5e72e4;
+}
+
+.site #container-search {
+    margin-top: 135px;
+}
 
 /* Trabalho - Fim */
 
 .site #container-trabalho {
     margin-top: 100px;
+}
+
+.site #icone-search {
+    position: absolute;
+    top: 4px;
+    right: 30px;
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 99;
 }
 
 .site #container-trabalho .titulo {
@@ -40,7 +66,18 @@
 /* Sobre - Início */
 
 .site #container-sobre-nos {
-    margin-top: 80px;
+    margin-top: 100px;
+}
+
+.site #searchbar {
+    border-radius: 30px!important;
+    border: 2px solid #222222;
+    height: 50px;
+    text-align: center;
+}
+
+.site #searchbar::placeholder {
+    text-align: center;
 }
 
 .site #container-sobre-nos .mx-auto img {
