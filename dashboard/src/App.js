@@ -1,6 +1,6 @@
 // React & Redux
 import React from 'react'
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+import { Redirect, Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 
@@ -23,7 +23,8 @@ const App = () => (
           <Sidebar />
           <div className="main-content">
             <Header />
-            <Route exact path="/" component={Main} />
+            <Route exact path="/" render={() => <Redirect to="/dashboard"/>}/>
+            <Route exact path="/dashboard" component={Main} />
             <Route exact path="/cursos" component={Courses} />
           </div>
         </DashboardWrapper>

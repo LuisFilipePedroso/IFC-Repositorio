@@ -22,11 +22,11 @@ CanvasJSReact.CanvasJS.addColorSet('argon-default', [
 
 // Main
 const Main = () => {
-  // Chart component
+  // CanvasJS component
   const Chart = CanvasJSReact.CanvasJSChart
 
   // Local state
-  const [graphsData, setGraphsData] = useState({})
+  const [chartsData, setChartsData] = useState({})
 
   // Global states
   const articlesPublishedByYear = useSelector(state => state.articles.articles.articlesPublishedByYear)
@@ -47,40 +47,34 @@ const Main = () => {
 
   // Courses update
   useEffect(() => {
-    setGraphsData({
-      graph01: {
+    setChartsData({
+      chart01: {
         theme: "dark1",
         colorSet: "argon-default",
         backgroundColor: "#172b4d",
         animationEnabled: true,
-        data: [
-          {
-            type: "spline",
-            dataPoints: articlesPublishedByYear
-          }
-        ]
+        data: [{
+          type: "spline",
+          dataPoints: articlesPublishedByYear
+        }]
       },
-      graph02: {
+      chart02: {
         theme: "light1",
         animationEnabled: true,
-        data: [
-          {
-            type: "column",
-            dataPoints: articlesAndViews
-          }
-        ]
+        data: [{
+          type: "column",
+          dataPoints: articlesAndViews
+        }]
       },
-      graph03: {
+      chart03: {
         theme: "dark1",
         colorSet: "argon-default",
         backgroundColor: "#172b4d",
         animationEnabled: true,
-        data: [
-          {
-            type: "column",
-            dataPoints: articlesAndDownloads
-          }
-        ]
+        data: [{
+          type: "column",
+          dataPoints: articlesAndDownloads
+        }]
       }
     })
   }, [articlesPublishedByYear, articlesAndDownloads, articlesAndViews])
@@ -104,7 +98,7 @@ const Main = () => {
                   {loading || alert.length > 0 ? (
                     <Spinner loading={loading} />
                   ) : (
-                    <Chart options={graphsData.graph01} />
+                    <Chart options={chartsData.chart01} />
                   )}
                 </div>
               </div>
@@ -130,7 +124,7 @@ const Main = () => {
                     {loading || alert.length > 0 ? (
                       <Spinner loading={loading} />
                     ) : (
-                      <Chart options={graphsData.graph02} />
+                      <Chart options={chartsData.chart02} />
                     )}
                   </div>
                 </div>
@@ -157,7 +151,7 @@ const Main = () => {
                     {loading || alert.length > 0 ? (
                       <Spinner loading={loading} />
                     ) : (
-                      <Chart options={graphsData.graph03} />
+                      <Chart options={chartsData.chart03} />
                     )}
                   </div>
                 </div>
