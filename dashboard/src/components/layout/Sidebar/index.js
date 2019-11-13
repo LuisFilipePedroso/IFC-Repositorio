@@ -27,17 +27,9 @@ const Sidebar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <a
-          className="navbar-brand pt-0"
-          href="http://www.ifc-riodosul.edu.br/site/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <BrandImage
-            src={boxLogo}
-            alt="IFC - Rio do Sul"
-          />
-        </a>
+        <Link className="navbar-brand pt-0" to="/dashboard">
+          <BrandImage src={boxLogo} alt="IFC - Rio do Sul" />
+        </Link>
         <div className="collapse navbar-collapse" id="mobile-menu">
           <div className="navbar-collapse-header d-md-none">
             <div className="row">

@@ -1,5 +1,5 @@
 // React & Redux
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 // Components
@@ -16,12 +16,8 @@ const Header = () => {
   // Local state
   const [searchContent, setSearchContent] = useState('')
 
-  // Form handles
+  // Input handle
   const handleInputChange = event => setSearchContent(event.target.value)
-
-  const handleFormSubmit = event => {
-    event.preventDefault()
-  }
 
   return (
     <>
@@ -36,27 +32,31 @@ const Header = () => {
           >
             Dashboard
           </Link>
-          <SearchForm
-            className="navbar-search navbar-search-dark form-inline d-none d-md-flex ml-lg-auto"
-            action={`/dashboard/busca${history.location.pathname}?search=${searchContent}`}
-            onSubmit={event => handleFormSubmit(event)}
-          >
-            <div className="form-group mb-0">
-              <div className="input-group input-group-alternative">
-                <div className="input-group-prepend">
-                  <span className="input-group-text">
-                    <i className="fas fa-search"></i>
-                  </span>
+          {!history.location.pathname.includes('/busca') ? (
+            <SearchForm
+              className="navbar-search navbar-search-dark form-inline d-none d-md-flex ml-lg-auto"
+              action={`/dashboard/busca${history.location.pathname}/${searchContent}`}
+              method="GET"
+            >
+              <div className="form-group mb-0">
+                <div className="input-group input-group-alternative">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">
+                      <i className="fas fa-search"></i>
+                    </span>
+                  </div>
+                  <input
+                    className="form-control"
+                    placeholder="Busca"
+                    type="text"
+                    onChange={event => handleInputChange(event)}
+                  />
                 </div>
-                <input
-                  className="form-control"
-                  placeholder="Busca"
-                  type="text"
-                  onChange={event => handleInputChange(event)}
-                />
               </div>
-            </div>
-          </SearchForm>
+            </SearchForm>
+          ) : (
+            <></>
+          )}
         </div>
       </nav>
       <div className="header bg-gradient-primary pb-8 pt-5 pt-md-8">

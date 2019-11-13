@@ -14,6 +14,7 @@ import Header from './components/layout/Header'
 import NotFound from './components/pages/NotFound'
 import Main from './components/content/Main'
 import Courses from './components/content/Courses'
+import Search from './components/content/Search'
 
 // App
 const App = () => (
@@ -27,6 +28,7 @@ const App = () => (
             <Route exact path="/" render={() => <Redirect to="/dashboard" />}/>
             <Route exact path="/dashboard" component={Main} />
             <Route exact path="/cursos" component={Courses} />
+            <Route exact path={`/dashboard/busca/:page/:search`} component={Search} />
             <Route path="" component={NotFound} />
           </Switch>
         </div>
