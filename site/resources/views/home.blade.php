@@ -6,4 +6,6 @@
 
 @component('sobre')@endcomponent
 
+@component('team')@endcomponent
+
 @endsection
