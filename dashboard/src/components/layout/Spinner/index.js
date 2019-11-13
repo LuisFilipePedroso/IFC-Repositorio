@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { BeatLoader } from 'react-spinners'
 
 // Spinner
-const Spinner = ({ loading, size }) => (
+const Spinner = ({ loading, size = 92 }) => (
   <BeatLoader
     css={style}
     sizeUnit="px"
@@ -26,7 +26,7 @@ const style = {
 // Props
 Spinner.propTypes = {
   loading: PropTypes.bool.isRequired,
-  size: PropTypes.number.isRequired
+  size: PropTypes.number,
 }
 
 export default Spinner

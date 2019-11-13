@@ -1,6 +1,6 @@
 // React & Redux
 import React from 'react'
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+import { Redirect, Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 
@@ -11,6 +11,7 @@ import { DashboardWrapper } from './style/dashboard'
 // Components
 import Sidebar from './components/layout/Sidebar'
 import Header from './components/layout/Header'
+import NotFound from './components/pages/NotFound'
 import Main from './components/content/Main'
 import Courses from './components/content/Courses'
 
@@ -18,16 +19,18 @@ import Courses from './components/content/Courses'
 const App = () => (
   <Provider store={store}>
     <Router>
-      <Switch>
-        <DashboardWrapper>
-          <Sidebar />
-          <div className="main-content">
-            <Header />
-            <Route exact path="/" component={Main} />
+      <DashboardWrapper>
+        <Sidebar />
+        <div className="main-content">
+          <Header />
+          <Switch>
+            <Route exact path="/" render={() => <Redirect to="/dashboard" />}/>
+            <Route exact path="/dashboard" component={Main} />
             <Route exact path="/cursos" component={Courses} />
-          </div>
-        </DashboardWrapper>
-      </Switch>
+            <Route path="" component={NotFound} />
+          </Switch>
+        </div>
+      </DashboardWrapper>
       <GlobalStyle />
     </Router>
   </Provider>

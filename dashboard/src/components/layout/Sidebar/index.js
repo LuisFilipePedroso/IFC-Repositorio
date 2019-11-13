@@ -1,13 +1,12 @@
 // React & Redux
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 // Styles
 import { BrandImage } from './style'
 
 // Others
-import ifcLogo from '../../../assets/img/ifc-riodosul-logo.png'
-import boxLogo from '../../../assets/img/box.png'
+import boxLogo from '../../../assets/img/iFBox_purple.png'
 
 // Sidebar
 const Sidebar = () => {
@@ -35,7 +34,7 @@ const Sidebar = () => {
           rel="noopener noreferrer"
         >
           <BrandImage
-            src={ifcLogo}
+            src={boxLogo}
             alt="IFC - Rio do Sul"
           />
         </a>
@@ -43,12 +42,12 @@ const Sidebar = () => {
           <div className="navbar-collapse-header d-md-none">
             <div className="row">
               <div className="col-6 collapse-brand">
-                <a href="#">
+                <Link to="/dashboard">
                   <img
                     src={boxLogo}
                     alt="Logo IFBox"
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-6 collapse-close">
                 <button
@@ -67,20 +66,41 @@ const Sidebar = () => {
             </div>
           </div>
           <ul className="navbar-nav">
-            <li className="nav-item active">
-              <Link className="nav-link active" to="/">
+            <li className="nav-item">
+              <NavLink
+                activeClassName="active"
+                className="nav-link"
+                to="/dashboard"
+              >
                 <i className="ni ni-app text-primary"></i> Dashboard
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/cursos">
+              <NavLink
+                activeClassName="active"
+                className="nav-link"
+                to="/cursos"
+              >
                 <i className="ni ni-book-bookmark text-orange"></i> Cursos
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/artigos">
+              <NavLink
+                activeClassName="active"
+                className="nav-link"
+                to="/artigos"
+              >
                 <i className="ni ni-align-center text-info"></i> Artigos
-              </Link>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                activeClassName="active"
+                className="nav-link"
+                to="/usuarios"
+              >
+                <i className="ni ni-single-02 text-success"></i> Usuários
+              </NavLink>
             </li>
             <li className="nav-item">
               <a
@@ -97,19 +117,31 @@ const Sidebar = () => {
             <div className="collapse multi-collapse my-0 mx-auto" id="tagsSubMenu">
               <ul className="navbar-nav mf-4">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/tags/web">
+                  <NavLink
+                    activeClassName="active"
+                    className="nav-link"
+                    to="/tags/web"
+                  >
                     <i className="ni ni-html5 text-primary"></i> Web
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/tags/framework">
+                  <NavLink
+                    activeClassName="active"
+                    className="nav-link"
+                    to="/tags/framework"
+                  >
                     <i className="ni ni-planet text-primary"></i> Framework
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/tags/bigdata">
+                  <NavLink
+                    activeClassName="active"
+                    className="nav-link"
+                    to="/tags/bigdata"
+                  >
                     <i className="ni ni-chart-pie-35 text-primary"></i> Bigdata
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>

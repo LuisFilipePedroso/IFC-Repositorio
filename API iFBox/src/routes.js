@@ -5,7 +5,10 @@ import CourseController from './app/controllers/CourseController'
 import EventController from './app/controllers/EventController'
 import UserArticlesController from './app/controllers/UserArticlesController'
 import UserStatisticsController from './app/controllers/UserStatisticsController'
-import CourseArticlesController  from './app/controllers/CourseArticlesController'
+import CourseArticlesController from './app/controllers/CourseArticlesController'
+import ArticleChartViewsController from './app/controllers/ArticleChartViewsController'
+import ArticleStatisticsController from './app/controllers/ArticleStatisticsController'
+import ArticleByYearController from './app/controllers/ArticleByYearController'
 
 const router = express.Router()
 
@@ -31,6 +34,12 @@ router.get('/articles/:id', ArticleController.show)
 router.post('/articles', ArticleController.store)
 router.put('/articles/:id', ArticleController.update)
 router.delete('/articles/:id', ArticleController.delete)
+
+router.post('/articles/statistics', ArticleStatisticsController.store)
+
+//Charts
+router.get('/charts/articles', ArticleChartViewsController.index)
+router.get('/charts/articles/years', ArticleByYearController.index)
 
 // Events
 router.get('/events', EventController.index)
