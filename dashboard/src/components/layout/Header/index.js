@@ -1,12 +1,28 @@
 // React & Redux
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
 // Components
 import Alert from '../Alert'
 
+// Styles
+import { SearchForm } from './style'
+
 // Header
 const Header = () => {
+  // History
+  const history = useHistory()
+
+  // Local state
+  const [searchContent, setSearchContent] = useState('')
+
+  // Form handles
+  const handleInputChange = event => setSearchContent(event.target.value)
+
+  const handleFormSubmit = event => {
+    event.preventDefault()
+  }
+
   return (
     <>
       <nav
@@ -14,13 +30,33 @@ const Header = () => {
         id="navbar-main"
       >
         <div className="container-fluid">
-
           <Link
             className="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
             to="/"
           >
             Dashboard
           </Link>
+          <SearchForm
+            className="navbar-search navbar-search-dark form-inline d-none d-md-flex ml-lg-auto"
+            action={`/dashboard/busca${history.location.pathname}?search=${searchContent}`}
+            onSubmit={event => handleFormSubmit(event)}
+          >
+            <div className="form-group mb-0">
+              <div className="input-group input-group-alternative">
+                <div className="input-group-prepend">
+                  <span className="input-group-text">
+                    <i className="fas fa-search"></i>
+                  </span>
+                </div>
+                <input
+                  className="form-control"
+                  placeholder="Busca"
+                  type="text"
+                  onChange={event => handleInputChange(event)}
+                />
+              </div>
+            </div>
+          </SearchForm>
         </div>
       </nav>
       <div className="header bg-gradient-primary pb-8 pt-5 pt-md-8">

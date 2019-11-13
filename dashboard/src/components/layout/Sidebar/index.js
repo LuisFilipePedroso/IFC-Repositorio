@@ -1,13 +1,12 @@
 // React & Redux
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 // Styles
 import { BrandImage } from './style'
 
 // Others
-import ifcLogo from '../../../assets/img/ifc-riodosul-logo.png'
-import boxLogo from '../../../assets/img/box.png'
+import boxLogo from '../../../assets/img/iFBox_purple.png'
 
 // Sidebar
 const Sidebar = () => {
@@ -35,7 +34,7 @@ const Sidebar = () => {
           rel="noopener noreferrer"
         >
           <BrandImage
-            src={ifcLogo}
+            src={boxLogo}
             alt="IFC - Rio do Sul"
           />
         </a>
@@ -43,12 +42,12 @@ const Sidebar = () => {
           <div className="navbar-collapse-header d-md-none">
             <div className="row">
               <div className="col-6 collapse-brand">
-                <a href="#">
+                <Link to="/dashboard">
                   <img
                     src={boxLogo}
                     alt="Logo IFBox"
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-6 collapse-close">
                 <button

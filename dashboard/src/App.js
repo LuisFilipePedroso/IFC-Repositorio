@@ -19,19 +19,18 @@ import Courses from './components/content/Courses'
 const App = () => (
   <Provider store={store}>
     <Router>
-      <Switch>
-        <DashboardWrapper>
-          <Sidebar />
-          <div className="main-content">
-            <Header />
-            <Route exact path="/" render={() => <Redirect to="/dashboard"/>}/>
+      <DashboardWrapper>
+        <Sidebar />
+        <div className="main-content">
+          <Header />
+          <Switch>
+            <Route exact path="/" render={() => <Redirect to="/dashboard" />}/>
             <Route exact path="/dashboard" component={Main} />
             <Route exact path="/cursos" component={Courses} />
-            <Route path="/404" component={NotFound} />
-            <Redirect to="/404"/>
-          </div>
-        </DashboardWrapper>
-      </Switch>
+            <Route path="" component={NotFound} />
+          </Switch>
+        </div>
+      </DashboardWrapper>
       <GlobalStyle />
     </Router>
   </Provider>

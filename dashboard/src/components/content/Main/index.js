@@ -80,10 +80,10 @@ const Main = () => {
   }, [articlesPublishedByYear, articlesAndDownloads, articlesAndViews])
 
   return (
-    <div className="container-fluid mt--7">
+    <div className="container-fluid mt--8">
       <div className="row">
         <div className="col-xl-12 mb-5 mb-xl-0">
-          <div className="card bg-dark-graph">
+          <div className="card shadow bg-dark-graph">
             <div className="card-header bg-transparent">
               <div className="row align-items-center">
                 <div className="col mb-3">
