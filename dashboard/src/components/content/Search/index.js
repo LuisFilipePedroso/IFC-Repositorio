@@ -3,6 +3,12 @@ import React, { useEffect, useState } from 'react'
 import { Redirect, useRouteMatch } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
+// Actions
+import { getArticlesSearch, getUsersSearch, getCoursesSearch } from '../../../actions/search'
+
+// Components
+import NotFound from '../../pages/NotFound'
+
 // Chart configs
 import CanvasJSReact from '../../../assets/js/canvasjs.react'
 CanvasJSReact.CanvasJS.addColorSet('argon-default', [
@@ -19,37 +25,47 @@ const Search = () => {
   // Dispatch
   const dispatch = useDispatch()
 
-  // History
+  // Match
   const match = useRouteMatch()
 
   // Local state
   const [chartData, setChartData] = useState({})
 
+  // Search global state
+  const results = useSelector(state => state.search.result)
+
   // Component mount
   useEffect(() => {
-    console.log(match.params.search);
-    console.log(match.params.page);
     switch (match.params.page) {
       case 'dashboard':
-        break;
+        break
 
       case 'cursos':
-        break;
+        dispatch(getCoursesSearch(match.params.search))
+        break
 
       case 'artigos':
-        break;
+        break
 
       case 'usuarios':
-        break;
+        break
 
       default:
         return <Redirect to="" />
     }
-  }, [])
+  }, [dispatch])
 
   return (
     <div>
-      busca
+      {results.length > 0 ? (
+        <>
+          Conteúdo da busca: {match.params.search}<br />
+          Tema da busca {match.params.page}<br />
+          Resultado da busca: {results}
+        </>
+      ) : (
+        <NotFound />
+      )}
     </div>
   )
 }

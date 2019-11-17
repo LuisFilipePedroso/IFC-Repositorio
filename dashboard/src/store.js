@@ -7,9 +7,10 @@ import thunk from 'redux-thunk'
 import courses from './reducers/courses'
 import alert from './reducers/alert'
 import articles from './reducers/articles'
+import search from './reducers/search'
 
 // State
-const initialState = {}
+const INITIAL_STATE = {}
 
 // Middlewares
 const middlewares = [thunk]
@@ -20,8 +21,9 @@ const store = createStore(
     courses,
     alert,
     articles,
+    search,
 	}),
-	initialState,
+	INITIAL_STATE,
 	composeWithDevTools(applyMiddleware(...middlewares))
 )
 

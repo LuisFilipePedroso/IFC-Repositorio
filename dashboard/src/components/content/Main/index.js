@@ -43,9 +43,11 @@ const Main = () => {
     dispatch(getArticlesPublishedByYear())
     dispatch(getArticlesAndDownloads())
     dispatch(getArticlesAndViews())
+    console.log(articlesPublishedByYear);
+
   }, [dispatch])
 
-  // Courses update
+  // Articles update
   useEffect(() => {
     setChartsData({
       chart01: {
