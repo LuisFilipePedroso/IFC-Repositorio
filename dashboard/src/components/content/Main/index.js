@@ -43,8 +43,6 @@ const Main = () => {
     dispatch(getArticlesPublishedByYear())
     dispatch(getArticlesAndDownloads())
     dispatch(getArticlesAndViews())
-    console.log(articlesPublishedByYear);
-
   }, [dispatch])
 
   // Articles update

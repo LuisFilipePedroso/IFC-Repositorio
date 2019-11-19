@@ -5,7 +5,7 @@ import { SET_LOADING, REMOVE_LOADING, GET_ARTICLES_PUBLISHED_BY_YEAR, GET_ARTICL
 import { setAlert } from '../actions/alert'
 
 // Others
-import { api } from '../config/api'
+import api from '../services/api'
 import { countBy, forIn, isEmpty } from 'lodash'
 
 // Artigos publicados por ano
