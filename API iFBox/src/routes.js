@@ -6,9 +6,13 @@ import EventController from './app/controllers/EventController'
 import UserArticlesController from './app/controllers/UserArticlesController'
 import UserStatisticsController from './app/controllers/UserStatisticsController'
 import CourseArticlesController from './app/controllers/CourseArticlesController'
-import ArticleChartViewsController from './app/controllers/ArticleChartViewsController'
+import ArticlesWithMoreViewsController from './app/controllers/ArticlesWithMoreViewsController'
 import ArticleStatisticsController from './app/controllers/ArticleStatisticsController'
 import ArticleByYearController from './app/controllers/ArticleByYearController'
+import CoursesMoreVisualizedController from './app/controllers/CoursesMoreVisualizedController'
+import ArticlesWithMoreDownloadsController from './app/controllers/ArticlesWithMoreDownloadsController'
+import CoursesPublishedByYearController from './app/controllers/CoursesPublishedByYearController'
+import UsersWithMorePublishedController from './app/controllers/UsersWithMorePublishedController'
 
 const router = express.Router()
 
@@ -37,9 +41,19 @@ router.delete('/articles/:id', ArticleController.delete)
 
 router.post('/articles/statistics', ArticleStatisticsController.store)
 
-//Charts
-router.get('/charts/articles', ArticleChartViewsController.index)
+// Charts
+router.get('/charts/articles', ArticlesWithMoreViewsController.index)
 router.get('/charts/articles/years', ArticleByYearController.index)
+router.get(
+    '/charts/courses/morevisualized',
+    CoursesMoreVisualizedController.index
+)
+router.get('/charts/courses/years', CoursesPublishedByYearController.index)
+router.get(
+    '/charts/articles/downloads',
+    ArticlesWithMoreDownloadsController.index
+)
+router.get('/charts/users', UsersWithMorePublishedController.index)
 
 // Events
 router.get('/events', EventController.index)

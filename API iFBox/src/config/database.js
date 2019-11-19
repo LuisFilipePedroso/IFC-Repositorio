@@ -1,6 +1,6 @@
 module.exports = {
     username: 'postgres',
-    password: 'root',
+    password: 'elefante',
     database: 'ifbox',
     host: 'localhost',
     dialect: 'postgres',
