@@ -9,8 +9,16 @@ export const GET_ARTICLES_AND_VIEWS = 'GET_ARTICLES_AND_VIEWS'
 
 // Tags
 
+// Usuários
+
+// Search
+export const GET_ARTICLES_SEARCH = 'GET_ARTICLES_SEARCH'
+export const GET_COURSES_SEARCH = 'GET_COURSES_SEARCH'
+export const GET_USERS_SEARCH = 'GET_USERS_SEARCH'
+
 // UI
 export const SET_LOADING = 'SET_LOADING'
 export const REMOVE_LOADING = 'REMOVE_LOADING'
 export const SET_ALERT = 'SET_ALERT'
 export const REMOVE_ALERT = 'REMOVE_ALERT'
+export const NO_RESULTS = 'NO_RESULTS'

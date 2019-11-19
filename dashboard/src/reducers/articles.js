@@ -4,9 +4,11 @@ import { SET_LOADING, REMOVE_LOADING, GET_ARTICLES_PUBLISHED_BY_YEAR, GET_ARTICL
 // Initial state
 const INITIAL_STATE = {
   articles: {
+    // Main
     articlesPublishedByYear: [],
     articlesAndDownloads: [],
     articlesAndViews: [],
+    // Articles Page
   },
   loading: false,
 }

@@ -107,6 +107,27 @@
     min-width: 200px;
 }
 
+.site #container-time #dev-team {
+    width: 100%;
+}
+
+.site #container-time #sobre {
+    text-align: justify;
+}
+
+.site #container-time .icon-github {
+    margin-right: 10px;
+}
+
+.site #container-time .card-body img {
+    width: 30px;
+}
+
+.site #container-time .card {
+    width: 18rem;
+    min-width: 200px;
+}
+
 @media (max-width: 767px) {
     .site #container-sobre-nos {
         margin-top: 230px;
@@ -115,6 +136,16 @@
         margin: auto;
     }
     .site #container-sobre-nos #sobre {
+        margin-top: 10px;
+    }
+
+    .site #container-time {
+        margin-top: 230px;
+    }
+    .site #container-time .card {
+        margin: auto;
+    }
+    .site #container-time #sobre {
         margin-top: 10px;
     }
 }
