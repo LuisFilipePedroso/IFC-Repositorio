@@ -5,7 +5,7 @@ import { SET_LOADING, REMOVE_LOADING, GET_ARTICLES_SEARCH, GET_COURSES_SEARCH, G
 import { setAlert } from '../actions/alert'
 
 // Others
-import { api } from '../config/api'
+import api from '../services/api'
 
 // Busca artigos
 export const getArticlesSearch = content => async dispatch => {

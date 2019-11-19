@@ -3,7 +3,7 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 // Styles
-import { BrandImage } from './style'
+import { BrandImage, NavbarMenu } from './style'
 
 // Others
 import boxLogo from '../../../assets/img/iFBox_purple.png'
@@ -12,12 +12,12 @@ import boxLogo from '../../../assets/img/iFBox_purple.png'
 const Sidebar = () => {
   return (
     <nav
-      className="navbar navbar-vertical fixed-left navbar-expand-md bg-white"
+      className="navbar navbar-vertical navbar-light fixed-left navbar-expand-md bg-white"
       id="sidenav-main"
     >
       <div className="container-fluid">
         <button
-          className="navbar-toggler"
+          className="navbar-toggler custom-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#mobile-menu"
@@ -46,8 +46,8 @@ const Sidebar = () => {
                   type="button"
                   className="navbar-toggler"
                   data-toggle="collapse"
-                  data-target="#sidenav-collapse-main"
-                  aria-controls="sidenav-main"
+                  data-target="#mobile-menu"
+                  aria-controls="mobile-menu"
                   aria-expanded="false"
                   aria-label="Toggle sidenav"
                 >
@@ -57,7 +57,7 @@ const Sidebar = () => {
               </div>
             </div>
           </div>
-          <ul className="navbar-nav">
+          <NavbarMenu className="navbar-nav">
             <li className="nav-item">
               <NavLink
                 activeClassName="active"
@@ -96,7 +96,7 @@ const Sidebar = () => {
             </li>
             <li className="nav-item">
               <a
-                className="nav-link"
+                className="nav-link toggle-submenu"
                 data-toggle="collapse"
                 href="#tagsSubMenu"
                 role="button"
@@ -137,7 +137,7 @@ const Sidebar = () => {
                 </li>
               </ul>
             </div>
-          </ul>
+          </NavbarMenu>
           <hr className="my-3" />
           <h6 className="navbar-heading text-muted">Links Úteis</h6>
           <ul className="navbar-nav mb-md-3">

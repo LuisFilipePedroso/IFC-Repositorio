@@ -5,7 +5,7 @@ import { GET_COURSES, SET_LOADING, REMOVE_LOADING } from './types'
 import { setAlert } from '../actions/alert'
 
 // Others
-import { api } from '../config/api'
+import api from '../services/api'
 
 // Get all courses
 export const getAllCourses = () => async dispatch => {
