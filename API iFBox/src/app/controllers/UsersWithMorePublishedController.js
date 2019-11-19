@@ -3,7 +3,7 @@ import Courses from '../models/Courses'
 
 class UsersWithMorePublishedInCoursesController {
     async index(req, res) {
-        const coursesmoreVisualized = await Courses.sequelize.query(
+        const usersWithMorePublished = await Courses.sequelize.query(
             `select users.id,
                     users.firstname,
                     users.lastname,
@@ -18,7 +18,7 @@ class UsersWithMorePublishedInCoursesController {
             }
         )
 
-        return res.json(coursesmoreVisualized)
+        return res.json(usersWithMorePublished)
     }
 }
 

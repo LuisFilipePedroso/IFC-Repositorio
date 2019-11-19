@@ -14,6 +14,7 @@ import ArticlesWithMoreDownloadsController from './app/controllers/ArticlesWithM
 import CoursesPublishedByYearController from './app/controllers/CoursesPublishedByYearController'
 import UsersWithMorePublishedInCoursesController from './app/controllers/UsersWithMorePublishedInCoursesController'
 import UsersWithMorePublishedController from './app/controllers/UsersWithMorePublishedController'
+import UsersMoreVisualizedController from './app/controllers/UsersMoreVisualizedController'
 
 const router = express.Router()
 
@@ -45,10 +46,7 @@ router.post('/articles/statistics', ArticleStatisticsController.store)
 // Charts
 router.get('/charts/articles', ArticlesWithMoreViewsController.index)
 router.get('/charts/articles/years', ArticleByYearController.index)
-router.get(
-    '/charts/courses/morevisualized',
-    CoursesMoreVisualizedController.index
-)
+router.get('/charts/courses/views', CoursesMoreVisualizedController.index)
 router.get('/charts/courses/years', CoursesPublishedByYearController.index)
 router.get(
     '/charts/articles/downloads',
@@ -59,6 +57,7 @@ router.get(
     UsersWithMorePublishedInCoursesController.index
 )
 router.get('/charts/users', UsersWithMorePublishedController.index)
+router.get('/charts/users/views', UsersMoreVisualizedController.index)
 
 // Events
 router.get('/events', EventController.index)
