@@ -21,6 +21,10 @@
     margin-top: 100px;
 }
 
+.site #container-trabalho .titulo-pagina {
+    margin: 150px 0px 20px 0px;
+}
+
 .site #icone-search {
     position: absolute;
     top: 4px;

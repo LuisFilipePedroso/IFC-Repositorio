@@ -189,9 +189,12 @@
                       class="card-img-top rounded-circle" alt="maria-villarreal">
               </div>
               <div class="card-body">
-                  <h5 class="card-title text-sucess font-weight-bold">Maria Villarreal</h5>
+                  <h5 class="card-title text-sucess font-weight-bold">María Villarreal</h5>
                   <h6 class="card-subtitle mb-2 text-primary">PROJECT MANAGER</h6>
                   <p class="card-text font-italic">maria.villarreal@ifc.edu.br<br>
+                      <a class='icon-github' href="https://github.com/maryvillarreal" target="_blank">
+                        <img src="{{ asset('img/icon-social-media/icon-github.png') }}" alt="github">
+                      </a>
                       <a href="https://www.linkedin.com/in/maria-elena-villarreal/" target="_blank">
                           <img src="{{ asset('img/icon-social-media/icon-linkedin.png') }}" alt="linkedin">
                       </a>
