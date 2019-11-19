@@ -12,6 +12,7 @@ import ArticleByYearController from './app/controllers/ArticleByYearController'
 import CoursesMoreVisualizedController from './app/controllers/CoursesMoreVisualizedController'
 import ArticlesWithMoreDownloadsController from './app/controllers/ArticlesWithMoreDownloadsController'
 import CoursesPublishedByYearController from './app/controllers/CoursesPublishedByYearController'
+import UsersWithMorePublishedInCoursesController from './app/controllers/UsersWithMorePublishedInCoursesController'
 import UsersWithMorePublishedController from './app/controllers/UsersWithMorePublishedController'
 
 const router = express.Router()
@@ -52,6 +53,10 @@ router.get('/charts/courses/years', CoursesPublishedByYearController.index)
 router.get(
     '/charts/articles/downloads',
     ArticlesWithMoreDownloadsController.index
+)
+router.get(
+    '/charts/courses/users',
+    UsersWithMorePublishedInCoursesController.index
 )
 router.get('/charts/users', UsersWithMorePublishedController.index)
 
