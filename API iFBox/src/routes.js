@@ -1,4 +1,7 @@
 import express from 'express'
+import multer from 'multer'
+import multerConfig from './config/multer'
+
 import UserController from './app/controllers/UserController'
 import ArticleController from './app/controllers/ArticleController'
 import CourseController from './app/controllers/CourseController'
@@ -15,8 +18,12 @@ import CoursesPublishedByYearController from './app/controllers/CoursesPublished
 import UsersWithMorePublishedInCoursesController from './app/controllers/UsersWithMorePublishedInCoursesController'
 import UsersWithMorePublishedController from './app/controllers/UsersWithMorePublishedController'
 import UsersMoreVisualizedController from './app/controllers/UsersMoreVisualizedController'
+import FileController from './app/controllers/FileController'
+import EventsMoreVisualizedController from './app/controllers/EventsMoreVisualizedController'
 
 const router = express.Router()
+
+const upload = multer(multerConfig)
 
 // Users
 router.get('/users', UserController.index)
@@ -58,6 +65,7 @@ router.get(
 )
 router.get('/charts/users', UsersWithMorePublishedController.index)
 router.get('/charts/users/views', UsersMoreVisualizedController.index)
+router.get('/charts/events/views', EventsMoreVisualizedController.index)
 
 // Events
 router.get('/events', EventController.index)
@@ -70,5 +78,7 @@ router.delete('/events/:id', EventController.delete)
 router.get('/usersarticles', UserArticlesController.index)
 router.get('/coursesarticles', CourseArticlesController.index)
 router.get('/coursesarticles/:id', CourseArticlesController.show)
+
+router.post('/files', upload.single('file'), FileController.store)
 
 export default router

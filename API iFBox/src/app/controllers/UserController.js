@@ -3,6 +3,7 @@ import { Op } from 'sequelize'
 
 import Users from '../models/Users'
 import UsersStatistics from '../models/UsersStatistics'
+import File from '../models/File'
 
 class UserController {
     async index(req, res) {
@@ -11,7 +12,12 @@ class UserController {
                 {
                     model: UsersStatistics,
                 },
+                {
+                    model: File,
+                    attributes: ['name', 'path', 'url'],
+                },
             ],
+            order: [['id', 'desc']],
         })
         res.json(users)
     }

@@ -54,6 +54,7 @@ class Users extends Model {
 
     static associate(models) {
         this.hasOne(models.UsersStatistics, { foreignKey: 'user_id' })
+        this.belongsTo(models.File, { foreignKey: 'file_id' })
     }
 }
 

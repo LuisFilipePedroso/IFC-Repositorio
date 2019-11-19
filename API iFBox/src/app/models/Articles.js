@@ -33,6 +33,7 @@ class Articles extends Model {
             foreignKey: 'article_id',
         })
         this.belongsTo(models.Events, { foreignKey: 'event_id' })
+        this.belongsTo(models.File, { foreignKey: 'file_id' })
     }
 }
 export default Articles
