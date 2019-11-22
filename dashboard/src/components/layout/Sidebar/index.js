@@ -27,7 +27,7 @@ const Sidebar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <Link className="navbar-brand pt-0" to="/dashboard">
+        <Link className="navbar-brand p-0 m-0 mt-2" to="/dashboard">
           <BrandImage src={boxLogo} alt="IFC - Rio do Sul" />
         </Link>
         <div className="collapse navbar-collapse" id="mobile-menu">
