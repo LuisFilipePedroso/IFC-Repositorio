@@ -3,7 +3,7 @@ import Articles from '../models/Articles'
 
 class ArticlesWithMoreDownloadsController {
     async index(req, res) {
-        const { title = '', abstract = '' } = req.query
+        const { title = '' } = req.query
 
         const articles = await Articles.sequelize.query(
             `select articles.title,
@@ -11,7 +11,6 @@ class ArticlesWithMoreDownloadsController {
                from articles
           inner join articles_statistics on articles.id = articles_statistics.article_id
                where articles.title ilike '%${title}%'
-                  or articles.abstract ilike '%${abstract}%'
             order by downloads desc limit 10`,
             {
                 type: QueryTypes.SELECT,

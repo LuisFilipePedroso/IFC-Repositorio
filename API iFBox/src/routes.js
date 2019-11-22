@@ -20,6 +20,7 @@ import UsersWithMorePublishedController from './app/controllers/UsersWithMorePub
 import UsersMoreVisualizedController from './app/controllers/UsersMoreVisualizedController'
 import FileController from './app/controllers/FileController'
 import EventsMoreVisualizedController from './app/controllers/EventsMoreVisualizedController'
+import UsersWithMorePublishedInYear from './app/controllers/UsersWithMorePublishedInYear'
 
 const router = express.Router()
 
@@ -65,6 +66,7 @@ router.get(
 )
 router.get('/charts/users', UsersWithMorePublishedController.index)
 router.get('/charts/users/views', UsersMoreVisualizedController.index)
+router.get('/charts/users/years', UsersWithMorePublishedInYear.index)
 router.get('/charts/events/views', EventsMoreVisualizedController.index)
 
 // Events
