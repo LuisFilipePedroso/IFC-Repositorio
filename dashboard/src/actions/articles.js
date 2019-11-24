@@ -16,12 +16,15 @@ export const getArticlesPublishedByYear = () => async dispatch => {
   try {
     const res = await api.get('/articles')
 
-    const datas = res.data.map(article => article.year)
-    const occurences = countBy(datas)
+    const years = res.data.map(article => article.year)
+    const occurences = countBy(years)
 
     let articlesPublishedByYear = []
     forIn(occurences, (value, key) => {
-      articlesPublishedByYear = [...articlesPublishedByYear, { label: key, y: value }]
+      articlesPublishedByYear = [...articlesPublishedByYear, {
+        label: key,
+        y: value
+      }]
     })
 
     dispatch({
@@ -46,14 +49,16 @@ export const getArticlesAndDownloads = () => async dispatch => {
     let count = 0
     forIn(res.data, value => {
       if (!isEmpty(value.ArticlesStatistic)) {
+        if (value.title.length > 15) {
+          value.title = `${value.title.substr(0, 15)}...`
+        }
+
         articlesAndDownloads = [...articlesAndDownloads, {
-          label: `${value.title.substr(0, 15)}...`,
+          label: value.title,
           y: value.ArticlesStatistic.downloads
         }]
         count ++
-        if (count >= 10) {
-          return false
-        }
+        if (count >= 10) return false
       }
     })
 
@@ -79,14 +84,16 @@ export const getArticlesAndViews = () => async dispatch => {
     let count = 0
     forIn(res.data, value => {
       if (!isEmpty(value.ArticlesStatistic)) {
+        if (value.title.length > 15) {
+          value.title = `${value.title.substr(0, 15)}...`
+        }
+
         articlesAndViews = [...articlesAndViews, {
-          label: `${value.title.substr(0, 15)}...`,
+          label: value.title,
           y: value.ArticlesStatistic.views
         }]
         count ++
-        if (count >= 10) {
-          return false
-        }
+        if (count >= 10) return false
       }
     })
 
@@ -110,8 +117,12 @@ export const getArticlesWithMoreViews = () => async dispatch => {
 
     let articlesWithMoreViews = []
     forIn(res.data, value => {
+      if (value.title.length > 15) {
+        value.title = `${value.title.substr(0, 15)}...`
+      }
+
       articlesWithMoreViews = [...articlesWithMoreViews, {
-        label: `${value.title.substr(0, 15)}...`,
+        label: value.title,
         y: value.views
       }]
     })
@@ -136,8 +147,12 @@ export const getArticlesWithMoreDownloads = () => async dispatch => {
 
     let articlesWithMoreDownloads = []
     forIn(res.data, value => {
+      if (value.title.length > 15) {
+        value.title = `${value.title.substr(0, 15)}...`
+      }
+
       articlesWithMoreDownloads = [...articlesWithMoreDownloads, {
-        label: `${value.title.substr(0, 15)}...`,
+        label: value.title,
         y: value.downloads
       }]
     })

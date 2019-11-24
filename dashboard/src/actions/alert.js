@@ -4,7 +4,13 @@ import { SET_ALERT, REMOVE_ALERT } from './types'
 // Others
 import uuid from 'uuid'
 
-// Set alert
+/**
+ * Set alert
+ *
+ * @param {string} message
+ * @param {string} type
+ * @param {number} timeout
+ */
 export const setAlert = (message, type, timeout) => dispatch => {
   const id = uuid.v4()
   dispatch({
