@@ -1,5 +1,5 @@
 // Action types
-import { GET_COURSES, SET_LOADING, REMOVE_LOADING } from './types'
+import { SET_LOADING, REMOVE_LOADING } from './types'
 
 // Actions
 import { setAlert } from '../actions/alert'
@@ -11,9 +11,9 @@ import api from '../services/api'
 export const getAllCourses = () => async dispatch => {
   dispatch({ type: SET_LOADING })
   try {
-    const res = await api.get('/courses')
+    const res = await api.get('/charts/courses/views')
     dispatch({
-      type: GET_COURSES,
+      type: '123',
       payload: res.data.courses
     })
   } catch (err) {

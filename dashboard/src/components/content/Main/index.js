@@ -49,30 +49,30 @@ const Main = () => {
   useEffect(() => {
     setChartsData({
       chart01: {
-        theme: "dark1",
-        colorSet: "argon-default",
-        backgroundColor: "#172b4d",
+        theme: 'dark1',
+        colorSet: 'argon-default',
+        backgroundColor: '#172b4d',
         animationEnabled: true,
         data: [{
-          type: "spline",
+          type: 'spline',
           dataPoints: articlesPublishedByYear
         }]
       },
       chart02: {
-        theme: "light1",
+        theme: 'light1',
         animationEnabled: true,
         data: [{
-          type: "column",
+          type: 'column',
           dataPoints: articlesAndViews
         }]
       },
       chart03: {
-        theme: "dark1",
-        colorSet: "argon-default",
-        backgroundColor: "#172b4d",
+        theme: 'dark1',
+        colorSet: 'argon-default',
+        backgroundColor: '#172b4d',
         animationEnabled: true,
         data: [{
-          type: "column",
+          type: 'column',
           dataPoints: articlesAndDownloads
         }]
       }

@@ -23,8 +23,10 @@ const store = createStore(
     articles,
     search,
 	}),
-	INITIAL_STATE,
-	composeWithDevTools(applyMiddleware(...middlewares))
+  INITIAL_STATE,
+  process.env.NODE_ENV === 'development'
+    ? composeWithDevTools(applyMiddleware(...middlewares))
+    : applyMiddleware(...middlewares)
 )
 
 export default store

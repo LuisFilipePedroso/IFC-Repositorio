@@ -1,9 +1,12 @@
 // Action types
-import { GET_COURSES, SET_LOADING, REMOVE_LOADING } from '../actions/types'
+import { SET_LOADING, REMOVE_LOADING, GET_COURSES_WITH_MORE_VIEWS } from '../actions/types'
 
 // Initial state
 const INITIAL_STATE = {
-  courses: [],
+  courses: {
+    // Courses Page
+    coursesWithMoreViews: [],
+  },
   loading: false,
 }
 
@@ -12,10 +15,13 @@ export default (state = INITIAL_STATE, action) => {
   const { type, payload } = action
 
   switch (type) {
-    case GET_COURSES:
+    case GET_COURSES_WITH_MORE_VIEWS:
       return {
         ...state,
-        courses: payload,
+        courses: {
+          ...state.courses,
+          coursesWithMoreViews: payload
+        },
         loading: false
       }
 

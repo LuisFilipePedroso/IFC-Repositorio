@@ -1,10 +1,12 @@
 // Imports
 import axios from 'axios'
 
-// IFC API
+// IFBOX API
 const api = axios.create({
   baseURL: 'http://localhost:3333',
-  headers: {}
+  headers: {
+    'Content-Type': 'application/json'
+  }
 })
 
 export default api
