@@ -16,6 +16,7 @@ import Main from './components/content/Main'
 import Courses from './components/content/Courses'
 import Search from './components/content/Search'
 import Articles from './components/content/Articles'
+import Users from './components/content/Users'
 
 // App
 const App = () => (
@@ -30,6 +31,7 @@ const App = () => (
             <Route exact path="/dashboard" component={Main} />
             <Route exact path="/cursos" component={Courses} />
             <Route exact path="/artigos" component={Articles} />
+            <Route exact path="/usuarios" component={Users} />
             <Route exact path={`/dashboard/busca/:page/:search`} component={Search} />
             <Route path="" component={NotFound} />
           </Switch>
