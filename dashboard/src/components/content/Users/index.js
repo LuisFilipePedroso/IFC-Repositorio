@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 // Actions
-import { getUsersWithMorePublished } from '../../../actions/users'
+import { getUsersWithMorePublished, getUsersMoreVisualized } from '../../../actions/users'
 
 // Components
 import Footer from '../../layout/Footer'
@@ -30,6 +30,7 @@ const Courses = () => {
 
   // Global states
   const usersWithMorePublished = useSelector(state => state.users.users.usersWithMorePublished)
+  const usersMoreVisualized = useSelector(state => state.users.users.usersMoreVisualized)
   const loading = useSelector(state => state.users.loading)
   const alert = useSelector(state => state.alert)
 
@@ -39,6 +40,7 @@ const Courses = () => {
   // Component mount
   useEffect(() => {
     dispatch(getUsersWithMorePublished())
+    dispatch(getUsersMoreVisualized())
   }, [dispatch])
 
   // Users update
@@ -54,16 +56,16 @@ const Courses = () => {
           dataPoints: usersWithMorePublished
         }]
       },
-      // chart02: {
-      //   theme: 'light1',
-      //   animationEnabled: true,
-      //   data: [{
-      //     type: 'spline',
-      //     dataPoints: coursesPublishedByYear
-      //   }]
-      // },
+      chart02: {
+        theme: 'light1',
+        animationEnabled: true,
+        data: [{
+          type: 'column',
+          dataPoints: usersMoreVisualized
+        }]
+      },
     })
-  }, [usersWithMorePublished])
+  }, [usersWithMorePublished, usersMoreVisualized])
 
   return (
     <div className="container-fluid mt--8">
@@ -92,7 +94,7 @@ const Courses = () => {
           </div>
         </div>
       </div>
-      {/* <div className="row">
+      <div className="row">
         <div className="col-xl-12 mt-3">
           <div className="card shadow bg-light-graph">
             <div className="card-header bg-transparent">
@@ -102,7 +104,7 @@ const Courses = () => {
                     Visão Geral
                   </h6>
                   <h2 className="text-dark mb-0">
-                    Cursos Publicados por Ano
+                    Usuários com mais Visualizações
                   </h2>
                 </div>
                 <div className="col-12 m-0 p-0">
@@ -117,8 +119,8 @@ const Courses = () => {
               </div>
             </div>
           </div>
-        </div> */}
-      {/* </div> */}
+        </div>
+      </div>
       <Footer />
     </div>
   )
