@@ -1,12 +1,13 @@
 // React
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 // Components
 import Footer from '../../layout/Footer'
 
 // NotFound
-const NotFound = () => (
+const NotFound = ({ returnPage = 'dashboard' }) => (
   <div className="container-fluid mt--7 position-relative">
     <div className="jumbotron shadow py-5">
       <div className="row">
@@ -19,11 +20,11 @@ const NotFound = () => (
             </div>
             <div className="error-actions mt-3">
               <Link
-                to="/dashboard"
+                to={`/${returnPage}`}
                 className="btn btn-primary btn-lg"
               >
                 <span className="glyphicon glyphicon-home"></span>
-                Retornar para Home
+                Retornar para {returnPage}
               </Link>
             </div>
           </div>
@@ -33,5 +34,8 @@ const NotFound = () => (
     <Footer />
   </div>
 )
+
+// Props
+NotFound.propTypes = { returnPage: PropTypes.string }
 
 export default NotFound

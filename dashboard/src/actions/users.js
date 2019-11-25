@@ -38,7 +38,6 @@ export const getUsersWithMorePublished = () => async dispatch => {
   }
 }
 
-
 /**
  * Users more visualized
  */
@@ -49,9 +48,6 @@ export const getUsersMoreVisualized = () => async dispatch => {
 
     let usersMoreVisualized = []
     forIn(res.data, value => {
-      console.log(value);
-
-
       const name = `${value.firstname} ${value.lastname}`.length > 15
         ? `${value.firstname} ${value.lastname}`.substr(0, 15) + '...'
         : `${value.firstname} ${value.lastname}`

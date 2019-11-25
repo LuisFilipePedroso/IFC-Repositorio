@@ -1,24 +1,78 @@
 // Action types
-import { SET_LOADING, REMOVE_LOADING, GET_ARTICLES_SEARCH, GET_COURSES_SEARCH, GET_USERS_SEARCH, NO_RESULTS } from './types'
+import { SET_LOADING, REMOVE_LOADING, GET_ARTICLES_SEARCH, GET_COURSES_SEARCH, GET_USERS_SEARCH, NO_RESULTS, UPDATE_CHART_TITLES } from './types'
 
 // Actions
 import { setAlert } from '../actions/alert'
 
 // Others
 import api from '../services/api'
+import { countBy, forIn, isEmpty } from 'lodash'
 
-// Busca artigos
+/**
+ * Busca artigos
+ *
+ * @param {string} content
+ */
 export const getArticlesSearch = content => async dispatch => {
   dispatch({ type: SET_LOADING })
   try {
-    // const res = api.get('/')
+    const [resDownloads, resViews] = await Promise.all([
+      api.get(`/charts/articles/downloads?title=${content}`),
+      api.get(`/charts/articles?title=${content}`)
+    ])
+
+    if (resDownloads.data.length === 0 || resViews.data.length === 0) {
+      dispatch({ type: NO_RESULTS })
+      return
+    }
+
+    let articlesWithMoreDownloads = []
+    forIn(resDownloads.data, value => {
+      if (value.title.length > 15) {
+        value.title = `${value.title.substr(0, 15)}...`
+      }
+
+      articlesWithMoreDownloads = [...articlesWithMoreDownloads, {
+        label: value.title,
+        y: value.downloads
+      }]
+    })
+
+    let articlesWithMoreViews = []
+    forIn(resViews.data, value => {
+      if (value.title.length > 15) {
+        value.title = `${value.title.substr(0, 15)}...`
+      }
+
+      articlesWithMoreViews = [...articlesWithMoreViews, {
+        label: value.title,
+        y: value.views
+      }]
+    })
+
+    dispatch({
+      type: UPDATE_CHART_TITLES,
+      payload: ['Número de Downloads', 'Número de Visualizações']
+    })
+
+    dispatch({
+      type: GET_ARTICLES_SEARCH,
+      payload: [
+        articlesWithMoreDownloads,
+        articlesWithMoreViews
+      ]
+    })
   } catch (err) {
     dispatch(setAlert('Ops, um erro inesperado ocorreu - Tente novamente mais tarde', 'danger'))
     dispatch({ type: REMOVE_LOADING })
   }
 }
 
-// Busca cursos
+/**
+ * Busca cursos
+ *
+ * @param {string} content
+ */
 export const getCoursesSearch = content => async dispatch => {
   dispatch({ type: SET_LOADING })
   try {
@@ -33,7 +87,11 @@ export const getCoursesSearch = content => async dispatch => {
   }
 }
 
-// Busca usuarios
+/**
+ * Busca usuários
+ *
+ * @param {string} content
+ */
 export const getUsersSearch = content => async dispatch => {
   dispatch({ type: SET_LOADING })
   try {

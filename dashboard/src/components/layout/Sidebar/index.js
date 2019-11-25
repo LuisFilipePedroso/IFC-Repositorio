@@ -63,7 +63,7 @@ const Sidebar = () => (
               className="nav-link"
               to="/dashboard"
             >
-              <i className="ni ni-app text-primary"></i> Dashboard
+              <i className="ni ni-app text-success"></i> Dashboard
             </NavLink>
           </li>
           <li className="nav-item">
@@ -90,52 +90,9 @@ const Sidebar = () => (
               className="nav-link"
               to="/usuarios"
             >
-              <i className="ni ni-single-02 text-success"></i> Usuários
+              <i className="ni ni-single-02 text-yellow"></i> Usuários
             </NavLink>
           </li>
-          <li className="nav-item">
-            <a
-              className="nav-link toggle-submenu"
-              data-toggle="collapse"
-              href="#tagsSubMenu"
-              role="button"
-              aria-expanded="false"
-              aria-controls="tagsSubMenu"
-            >
-              <i className="ni ni-tag text-yellow"></i> Tags
-            </a>
-          </li>
-          <div className="collapse multi-collapse my-0 mx-auto" id="tagsSubMenu">
-            <ul className="navbar-nav mf-4">
-              <li className="nav-item">
-                <NavLink
-                  activeClassName="active"
-                  className="nav-link"
-                  to="/tags/web"
-                >
-                  <i className="ni ni-html5 text-primary"></i> Web
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  activeClassName="active"
-                  className="nav-link"
-                  to="/tags/framework"
-                >
-                  <i className="ni ni-planet text-primary"></i> Framework
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  activeClassName="active"
-                  className="nav-link"
-                  to="/tags/bigdata"
-                >
-                  <i className="ni ni-chart-pie-35 text-primary"></i> Bigdata
-                </NavLink>
-              </li>
-            </ul>
-          </div>
         </NavbarMenu>
         <hr className="my-3" />
         <h6 className="navbar-heading text-muted">Links Úteis</h6>

@@ -11,7 +11,7 @@ import { SearchForm } from './style'
 // Header
 const Header = () => {
   // History
-  const history = useHistory()
+  const history = useHistory().location.pathname
 
   // Local state
   const [searchContent, setSearchContent] = useState('')
@@ -33,11 +33,11 @@ const Header = () => {
             Dashboard
           </Link>
           {
-            !history.location.pathname.includes('/busca') &&
-            !history.location.pathname.includes('/dashboard') && (
+            !history.includes('/busca') &&
+            !history.includes('/dashboard') && (
             <SearchForm
               className="navbar-search navbar-search-dark form-inline d-none d-md-flex ml-lg-auto"
-              action={`/dashboard/busca${history.location.pathname}/${searchContent}`}
+              action={`/dashboard/busca${history}/${searchContent}`}
               method="GET"
             >
               <div className="form-group mb-0">
@@ -49,7 +49,7 @@ const Header = () => {
                   </div>
                   <input
                     className="form-control"
-                    placeholder={`Buscar por ${history.location.pathname.replace('/', '')}...`}
+                    placeholder={`Buscar ${history.replace('/', '')}...`}
                     type="text"
                     onChange={event => handleInputChange(event)}
                   />

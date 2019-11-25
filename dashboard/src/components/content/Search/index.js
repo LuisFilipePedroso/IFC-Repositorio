@@ -8,17 +8,9 @@ import { getArticlesSearch, getUsersSearch, getCoursesSearch } from '../../../ac
 
 // Components
 import NotFound from '../../pages/NotFound'
-
-// Chart configs
-import CanvasJSReact from '../../../assets/js/canvasjs.react'
-CanvasJSReact.CanvasJS.addColorSet('argon-default', [
-  "#ffd600",
-  "#11cdef",
-  "#5e72e4",
-  "#f5365c",
-  "#2dce89",
-  "#fb6340",
-])
+import Footer from '../../layout/Footer'
+import Spinner from '../../layout/Spinner'
+import Chart from '../../../config/charts'
 
 // Search
 const Search = () => {
@@ -26,28 +18,29 @@ const Search = () => {
   const dispatch = useDispatch()
 
   // Match
-  const match = useRouteMatch()
+  const match = useRouteMatch().params
 
   // Local state
-  const [chartData, setChartData] = useState({})
+  const [chartsData, setChartsData] = useState({})
 
-  // Search global state
+  // Global states
   const results = useSelector(state => state.search.result)
+  const chartTitles = useSelector(state => state.search.chartTitles)
+  const loading = useSelector(state => state.search.loading)
 
   // Component mount
   useEffect(() => {
-    switch (match.params.page) {
-      case 'dashboard':
-        break
-
+    switch (match.page) {
       case 'cursos':
-        dispatch(getCoursesSearch(match.params.search))
+        // dispatch(getCoursesSearch(match.search))
         break
 
       case 'artigos':
+        dispatch(getArticlesSearch(match.search))
         break
 
       case 'usuarios':
+        // dispatch(getUsersSearch(match.search))
         break
 
       default:
@@ -55,16 +48,90 @@ const Search = () => {
     }
   }, [dispatch])
 
+  // Articles update
+  useEffect(() => {
+    setChartsData({
+      chart01: {
+        theme: 'dark1',
+        colorSet: 'argon-default',
+        backgroundColor: '#172b4d',
+        animationEnabled: true,
+        data: [{
+          type: 'column',
+          dataPoints: results[0]
+        }]
+      },
+      chart02: {
+        theme: 'light1',
+        animationEnabled: true,
+        data: [{
+          type: 'column',
+          dataPoints: results[1]
+        }]
+      },
+    })
+  }, [results])
+
   return (
     <div>
-      {results.length > 0 ? (
-        <>
-          Conteúdo da busca: {match.params.search}<br />
-          Tema da busca {match.params.page}<br />
-          Resultado da busca: {results}
-        </>
+      {!loading && results.length > 0 ? (
+        <div className="container-fluid mt--8">
+          <div className="row">
+            <div className="col-xl-12 mb-5 mb-xl-0">
+              <div className="card shadow bg-dark-graph">
+                <div className="card-header bg-transparent">
+                  <div className="row align-items-center">
+                    <div className="col mb-3">
+                      <h6 className="text-uppercase text-light ls-1 mb-1">
+                        Visão Geral
+                      </h6>
+                      <h2 className="text-white mb-0">
+                        {chartTitles[0]}
+                      </h2>
+                    </div>
+                    <div className="col-12 m-0 p-0">
+                      {loading || alert.length > 0 ? (
+                        <Spinner loading={loading} />
+                      ) : (
+                        <Chart options={chartsData.chart01} />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-xl-12 mt-3">
+              <div className="card shadow bg-light-graph">
+                <div className="card-header bg-transparent">
+                  <div className="row align-items-center">
+                    <div className="col mb-3">
+                      <h6 className="text-uppercase text-dark ls-1 mb-1">
+                        Visão Geral
+                      </h6>
+                      <h2 className="text-dark mb-0">
+                        {chartTitles[1]}
+                      </h2>
+                    </div>
+                    <div className="col-12 m-0 p-0">
+                      <div className="card-body">
+                        {loading || alert.length > 0 ? (
+                          <Spinner loading={loading} />
+                        ) : (
+                          <Chart options={chartsData.chart02} />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <Footer />
+        </div>
       ) : (
-        <NotFound />
+        <NotFound returnPage={match.page} />
       )}
     </div>
   )

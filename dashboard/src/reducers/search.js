@@ -1,9 +1,10 @@
 // Action types
-import { SET_LOADING, REMOVE_LOADING, GET_USERS_SEARCH, GET_ARTICLES_SEARCH, GET_COURSES_SEARCH, NO_RESULTS } from '../actions/types'
+import { SET_LOADING, REMOVE_LOADING, GET_USERS_SEARCH, GET_ARTICLES_SEARCH, GET_COURSES_SEARCH, NO_RESULTS, UPDATE_CHART_TITLES } from '../actions/types'
 
 // Initial state
 const INITIAL_STATE = {
   result: [],
+  chartTitles: [],
   loading: false,
 }
 
@@ -30,6 +31,13 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         result: payload,
+        loading: false
+      }
+
+    case UPDATE_CHART_TITLES:
+      return {
+        ...state,
+        chartTitles: payload,
         loading: false
       }
 
