@@ -1,10 +1,15 @@
-// Imports:
+// Action types
 import { SET_ALERT, REMOVE_ALERT } from '../actions/types'
 
-// State:
+// Initial state
 const INITIAL_STATE = []
 
-// Reducer:
+/**
+ * Alerts reducer
+ *
+ * @param {object} state
+ * @param {object} action
+ */
 export default (state = INITIAL_STATE, action) => {
   const { type, payload } = action
 

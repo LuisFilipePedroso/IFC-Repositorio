@@ -3,12 +3,17 @@ import { SET_LOADING, REMOVE_LOADING, GET_USERS_SEARCH, GET_ARTICLES_SEARCH, GET
 
 // Initial state
 const INITIAL_STATE = {
-  result: [],
+  results: [],
   chartTitles: [],
   loading: false,
 }
 
-// Reducer
+/**
+ * Reducer
+ *
+ * @param {object} state
+ * @param {object} action
+ */
 export default (state = INITIAL_STATE, action) => {
   const { type, payload } = action
 
@@ -16,21 +21,21 @@ export default (state = INITIAL_STATE, action) => {
     case GET_USERS_SEARCH:
       return {
         ...state,
-        result: payload,
+        results: payload,
         loading: false
       }
 
     case GET_ARTICLES_SEARCH:
       return {
         ...state,
-        result: payload,
+        results: payload,
         loading: false
       }
 
     case GET_COURSES_SEARCH:
       return {
         ...state,
-        result: payload,
+        results: payload,
         loading: false
       }
 
@@ -44,7 +49,7 @@ export default (state = INITIAL_STATE, action) => {
     case NO_RESULTS:
       return {
         ...state,
-        result: [],
+        results: [],
         loading: false
       }
 

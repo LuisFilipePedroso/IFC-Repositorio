@@ -11,7 +11,12 @@ const INITIAL_STATE = {
   loading: false,
 }
 
-// Reducer
+/**
+ * Users reducer
+ *
+ * @param {object} state
+ * @param {object} action
+ */
 export default (state = INITIAL_STATE, action) => {
   const { type, payload } = action
 

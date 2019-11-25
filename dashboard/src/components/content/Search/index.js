@@ -24,7 +24,7 @@ const Search = () => {
   const [chartsData, setChartsData] = useState({})
 
   // Global states
-  const results = useSelector(state => state.search.result)
+  const results = useSelector(state => state.search.results)
   const chartTitles = useSelector(state => state.search.chartTitles)
   const loading = useSelector(state => state.search.loading)
 
@@ -78,6 +78,11 @@ const Search = () => {
         <div className="container-fluid mt--8">
           <div className="row">
             <div className="col-xl-12 mb-5 mb-xl-0">
+              <div className="jumbotron shadow mb-3 border p-3">
+                <h2 className="m-0 font-weight-bold">
+                  Resultados para: <span className="text-primary">{match.search}</span>
+                </h2>
+              </div>
               <div className="card shadow bg-dark-graph">
                 <div className="card-header bg-transparent">
                   <div className="row align-items-center">

@@ -9,16 +9,17 @@ import api from '../services/api'
 import { countBy, forIn, isEmpty } from 'lodash'
 
 /**
- * Busca artigos
+ * Faz a busca pelo título do artigo, retornando o número de downloads
+ * e o número de visualizações dos artigos com título parecido
  *
- * @param {string} content
+ * @param {string} articleTitle
  */
-export const getArticlesSearch = content => async dispatch => {
+export const getArticlesSearch = articleTitle => async dispatch => {
   dispatch({ type: SET_LOADING })
   try {
     const [resDownloads, resViews] = await Promise.all([
-      api.get(`/charts/articles/downloads?title=${content}`),
-      api.get(`/charts/articles?title=${content}`)
+      api.get(`/charts/articles/downloads?title=${articleTitle}`),
+      api.get(`/charts/articles?title=${articleTitle}`)
     ])
 
     if (resDownloads.data.length === 0 || resViews.data.length === 0) {
