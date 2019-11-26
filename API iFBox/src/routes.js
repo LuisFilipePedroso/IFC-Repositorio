@@ -21,6 +21,7 @@ import UsersMoreVisualizedController from './app/controllers/UsersMoreVisualized
 import FileController from './app/controllers/FileController'
 import EventsMoreVisualizedController from './app/controllers/EventsMoreVisualizedController'
 import UsersWithMorePublishedInYear from './app/controllers/UsersWithMorePublishedInYear'
+import TopTagsUsedInArticlesController from './app/controllers/TopTagsUsedInArticlesController'
 
 const router = express.Router()
 
@@ -68,6 +69,7 @@ router.get('/charts/users', UsersWithMorePublishedController.index)
 router.get('/charts/users/views', UsersMoreVisualizedController.index)
 router.get('/charts/users/years', UsersWithMorePublishedInYear.index)
 router.get('/charts/events/views', EventsMoreVisualizedController.index)
+router.get('/charts/toptags/articles', TopTagsUsedInArticlesController.index)
 
 // Events
 router.get('/events', EventController.index)
