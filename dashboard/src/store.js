@@ -9,6 +9,7 @@ import alert from './reducers/alert'
 import articles from './reducers/articles'
 import search from './reducers/search'
 import users from './reducers/users'
+import tags from './reducers/tags'
 
 // State
 const INITIAL_STATE = {}
@@ -24,6 +25,7 @@ const store = createStore(
     articles,
     search,
     users,
+    tags,
 	}),
   INITIAL_STATE,
   process.env.NODE_ENV === 'development'

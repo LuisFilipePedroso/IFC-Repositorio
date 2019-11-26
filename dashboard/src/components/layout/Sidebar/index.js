@@ -63,7 +63,7 @@ const Sidebar = () => (
               className="nav-link"
               to="/dashboard"
             >
-              <i className="ni ni-app text-success"></i> Dashboard
+              <i className="ni ni-app text-primary"></i> Dashboard
             </NavLink>
           </li>
           <li className="nav-item">
@@ -90,7 +90,16 @@ const Sidebar = () => (
               className="nav-link"
               to="/usuarios"
             >
-              <i className="ni ni-single-02 text-yellow"></i> Usuários
+              <i className="ni ni-single-02 text-green"></i> Usuários
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              activeClassName="active"
+              className="nav-link"
+              to="/tags"
+            >
+              <i className="ni ni-tag text-yellow"></i> Tags
             </NavLink>
           </li>
         </NavbarMenu>

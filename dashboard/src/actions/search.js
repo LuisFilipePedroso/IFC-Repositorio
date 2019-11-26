@@ -1,5 +1,5 @@
 // Action types
-import { SET_LOADING, REMOVE_LOADING, GET_ARTICLES_SEARCH, GET_COURSES_SEARCH, GET_USERS_SEARCH, NO_RESULTS, UPDATE_CHART_TITLES } from './types'
+import { SET_LOADING, REMOVE_LOADING, GET_ARTICLES_SEARCH, NO_RESULTS, UPDATE_CHART_TITLES } from './types'
 
 // Actions
 import { setAlert } from '../actions/alert'
@@ -10,7 +10,7 @@ import { countBy, forIn, isEmpty } from 'lodash'
 
 /**
  * Faz a busca pelo título do artigo, retornando o número de downloads
- * e o número de visualizações dos artigos com título parecido
+ * e o número de visualizações dos artigos com título semelhante
  *
  * @param {string} articleTitle
  */
@@ -74,30 +74,11 @@ export const getArticlesSearch = articleTitle => async dispatch => {
  *
  * @param {string} content
  */
-export const getCoursesSearch = content => async dispatch => {
-  dispatch({ type: SET_LOADING })
-  try {
-    // dispatch({ type: NO_RESULTS })
-    dispatch({
-      type: GET_COURSES_SEARCH,
-      payload: content
-    })
-  } catch (err) {
-    dispatch(setAlert('Ops, um erro inesperado ocorreu - Tente novamente mais tarde', 'danger'))
-    dispatch({ type: REMOVE_LOADING })
-  }
-}
+export const getCoursesSearch = content => async dispatch => {}
 
 /**
  * Busca usuários
  *
  * @param {string} content
  */
-export const getUsersSearch = content => async dispatch => {
-  dispatch({ type: SET_LOADING })
-  try {
-  } catch (err) {
-    dispatch(setAlert('Ops, um erro inesperado ocorreu - Tente novamente mais tarde', 'danger'))
-    dispatch({ type: REMOVE_LOADING })
-  }
-}
+export const getUsersSearch = content => async dispatch => {}
