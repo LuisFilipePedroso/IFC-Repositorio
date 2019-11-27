@@ -18,7 +18,7 @@ const Search = () => {
   const dispatch = useDispatch()
 
   // Match
-  const match = useRouteMatch().params
+  const match = useRouteMatch()
 
   // Local state
   const [chartsData, setChartsData] = useState({})
@@ -30,9 +30,9 @@ const Search = () => {
 
   // Component mount
   useEffect(() => {
-    switch (match.page) {
+    switch (match.params.page) {
       case 'artigos':
-        dispatch(getArticlesSearch(match.search))
+        dispatch(getArticlesSearch(match.params.search))
         break
 
       default:
@@ -72,7 +72,7 @@ const Search = () => {
             <div className="col-xl-12 mb-5 mb-xl-0">
               <div className="jumbotron bg-white shadow mb-3 border p-3">
                 <h2 className="m-0 font-weight-bold">
-                  Resultados para: <span className="text-primary">{match.search}</span>
+                  Resultados para: <span className="text-primary">{match.params.search}</span>
                 </h2>
               </div>
               <div className="card shadow bg-dark-graph">
@@ -128,7 +128,7 @@ const Search = () => {
           <Footer />
         </div>
       ) : (
-        <NotFound searchContent={match.search} />
+        <NotFound searchContent={match.params.search} />
       )}
     </div>
   )

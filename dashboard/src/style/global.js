@@ -53,9 +53,4 @@ export default createGlobalStyle`
   .bg-light-graph {
     background: #fff !important;
   }
-
-  .navbar-dark .navbar-toggler-icon {
-    background-color: red !important;
-    background: red !important;
-  }
 `

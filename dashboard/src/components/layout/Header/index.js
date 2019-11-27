@@ -13,7 +13,7 @@ import Alert from '../Alert'
 import Spinner from '../../layout/Spinner'
 
 // Styles
-import { SearchForm } from './style'
+import { SearchForm, HeaderContentContainer } from './style'
 
 // Header
 const Header = () => {
@@ -60,7 +60,7 @@ const Header = () => {
             Dashboard
           </Link>
           <SearchForm
-            className="navbar-search navbar-search-dark form-inline d-none d-md-flex ml-lg-auto"
+            className="navbar-search navbar-search-dark form-inline d-md-flex ml-lg-auto"
             action={`/dashboard/busca/artigos/${searchContent}`}
           >
             <div className="form-group mb-0">
@@ -81,7 +81,7 @@ const Header = () => {
           </SearchForm>
         </div>
       </nav>
-      <div className="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+      <HeaderContentContainer className="header bg-gradient-primary pb-8 pt-5 pt-md-8">
         <div className="container-fluid">
           <Alert />
         </div>
@@ -91,7 +91,7 @@ const Header = () => {
               <div className="row mb-3">
                 <div className="col-xl-3 col-lg-6">
                   <div className="card card-stats mb-4 mb-xl-0">
-                    <div className="card-body p-4">
+                    <div className="card-body">
                       {coursesLoading || alert.length > 0 ? (
                         <Spinner loading={coursesLoading} size={50} />
                       ) : (
@@ -105,8 +105,8 @@ const Header = () => {
                             </span>
                           </div>
                           <div className="col-auto">
-                            <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
-                              <i className="fas fa-chart-pie"></i>
+                            <div className="icon icon-shape bg-info text-white rounded-circle shadow">
+                              <i className="ni ni-hat-3"></i>
                             </div>
                           </div>
                         </div>
@@ -130,8 +130,8 @@ const Header = () => {
                             </span>
                           </div>
                           <div className="col-auto">
-                            <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
-                              <i className="fas fa-chart-pie"></i>
+                            <div className="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                              <i className="ni ni-single-02"></i>
                             </div>
                           </div>
                         </div>
@@ -156,7 +156,7 @@ const Header = () => {
                           </div>
                           <div className="col-auto">
                             <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
-                              <i className="fas fa-chart-pie"></i>
+                              <i className="fas fa-hashtag"></i>
                             </div>
                           </div>
                         </div>
@@ -168,7 +168,7 @@ const Header = () => {
             </div>
           </div>
         )}
-      </div>
+      </HeaderContentContainer>
     </>
   )
 }

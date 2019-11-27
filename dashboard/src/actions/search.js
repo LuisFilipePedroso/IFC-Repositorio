@@ -1,12 +1,18 @@
 // Action types
-import { SET_LOADING, REMOVE_LOADING, GET_ARTICLES_SEARCH, NO_RESULTS, UPDATE_CHART_TITLES } from './types'
+import {
+  SET_LOADING,
+  REMOVE_LOADING,
+  GET_ARTICLES_SEARCH,
+  NO_RESULTS,
+  UPDATE_CHART_TITLES
+} from './types'
 
 // Actions
 import { setAlert } from '../actions/alert'
 
 // Others
 import api from '../services/api'
-import { countBy, forIn, isEmpty } from 'lodash'
+import { forIn } from 'lodash'
 
 /**
  * Faz a busca pelo título do artigo, retornando o número de downloads

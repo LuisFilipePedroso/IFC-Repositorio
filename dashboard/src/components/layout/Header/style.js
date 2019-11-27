@@ -22,7 +22,25 @@ export const SearchForm = styled.form`
       transform: translateX(12px);
     }
   }
+  @media screen and (max-width: 767px) {
+    display: block;
+    margin: 0 auto;
+    .input-group-alternative {
+      width: 96vw !important;
+    }
+  }
+  @media screen and (max-width: 320px) {
+    .input-group-alternative {
+      width: 92vw !important;
+      input {
+        width: 242px !important;
+      }
+    }
+  }
+`
+// Header Content Container
+export const HeaderContentContainer = styled.div`
   @media screen and (max-width: 768px) {
-    display: none !important;
+    padding-top: 82px !important;
   }
 `

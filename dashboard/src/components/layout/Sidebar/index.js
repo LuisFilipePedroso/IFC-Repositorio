@@ -99,7 +99,7 @@ const Sidebar = () => (
               className="nav-link"
               to="/tags"
             >
-              <i className="ni ni-tag text-yellow"></i> Tags
+              <i className="fas fa-hashtag text-yellow"></i> Tags
             </NavLink>
           </li>
         </NavbarMenu>

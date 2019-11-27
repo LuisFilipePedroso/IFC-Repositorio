@@ -1,5 +1,10 @@
 // Action types
-import { SET_LOADING, REMOVE_LOADING, GET_TAGS_MORE_USED_IN_ARTICLES, GET_TAG_MORE_USED_IN_ARTICLES } from './types'
+import {
+  SET_LOADING,
+  REMOVE_LOADING,
+  GET_TAGS_MORE_USED_IN_ARTICLES,
+  GET_TAG_MORE_USED_IN_ARTICLES
+} from './types'
 
 // Actions
 import { setAlert } from '../actions/alert'
@@ -42,12 +47,11 @@ export const getTagMoreUsedInArticles = () => async dispatch => {
   try {
     const res = await api.get('/charts/toptags/articles')
 
-    console.log(res.data);
-
+    const tag = res.data[0].name
 
     dispatch({
       type: GET_TAG_MORE_USED_IN_ARTICLES,
-      payload: ''
+      payload: tag
     })
   } catch (err) {
     dispatch(setAlert('Ops, um erro inesperado ocorreu - Tente novamente mais tarde', 'danger'))

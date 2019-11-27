@@ -1,5 +1,11 @@
 // Action types
-import { SET_LOADING, REMOVE_LOADING, GET_COURSES_WITH_MORE_VIEWS, GET_COURSES_PUBLISHED_BY_YEAR, GET_COURSE_WITH_MORE_VIEWS } from './types'
+import {
+  SET_LOADING,
+  REMOVE_LOADING,
+  GET_COURSES_WITH_MORE_VIEWS,
+  GET_COURSES_PUBLISHED_BY_YEAR,
+  GET_COURSE_WITH_MORE_VIEWS
+} from './types'
 
 // Actions
 import { setAlert } from '../actions/alert'
