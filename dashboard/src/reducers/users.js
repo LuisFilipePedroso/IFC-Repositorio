@@ -1,9 +1,17 @@
 // Action types
-import { SET_LOADING, REMOVE_LOADING, GET_USERS_WITH_MORE_PUBLISHED, GET_USERS_MORE_VISUALIZED } from '../actions/types'
+import {
+  SET_LOADING,
+  REMOVE_LOADING,
+  GET_USER_WITH_MORE_PUBLISHED,
+  GET_USERS_WITH_MORE_PUBLISHED,
+  GET_USERS_MORE_VISUALIZED
+} from '../actions/types'
 
 // Initial state
 const INITIAL_STATE = {
   users: {
+    // Dashboard Page
+    userWithMorePublished: '',
     // Users Page
     usersWithMorePublished: [],
     usersMoreVisualized: [],
@@ -37,6 +45,16 @@ export default (state = INITIAL_STATE, action) => {
         users: {
           ...state.users,
           usersMoreVisualized: payload
+        },
+        loading: false
+      }
+
+    case GET_USER_WITH_MORE_PUBLISHED:
+      return {
+        ...state,
+        users: {
+          ...state.users,
+          userWithMorePublished: payload
         },
         loading: false
       }

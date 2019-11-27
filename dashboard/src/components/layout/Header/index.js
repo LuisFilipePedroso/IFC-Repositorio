@@ -1,20 +1,50 @@
 // React & Redux
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom'
+
+// Actions
+import { getUserWithMorePublished } from '../../../actions/users'
+import { getCourseWithMoreViews } from '../../../actions/courses'
+import { getTagMoreUsedInArticles } from '../../../actions/tags'
 
 // Components
 import Alert from '../Alert'
+import Spinner from '../../layout/Spinner'
 
 // Styles
 import { SearchForm } from './style'
 
 // Header
 const Header = () => {
+  // Dispatch
+  const dispatch = useDispatch()
+
+  // History
+  const history = useHistory()
+
   // Local state
   const [searchContent, setSearchContent] = useState('')
 
+  // Global states
+  const usersLoading = useSelector(state => state.users.loading)
+  const userWithMorePublished = useSelector(state => state.users.users.userWithMorePublished)
+  const coursesLoading = useSelector(state => state.courses.loading)
+  const courseWithMoreViews = useSelector(state => state.courses.courses.courseWithMoreViews)
+  const tagsLoading = useSelector(state => state.tags.loading)
+  const tagMoreUsedInArticles = useSelector(state => state.tags.tags.tagMoreUsedInArticles)
+
   // Input handle
   const handleInputChange = event => setSearchContent(event.target.value)
+
+  // Handle requests call in /dashboard
+  useEffect(() => {
+    if (history.location.pathname === '/dashboard') {
+      dispatch(getUserWithMorePublished())
+      dispatch(getCourseWithMoreViews())
+      dispatch(getTagMoreUsedInArticles())
+    }
+  }, [history.location])
 
   return (
     <>
@@ -55,54 +85,89 @@ const Header = () => {
         <div className="container-fluid">
           <Alert />
         </div>
-        <div className="container-fluid">
-          <div className="header-body">
-            <div className="row">
-              <div className="col-xl-3 col-lg-6">
-                <div className="card card-stats mb-4 mb-xl-0">
-                  <div className="card-body">
-                    <div className="row">
-                      <div className="col">
-                        <h5 className="card-title text-uppercase text-muted mb-0">Traffic</h5>
-                        <span className="h2 font-weight-bold mb-0">350,897</span>
-                      </div>
-                      <div className="col-auto">
-                        <div className="icon icon-shape bg-danger text-white rounded-circle shadow">
-                          <i className="fas fa-chart-bar"></i>
+        {history.location.pathname === '/dashboard' && (
+          <div className="container-fluid">
+            <div className="header-body">
+              <div className="row mb-3">
+                <div className="col-xl-3 col-lg-6">
+                  <div className="card card-stats mb-4 mb-xl-0">
+                    <div className="card-body p-4">
+                      {coursesLoading || alert.length > 0 ? (
+                        <Spinner loading={coursesLoading} size={50} />
+                      ) : (
+                        <div className="row">
+                          <div className="col">
+                            <h5 className="card-title text-uppercase text-muted mb-0">
+                              Curso mais visualizado
+                            </h5>
+                            <span className="h4 font-weight-bold mb-0">
+                              {courseWithMoreViews}
+                            </span>
+                          </div>
+                          <div className="col-auto">
+                            <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
+                              <i className="fas fa-chart-pie"></i>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
-                    <p className="mt-3 mb-0 text-muted text-sm">
-                      <span className="text-success mr-2"><i className="fa fa-arrow-up"></i> 3.48%</span>
-                      <span className="text-nowrap">Since last month</span>
-                    </p>
                   </div>
                 </div>
-              </div>
-              <div className="col-xl-3 col-lg-6">
-                <div className="card card-stats mb-4 mb-xl-0">
-                  <div className="card-body">
-                    <div className="row">
-                      <div className="col">
-                        <h5 className="card-title text-uppercase text-muted mb-0">New users</h5>
-                        <span className="h2 font-weight-bold mb-0">2,356</span>
-                      </div>
-                      <div className="col-auto">
-                        <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
-                          <i className="fas fa-chart-pie"></i>
+                <div className="col-xl-3 col-lg-6">
+                  <div className="card card-stats mb-4 mb-xl-0">
+                    <div className="card-body">
+                      {usersLoading || alert.length > 0 ? (
+                        <Spinner loading={usersLoading} size={50} />
+                      ) : (
+                        <div className="row">
+                          <div className="col">
+                            <h5 className="card-title text-uppercase text-muted mb-0">
+                              Usuário com mais publicações
+                            </h5>
+                            <span className="h4 font-weight-bold mb-0">
+                              {userWithMorePublished}
+                            </span>
+                          </div>
+                          <div className="col-auto">
+                            <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
+                              <i className="fas fa-chart-pie"></i>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
-                    <p className="mt-3 mb-0 text-muted text-sm">
-                      <span className="text-danger mr-2"><i className="fas fa-arrow-down"></i> 3.48%</span>
-                      <span className="text-nowrap">Since last week</span>
-                    </p>
+                  </div>
+                </div>
+                <div className="col-xl-3 col-lg-6">
+                  <div className="card card-stats mb-4 mb-xl-0">
+                    <div className="card-body">
+                      {tagsLoading || alert.length > 0 ? (
+                        <Spinner loading={tagsLoading} size={50} />
+                      ) : (
+                        <div className="row">
+                          <div className="col">
+                            <h5 className="card-title text-uppercase text-muted mb-0">
+                              Tag mais utilizada
+                            </h5>
+                            <span className="h4 font-weight-bold mb-0">
+                              {tagMoreUsedInArticles}
+                            </span>
+                          </div>
+                          <div className="col-auto">
+                            <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
+                              <i className="fas fa-chart-pie"></i>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   )

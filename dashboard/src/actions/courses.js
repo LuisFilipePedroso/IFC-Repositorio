@@ -1,5 +1,5 @@
 // Action types
-import { SET_LOADING, REMOVE_LOADING, GET_COURSES_WITH_MORE_VIEWS, GET_COURSES_PUBLISHED_BY_YEAR } from './types'
+import { SET_LOADING, REMOVE_LOADING, GET_COURSES_WITH_MORE_VIEWS, GET_COURSES_PUBLISHED_BY_YEAR, GET_COURSE_WITH_MORE_VIEWS } from './types'
 
 // Actions
 import { setAlert } from '../actions/alert'
@@ -60,6 +60,26 @@ export const getCoursesPublishedByYear = () => async dispatch => {
     dispatch({
       type: GET_COURSES_PUBLISHED_BY_YEAR,
       payload: coursesPublishedByYear
+    })
+  } catch (err) {
+    dispatch(setAlert('Ops, um erro inesperado ocorreu - Tente novamente mais tarde', 'danger'))
+    dispatch({ type: REMOVE_LOADING })
+  }
+}
+
+/**
+ * Course with more views
+ */
+export const getCourseWithMoreViews = () => async dispatch => {
+  dispatch({ type: SET_LOADING })
+  try {
+    const res = await api.get('/charts/courses/views')
+
+    const course = res.data[0].name
+
+    dispatch({
+      type: GET_COURSE_WITH_MORE_VIEWS,
+      payload: course
     })
   } catch (err) {
     dispatch(setAlert('Ops, um erro inesperado ocorreu - Tente novamente mais tarde', 'danger'))

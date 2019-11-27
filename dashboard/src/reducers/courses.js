@@ -1,9 +1,11 @@
 // Action types
-import { SET_LOADING, REMOVE_LOADING, GET_COURSES_WITH_MORE_VIEWS, GET_COURSES_PUBLISHED_BY_YEAR } from '../actions/types'
+import { SET_LOADING, REMOVE_LOADING, GET_COURSES_WITH_MORE_VIEWS, GET_COURSES_PUBLISHED_BY_YEAR, GET_COURSE_WITH_MORE_VIEWS } from '../actions/types'
 
 // Initial state
 const INITIAL_STATE = {
   courses: {
+    // Dashboard page
+    courseWithMoreViews: '',
     // Courses Page
     coursesWithMoreViews: [],
     coursesPublishedByYear: [],
@@ -37,6 +39,16 @@ export default (state = INITIAL_STATE, action) => {
         courses: {
           ...state.courses,
           coursesPublishedByYear: payload
+        },
+        loading: false
+      }
+
+    case GET_COURSE_WITH_MORE_VIEWS:
+      return {
+        ...state,
+        courses: {
+          ...state.courses,
+          courseWithMoreViews: payload
         },
         loading: false
       }

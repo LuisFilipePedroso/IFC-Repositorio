@@ -1,9 +1,12 @@
 // Action types
-import { SET_LOADING, REMOVE_LOADING, GET_TAGS_MORE_USED_IN_ARTICLES } from '../actions/types'
+import { SET_LOADING, REMOVE_LOADING, GET_TAGS_MORE_USED_IN_ARTICLES, GET_TAG_MORE_USED_IN_ARTICLES } from '../actions/types'
 
 // Initial state
 const INITIAL_STATE = {
   tags: {
+    // Dashboard Page
+    tagMoreUsedInArticles: '',
+    // Tags Page
     tagsMoreUsedInArticles: [],
   },
   loading: false,
@@ -25,6 +28,16 @@ export default (state = INITIAL_STATE, action) => {
         tags: {
           ...state.tags,
           tagsMoreUsedInArticles: payload
+        },
+        loading: false
+      }
+
+    case GET_TAG_MORE_USED_IN_ARTICLES:
+      return {
+        ...state,
+        tags: {
+          ...state.tags,
+          tagMoreUsedInArticles: payload
         },
         loading: false
       }
