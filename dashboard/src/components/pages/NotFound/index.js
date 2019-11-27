@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import Footer from '../../layout/Footer'
 
 // NotFound
-const NotFound = ({ returnPage = 'dashboard' }) => (
+const NotFound = ({ returnPageName = 'dashboard', returnPageUrl = '/dashboard', searchContent = 'essa pesquisa' }) => (
   <div className="container-fluid mt--7 position-relative">
     <div className="jumbotron shadow py-5">
       <div className="row">
@@ -16,15 +16,15 @@ const NotFound = ({ returnPage = 'dashboard' }) => (
             <h2 className="m-0">Oops!</h2>
             <h1 className="display-1">Erro 404</h1>
             <div className="error-detail font-weight-bold">
-              Não foram encontrados resultados para essa pesquisa
+              Não foram encontrados resultados para {searchContent}
             </div>
             <div className="error-actions mt-3">
               <Link
-                to={`/${returnPage}`}
+                to={returnPageUrl}
                 className="btn btn-primary btn-lg"
               >
                 <span className="glyphicon glyphicon-home"></span>
-                Retornar para {returnPage}
+                Retornar para {returnPageName}
               </Link>
             </div>
           </div>
@@ -36,6 +36,10 @@ const NotFound = ({ returnPage = 'dashboard' }) => (
 )
 
 // Props
-NotFound.propTypes = { returnPage: PropTypes.string }
+NotFound.propTypes = {
+  returnPageName: PropTypes.string,
+  returnPageUrl: PropTypes.string,
+  searchContent: PropTypes.string,
+}
 
 export default NotFound
