@@ -1,8 +1,8 @@
 module.exports = {
-    username: 'postgres',
-    password: 'elefante',
-    database: 'ifbox',
-    host: 'localhost',
+    username: process.env.DB_USER || 'postgres',
+    password: process.env.DB_PASSWORD || 'elefante',
+    database: process.env.DB_DATABASE || 'ifbox',
+    host: process.env.DB_HOST || 'localhost',
     dialect: 'postgres',
     define: {
         timestamps: true,
