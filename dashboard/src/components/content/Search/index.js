@@ -4,7 +4,7 @@ import { Redirect, useRouteMatch } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 // Actions
-import { getArticlesSearch, getUsersSearch, getCoursesSearch } from '../../../actions/search'
+import { getArticlesSearch } from '../../../actions/search'
 
 // Components
 import NotFound from '../../pages/NotFound'
@@ -18,7 +18,7 @@ const Search = () => {
   const dispatch = useDispatch()
 
   // Match
-  const match = useRouteMatch().params
+  const match = useRouteMatch()
 
   // Local state
   const [chartsData, setChartsData] = useState({})
@@ -30,17 +30,9 @@ const Search = () => {
 
   // Component mount
   useEffect(() => {
-    switch (match.page) {
-      case 'cursos':
-        // dispatch(getCoursesSearch(match.search))
-        break
-
+    switch (match.params.page) {
       case 'artigos':
-        dispatch(getArticlesSearch(match.search))
-        break
-
-      case 'usuarios':
-        // dispatch(getUsersSearch(match.search))
+        dispatch(getArticlesSearch(match.params.search))
         break
 
       default:
@@ -78,9 +70,9 @@ const Search = () => {
         <div className="container-fluid mt--8">
           <div className="row">
             <div className="col-xl-12 mb-5 mb-xl-0">
-              <div className="jumbotron shadow mb-3 border p-3">
+              <div className="jumbotron bg-white shadow mb-3 border p-3">
                 <h2 className="m-0 font-weight-bold">
-                  Resultados para: <span className="text-primary">{match.search}</span>
+                  Resultados para: <span className="text-primary">{match.params.search}</span>
                 </h2>
               </div>
               <div className="card shadow bg-dark-graph">
@@ -136,7 +128,7 @@ const Search = () => {
           <Footer />
         </div>
       ) : (
-        <NotFound returnPage={match.page} />
+        <NotFound searchContent={match.params.search} />
       )}
     </div>
   )

@@ -17,6 +17,7 @@ import Courses from './components/content/Courses'
 import Search from './components/content/Search'
 import Articles from './components/content/Articles'
 import Users from './components/content/Users'
+import Tags from './components/content/Tags'
 
 // App
 const App = () => (
@@ -32,6 +33,7 @@ const App = () => (
             <Route exact path="/cursos" component={Courses} />
             <Route exact path="/artigos" component={Articles} />
             <Route exact path="/usuarios" component={Users} />
+            <Route exact path="/tags" component={Tags} />
             <Route exact path={`/dashboard/busca/:page/:search`} component={Search} />
             <Route path="" component={NotFound} />
           </Switch>

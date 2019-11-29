@@ -1,5 +1,5 @@
 // Action types
-import { SET_ALERT, REMOVE_ALERT } from './types'
+import { SET_ALERT, REMOVE_ALERT, REMOVE_ALERTS } from './types'
 
 // Others
 import uuid from 'uuid'
@@ -29,4 +29,11 @@ export const setAlert = (message, type, timeout) => dispatch => {
       })
     ), timeout)
   }
+}
+
+/**
+ * Remove alerts
+ */
+export const removeAlerts = () => dispatch => {
+  dispatch({ type: REMOVE_ALERTS })
 }

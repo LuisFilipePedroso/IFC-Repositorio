@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 }
 
 /**
- * Reducer
+ * Search Reducer
  *
  * @param {object} state
  * @param {object} action
