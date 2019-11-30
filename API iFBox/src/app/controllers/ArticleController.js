@@ -5,6 +5,7 @@ import ArticlesStatistics from '../models/ArticlesStatistics'
 import UsersArticles from '../models/UsersArticles'
 import CoursesArticles from '../models/CoursesArticles'
 import Events from '../models/Events'
+import File from '../models/File'
 
 class ArticleController {
     async index(req, res) {
@@ -17,6 +18,10 @@ class ArticleController {
                     },
                     {
                         model: Events,
+                    },
+                    {
+                        model: File,
+                        attributes: ['name', 'path', 'url'],
                     },
                 ],
             })

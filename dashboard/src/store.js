@@ -7,9 +7,12 @@ import thunk from 'redux-thunk'
 import courses from './reducers/courses'
 import alert from './reducers/alert'
 import articles from './reducers/articles'
+import search from './reducers/search'
+import users from './reducers/users'
+import tags from './reducers/tags'
 
 // State
-const initialState = {}
+const INITIAL_STATE = {}
 
 // Middlewares
 const middlewares = [thunk]
@@ -20,9 +23,14 @@ const store = createStore(
     courses,
     alert,
     articles,
+    search,
+    users,
+    tags,
 	}),
-	initialState,
-	composeWithDevTools(applyMiddleware(...middlewares))
+  INITIAL_STATE,
+  process.env.NODE_ENV === 'development'
+    ? composeWithDevTools(applyMiddleware(...middlewares))
+    : applyMiddleware(...middlewares)
 )
 
 export default store

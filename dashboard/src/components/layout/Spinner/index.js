@@ -1,6 +1,6 @@
 // React
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 // Others
 import { BeatLoader } from 'react-spinners'

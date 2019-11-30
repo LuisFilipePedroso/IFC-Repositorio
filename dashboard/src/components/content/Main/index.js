@@ -8,23 +8,10 @@ import { getArticlesPublishedByYear, getArticlesAndDownloads, getArticlesAndView
 // Components
 import Footer from '../../layout/Footer'
 import Spinner from '../../layout/Spinner'
-
-// Chart configs
-import CanvasJSReact from '../../../assets/js/canvasjs.react'
-CanvasJSReact.CanvasJS.addColorSet('argon-default', [
-  "#ffd600",
-  "#11cdef",
-  "#5e72e4",
-  "#f5365c",
-  "#2dce89",
-  "#fb6340",
-])
+import Chart from '../../../config/charts'
 
 // Main
 const Main = () => {
-  // CanvasJS component
-  const Chart = CanvasJSReact.CanvasJSChart
-
   // Local state
   const [chartsData, setChartsData] = useState({})
 
@@ -45,34 +32,34 @@ const Main = () => {
     dispatch(getArticlesAndViews())
   }, [dispatch])
 
-  // Courses update
+  // Articles update
   useEffect(() => {
     setChartsData({
       chart01: {
-        theme: "dark1",
-        colorSet: "argon-default",
-        backgroundColor: "#172b4d",
+        theme: 'dark1',
+        colorSet: 'argon-default',
+        backgroundColor: '#172b4d',
         animationEnabled: true,
         data: [{
-          type: "spline",
+          type: 'spline',
           dataPoints: articlesPublishedByYear
         }]
       },
       chart02: {
-        theme: "light1",
+        theme: 'light1',
         animationEnabled: true,
         data: [{
-          type: "column",
+          type: 'column',
           dataPoints: articlesAndViews
         }]
       },
       chart03: {
-        theme: "dark1",
-        colorSet: "argon-default",
-        backgroundColor: "#172b4d",
+        theme: 'dark1',
+        colorSet: 'argon-default',
+        backgroundColor: '#172b4d',
         animationEnabled: true,
         data: [{
-          type: "column",
+          type: 'column',
           dataPoints: articlesAndDownloads
         }]
       }

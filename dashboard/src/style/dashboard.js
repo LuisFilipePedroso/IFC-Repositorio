@@ -6,7 +6,7 @@ export const DashboardWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  /* =========== Mobile ============  */
+  /* ============ Mobile ============ */
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }

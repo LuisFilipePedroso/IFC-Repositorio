@@ -15,6 +15,9 @@ import NotFound from './components/pages/NotFound'
 import Main from './components/content/Main'
 import Courses from './components/content/Courses'
 import Search from './components/content/Search'
+import Articles from './components/content/Articles'
+import Users from './components/content/Users'
+import Tags from './components/content/Tags'
 
 // App
 const App = () => (
@@ -28,6 +31,9 @@ const App = () => (
             <Route exact path="/" render={() => <Redirect to="/dashboard" />}/>
             <Route exact path="/dashboard" component={Main} />
             <Route exact path="/cursos" component={Courses} />
+            <Route exact path="/artigos" component={Articles} />
+            <Route exact path="/usuarios" component={Users} />
+            <Route exact path="/tags" component={Tags} />
             <Route exact path={`/dashboard/busca/:page/:search`} component={Search} />
             <Route path="" component={NotFound} />
           </Switch>

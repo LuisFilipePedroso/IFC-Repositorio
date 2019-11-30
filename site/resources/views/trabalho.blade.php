@@ -3,9 +3,9 @@
 
 <div id="container-trabalho" class="container-fluid">
     <div class='container'>
-        <br><br>
-        <h2>{{$aTrabalho['title']}}</h2>
-        <br>
+        <div class="titulo-pagina"> 
+            <h2>{{$aTrabalho['title']}}</h2>
+        </div>
 
         <div class="row">
             <div class="col-sm-3">

@@ -1,5 +1,7 @@
 import server from './App'
 
-server.listen(3333, () => {
-    console.log('Server is listening')
+const PORT = process.env.API_PORT || 3333
+
+server.listen(PORT, () => {
+    console.log('Server is listening on port ', PORT)
 })

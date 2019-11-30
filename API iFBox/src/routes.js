@@ -1,4 +1,7 @@
 import express from 'express'
+import multer from 'multer'
+import multerConfig from './config/multer'
+
 import UserController from './app/controllers/UserController'
 import ArticleController from './app/controllers/ArticleController'
 import CourseController from './app/controllers/CourseController'
@@ -6,11 +9,23 @@ import EventController from './app/controllers/EventController'
 import UserArticlesController from './app/controllers/UserArticlesController'
 import UserStatisticsController from './app/controllers/UserStatisticsController'
 import CourseArticlesController from './app/controllers/CourseArticlesController'
-import ArticleChartViewsController from './app/controllers/ArticleChartViewsController'
+import ArticlesWithMoreViewsController from './app/controllers/ArticlesWithMoreViewsController'
 import ArticleStatisticsController from './app/controllers/ArticleStatisticsController'
 import ArticleByYearController from './app/controllers/ArticleByYearController'
+import CoursesMoreVisualizedController from './app/controllers/CoursesMoreVisualizedController'
+import ArticlesWithMoreDownloadsController from './app/controllers/ArticlesWithMoreDownloadsController'
+import CoursesPublishedByYearController from './app/controllers/CoursesPublishedByYearController'
+import UsersWithMorePublishedInCoursesController from './app/controllers/UsersWithMorePublishedInCoursesController'
+import UsersWithMorePublishedController from './app/controllers/UsersWithMorePublishedController'
+import UsersMoreVisualizedController from './app/controllers/UsersMoreVisualizedController'
+import FileController from './app/controllers/FileController'
+import EventsMoreVisualizedController from './app/controllers/EventsMoreVisualizedController'
+import UsersWithMorePublishedInYear from './app/controllers/UsersWithMorePublishedInYear'
+import TopTagsUsedInArticlesController from './app/controllers/TopTagsUsedInArticlesController'
 
 const router = express.Router()
+
+const upload = multer(multerConfig)
 
 // Users
 router.get('/users', UserController.index)
@@ -37,9 +52,24 @@ router.delete('/articles/:id', ArticleController.delete)
 
 router.post('/articles/statistics', ArticleStatisticsController.store)
 
-//Charts
-router.get('/charts/articles', ArticleChartViewsController.index)
+// Charts
+router.get('/charts/articles', ArticlesWithMoreViewsController.index)
 router.get('/charts/articles/years', ArticleByYearController.index)
+router.get('/charts/courses/views', CoursesMoreVisualizedController.index)
+router.get('/charts/courses/years', CoursesPublishedByYearController.index)
+router.get(
+    '/charts/articles/downloads',
+    ArticlesWithMoreDownloadsController.index
+)
+router.get(
+    '/charts/courses/users',
+    UsersWithMorePublishedInCoursesController.index
+)
+router.get('/charts/users', UsersWithMorePublishedController.index)
+router.get('/charts/users/views', UsersMoreVisualizedController.index)
+router.get('/charts/users/years', UsersWithMorePublishedInYear.index)
+router.get('/charts/events/views', EventsMoreVisualizedController.index)
+router.get('/charts/toptags/articles', TopTagsUsedInArticlesController.index)
 
 // Events
 router.get('/events', EventController.index)
@@ -52,5 +82,7 @@ router.delete('/events/:id', EventController.delete)
 router.get('/usersarticles', UserArticlesController.index)
 router.get('/coursesarticles', CourseArticlesController.index)
 router.get('/coursesarticles/:id', CourseArticlesController.show)
+
+router.post('/files', upload.single('file'), FileController.store)
 
 export default router

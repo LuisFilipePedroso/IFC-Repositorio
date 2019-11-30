@@ -8,6 +8,7 @@ import Events from '../app/models/Events'
 import Users from '../app/models/Users'
 import UsersArticles from '../app/models/UsersArticles'
 import UsersStatistics from '../app/models/UsersStatistics'
+import File from '../app/models/File'
 
 import databaseConfig from '../config/database'
 
@@ -17,6 +18,7 @@ const models = [
     Courses,
     CoursesArticles,
     Events,
+    File,
     Users,
     UsersArticles,
     UsersStatistics,

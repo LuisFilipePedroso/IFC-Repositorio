@@ -1,10 +1,15 @@
-// Imports:
-import { SET_ALERT, REMOVE_ALERT } from '../actions/types'
+// Action types
+import { SET_ALERT, REMOVE_ALERT, REMOVE_ALERTS } from '../actions/types'
 
-// State:
+// Initial state
 const INITIAL_STATE = []
 
-// Reducer:
+/**
+ * Alerts reducer
+ *
+ * @param {object} state
+ * @param {object} action
+ */
 export default (state = INITIAL_STATE, action) => {
   const { type, payload } = action
 
@@ -17,6 +22,9 @@ export default (state = INITIAL_STATE, action) => {
 
     case REMOVE_ALERT:
       return state.filter(alert => alert.id !== payload)
+
+    case REMOVE_ALERTS:
+      return []
 
     default:
       return state
