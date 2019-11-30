@@ -447,3 +447,15 @@ div.chosen-container a.chosen-single {
 .hide {
     display: none !important;
 }
+
+#cont{
+    margin-top: 107px;
+}
+#imgProf{
+    margin-top: 50px;
+    max-width: 150px;
+}
+#campoProf{
+    width: 700px;
+    margin-left: 10px;
+}
