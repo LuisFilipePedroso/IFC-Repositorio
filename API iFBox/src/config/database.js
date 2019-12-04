@@ -1,3 +1,4 @@
+console.log(process.env.DB_PASSWORD)
 module.exports = {
     username: process.env.DB_USER || 'postgres',
     password: process.env.DB_PASSWORD || 'postgres',
