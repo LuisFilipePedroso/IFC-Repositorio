@@ -31,3 +31,6 @@ Route::get('/upload/novotrabalho', 'NovoTrabalhoController@index')->name('novotr
 Route::get('/upload/novocadastro', 'NovoCadastroController@index')->name('aceitarnovocadastro');
 // Aceitar novo trabalho
 Route::get('/upload/aceitarnovotrabalho', 'AceitarNovoTrabalhoController@index')->name('aceitarnovotrabalho');
+
+// Rotas de autenticação
+Auth::routes();
