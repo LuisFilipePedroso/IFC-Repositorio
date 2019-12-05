@@ -1,3 +1,7 @@
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 import server from './App'
 
 const PORT = process.env.API_PORT || 3333
