@@ -1,0 +1,325 @@
+## IFBox API 🔥
+
+Este documento visá apresentar a API utilizada no projeto IFBox.
+
+## Tecnologias 👨🏻‍🔧
+
+<h5>Para este projeto, estão sendo utilizado as tecnologias:</h5>
+<ul>
+    <li>
+    <p>Node.js</p>
+    </li>
+    <li>
+    <p>Express</p>
+    </li>
+    <li>
+    <p>Sequelize</p>
+    </li>
+    <li>
+    <p>Sucrase</p>
+    </li>
+</ul>
+
+O <b>Node.js</b> é uma plataforma de programação que permite utilizar Javascript do lado do servidor. Junto com o <b>Node.js</b> está sendo utilizado o <b>Express</b>. O express é um framework que fornece um conjunto robusto de recursos para o <b>Node.js</b>. O <b>Sequelize</b> é um ORM que nos permite abstrair toda a escrita SQL. Desta forma, podemos escrever uma <i>query</i> do tipo <b>"SELECT * FROM users"</b> como <b>Users.findAll()</b>. O Sucrase é uma biblioteca que nos permite utilizar a estrutura de import/export ao invés de utilizar a estrutura do CommonJS.
+
+## Rotas 🛤
+
+<table>
+    <thead>
+        <td>Entidade</td>
+        <td>Método</td>
+        <td>URI</td>
+    </thead>
+    <tbody>
+        <tr>
+            <td>User</td>
+            <td>GET</td>
+            <td>/users</td>
+        </tr>
+        <tr>
+            <td>User</td>
+            <td>GET</td>
+            <td>/users/:id</td>
+        </tr>
+        <tr>
+            <td>User</td>
+            <td>POST</td>
+            <td>/users</td>
+        </tr>
+        <tr>
+            <td>User</td>
+            <td>PUT</td>
+            <td>/users/:id</td>
+        </tr>
+        <tr>
+            <td>User</td>
+            <td>DELETE</td>
+            <td>/users/:id</td>
+        </tr>
+        <tr>
+            <td>UserStatistics</td>
+            <td>POST</td>
+            <td>/users/statistics</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Course</td>
+            <td>GET</td>
+            <td>/courses</td>
+        </tr>
+        <tr>
+            <td>Course</td>
+            <td>GET</td>
+            <td>/courses/:id</td>
+        </tr>
+        <tr>
+            <td>Course</td>
+            <td>POST</td>
+            <td>/courses</td>
+        </tr>
+        <tr>
+            <td>Course</td>
+            <td>PUT</td>
+            <td>/courses/:id</td>
+        </tr>
+        <tr>
+            <td>Course</td>
+            <td>DELETE</td>
+            <td>/courses/:id</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Article</td>
+            <td>GET</td>
+            <td>/articles</td>
+        </tr>
+        <tr>
+            <td>Article</td>
+            <td>GET</td>
+            <td>/articles/:id</td>
+        </tr>
+        <tr>
+            <td>Article</td>
+            <td>POST</td>
+            <td>/articles</td>
+        </tr>
+        <tr>
+            <td>Article</td>
+            <td>PUT</td>
+            <td>/articles/:id</td>
+        </tr>
+        <tr>
+            <td>Article</td>
+            <td>DELETE</td>
+            <td>/articles/:id</td>
+        </tr>
+        <tr>
+            <td>ArticleStatistics</td>
+            <td>POST</td>
+            <td>/articles/statistics</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Event</td>
+            <td>GET</td>
+            <td>/events</td>
+        </tr>
+        <tr>
+            <td>Event</td>
+            <td>GET</td>
+            <td>/events/:id</td>
+        </tr>
+        <tr>
+            <td>Event</td>
+            <td>GET</td>
+            <td>/events/:year/years</td>
+        </tr>
+        <tr>
+            <td>Event</td>
+            <td>POST</td>
+            <td>/events</td>
+        </tr>
+        <tr>
+            <td>Event</td>
+            <td>PUT</td>
+            <td>/events/:id</td>
+        </tr>
+        <tr>
+            <td>Event</td>
+            <td>DELETE</td>
+            <td>/events/:id</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>UserArticles</td>
+            <td>GET</td>
+            <td>/usersarticles</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>CourseArticles</td>
+            <td>GET</td>
+            <td>/coursesarticles</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>CourseArticles</td>
+            <td>GET</td>
+            <td>/coursesarticles/:id</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Charts</td>
+            <td>GET</td>
+            <td>/charts/articles</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Charts</td>
+            <td>GET</td>
+            <td>/charts/articles/years</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Charts</td>
+            <td>GET</td>
+            <td>/charts/courses/views</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Charts</td>
+            <td>GET</td>
+            <td>/charts/courses/years</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Charts</td>
+            <td>GET</td>
+            <td>/charts/articles/downloads</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Charts</td>
+            <td>GET</td>
+            <td>/charts/courses/users</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Charts</td>
+            <td>GET</td>
+            <td>/charts/users</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Charts</td>
+            <td>GET</td>
+            <td>/charts/users/views</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Charts</td>
+            <td>GET</td>
+            <td>/charts/users/years</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Charts</td>
+            <td>GET</td>
+            <td>/charts/events/views</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
+            <td>Charts</td>
+            <td>GET</td>
+            <td>/charts/toptags/articles</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+    </tbody>
+</table>
+
+## Executando 👨🏻‍💻
+
+<h5>Para executar o projeto em ambiente de desenvolvimento, execute os comandos abaixo:</h5>
+
+Se você utiliza npm, execute o comando <b>npm install</b> para instalar as dependências. Caso você utilize o yarn, basta executar o comando <b>yarn</b>
+Após, execute o comando <b>npm run db_create</b> ou <b>yarn db_create</b> para criar o banco de dados. Em seguida execute o  comando <b>npm run db_migrate</b> ou <b>yarn db_migrate</b> para criar as tabelas do banco de dados.
+Executado estes comandos, o seu ambiente de desenvolvimento está pronto, para executar o comando <b>npm run dev</b> ou <b>yarn dev</b> para o servidor iniciar.
+
+<h5>Para gerar uma versão de build, execute o comando abaixo:</h5>
+
+<b>npm run build</b> ou <b>yarn build</b>
+
+Este comando irá compilar todo o código fonte da aplicação que está utilizando a estrutura import/export para a estrutura do CommonJS.
+Para executar está nova versão gerada, execute o comando <b>npm run start</b> ou <b>yarn start</b>

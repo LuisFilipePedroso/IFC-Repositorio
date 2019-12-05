@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
+    "db_create": "npx sequelize db:create",
+    "db_migrate": "npx sequelize db:migrate",
     "build": "sucrase ./src -d ./dist --transforms imports",
     "start": "node dist/server.js"
   },
