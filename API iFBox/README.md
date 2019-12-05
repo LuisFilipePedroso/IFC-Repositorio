@@ -4,7 +4,7 @@ Este documento visá apresentar a API utilizada no projeto IFBox.
 
 ## Tecnologias 👨🏻‍🔧
 
-<h5>Para este projeto, estão sendo utilizado as tecnologias:</h5>
+<h4>Para este projeto, estão sendo utilizado as tecnologias:</h4>
 <ul>
     <li>
     <p>Node.js</p>
@@ -311,13 +311,13 @@ O <b>Node.js</b> é uma plataforma de programação que permite utilizar Javascr
 
 ## Executando 👨🏻‍💻
 
-<h5>Para executar o projeto em ambiente de desenvolvimento, execute os comandos abaixo:</h5>
+<h4>Para executar o projeto em ambiente de desenvolvimento, execute os comandos abaixo:</h4>
 
 Se você utiliza npm, execute o comando <b>npm install</b> para instalar as dependências. Caso você utilize o yarn, basta executar o comando <b>yarn</b>
 Após, execute o comando <b>npm run db_create</b> ou <b>yarn db_create</b> para criar o banco de dados. Em seguida execute o  comando <b>npm run db_migrate</b> ou <b>yarn db_migrate</b> para criar as tabelas do banco de dados.
 Executado estes comandos, o seu ambiente de desenvolvimento está pronto, para executar o comando <b>npm run dev</b> ou <b>yarn dev</b> para o servidor iniciar.
 
-<h5>Para gerar uma versão de build, execute o comando abaixo:</h5>
+<h4>Para gerar uma versão de build, execute o comando abaixo:</h4>
 
 <b>npm run build</b> ou <b>yarn build</b>
 
