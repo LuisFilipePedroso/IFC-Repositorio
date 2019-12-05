@@ -35,7 +35,7 @@
         <link href="{{ asset('css/summernote-bs4.css') }}" rel="stylesheet">
     </head>
 <body> 
-    <div id="app" class="painel-admin">
+    <div>
       <main class="py-4">
           @yield('content')
       </main>

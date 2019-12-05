@@ -52,8 +52,8 @@
                     <div class="row">
                         <div class="col-md-8"></div>
                         <div class="col-md-4 pl-170">
-                            <a href="#" id="botao-login">Login</a>
-                            <a href="#" id="botao-cadastro">Cadastre-se</a>
+                            <a href="{{ route('login') }}" id="botao-login">Login</a>
+                            <a href="{{ route('register') }}" id="botao-cadastro">Cadastre-se</a>
                         </div>
                     </div>
                 </div>
