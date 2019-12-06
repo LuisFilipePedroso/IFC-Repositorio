@@ -22,6 +22,10 @@ Este documento visá apresentar a API utilizada no projeto IFBox.
 
 O <b>Node.js</b> é uma plataforma de programação que permite utilizar Javascript do lado do servidor. Junto com o <b>Node.js</b> está sendo utilizado o <b>Express</b>. O express é um framework que fornece um conjunto robusto de recursos para o <b>Node.js</b>. O <b>Sequelize</b> é um ORM que nos permite abstrair toda a escrita SQL. Desta forma, podemos escrever uma <i>query</i> do tipo <b>"SELECT * FROM users"</b> como <b>Users.findAll()</b>. O Sucrase é uma biblioteca que nos permite utilizar a estrutura de import/export ao invés de utilizar a estrutura do CommonJS.
 
+## Banco de dados ☁️
+
+Para esse projeto, está sendo utilizado o banco de dados Postgres.
+
 ## Rotas 🛤
 
 <table>
@@ -315,7 +319,7 @@ O <b>Node.js</b> é uma plataforma de programação que permite utilizar Javascr
 
 Se você utiliza npm, execute o comando <b>npm install</b> para instalar as dependências. Caso você utilize o yarn, basta executar o comando <b>yarn</b>
 Após, execute o comando <b>npm run db_create</b> ou <b>yarn db_create</b> para criar o banco de dados. Em seguida execute o  comando <b>npm run db_migrate</b> ou <b>yarn db_migrate</b> para criar as tabelas do banco de dados.
-Executado estes comandos, o seu ambiente de desenvolvimento está pronto, para executar o comando <b>npm run dev</b> ou <b>yarn dev</b> para o servidor iniciar.
+Executado estes comandos, o seu ambiente de desenvolvimento está pronto. Antes de executar os comandos para subir o servidor, deve-se criar um arquivo <b>.env</b> na pasta raiz do projeto. A base deste arquivo está descrita no arquivo <b>.env.example</b>. Após configurar as variáveis de ambiente, deve ser executado o comando <b>npm run dev</b> ou <b>yarn dev</b> para iniciar o servidor.
 
 <h4>Para gerar uma versão de build, execute o comando abaixo:</h4>
 
