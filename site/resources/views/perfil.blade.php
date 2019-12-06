@@ -17,41 +17,42 @@
                 </div>
                 <div class="col-md-1" id="cont">
                     <img id='imgProf' src="{{ asset('img/icon-profile/icon-login-default.png') }}">
+                    <div class="fileUpload btn btn-success" style="margin-left: 50px;">
+                        <span>Alterar</span>
+                        <input type="file" class="upload" />
+                    </div>
+
                 </div>
                 <div class="col-md-8" id="campos">
                     <form action="" method="POST">
                         <p id="texto"> Nome</p>
-                        <input type="text" id="campoProf" readonly placeholder="Nome do usuário" required>
+                        <input class="form-control" type="text" id="campoProf" readonly placeholder="Nome do usuário" required>
 
                         <p id="texto"> Matricula</p>
-                        <input type="number" id="campoProf" readonly placeholder="Matricula do usuário" required>
-                        
+                        <input class="form-control" type="text" id="campoProf" readonly placeholder="Matricula do usuário" required>
                         
                         <p id="texto"> Email</p>
-                        <input type="email" id="campoProf" placeholder="Email do usuário" required>
+                        <input class="form-control" type="email" id="campoProf" placeholder="Email do usuário" required>
 
                         <p id="texto"> Data de nascimento</p>
-                        <input type="date" id="campoProf" readonly required>
+                        <input class="form-control" type="date" id="campoProf" readonly required>
 
                         <p id="texto"> Siape</p>
-                        <input type="text" id="campoProf" placeholder="Siape do usuário">
+                        <input class="form-control" type="text" id="campoProf" placeholder="Siape do usuário">
                         
                         <p id="texto"> Lattes</p>
-                        <input type="text" id="campoProf" placeholder="Lattes do usuário">
+                        <input class="form-control" type="text" id="campoProf" placeholder="Lattes do usuário">
 
                         <p id="texto"> Artigos publicados</p>
-                        <input type="text" id="campoProf" readonly placeholder="Número de artigos publicados">
+                        <input class="form-control" type="text" id="campoProf" readonly placeholder="Número de artigos publicados">
 
                         <p id="texto"> Visualizações</p>
-                        <input type="text" id="campoProf" readonly placeholder="Número de visualizações">
+                        <input class="form-control" type="text" id="campoProf" readonly placeholder="Número de visualizações">
 
                         <p id="texto"> Downloads</p>
-                        <input type="text" id="campoProf" readonly placeholder="Número de downloads">
-                        
-                        <p id="texto"> Aterar foto</p>
-                        <input name="userfile" id="campoProf" type="file" />
+                        <input class="form-control" type="text" id="campoProf" readonly placeholder="Número de downloads">
 
-                        <button type="submit" id="buttonSalv" class="btn btn-success">Salvar</button>
+                        <button type="submit" id="buttonSalv" class="btn btn-primary">Salvar</button>
                     </form>                
                 </div>
         </div>
