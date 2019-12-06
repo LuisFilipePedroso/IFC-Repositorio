@@ -16,8 +16,15 @@
                      </ul>
                 </div>
                 <div class="col-md-8" id="cont">
-                    >Home page da parte de upload, ver o que pode ser colocado (texto, imagem, mensagem de bem vindo, etc)
+                    <h2 align="center">Bem-vindo ao repositório de trabalhos acadêmicos do IFC Campus Rio do Sul!</h2>
+                    <br>
+                    <h6 align="justify" style=" padding-left: 4em;">Aqui você poderá publicar seus trabalhos e artigos acadêmicos, eles serão salvos na nossa base de dados e estarão disponíveis para qualquer
+                    pessoa que acesse o nosso site.<br>
+                    Também é possível verificar na guia "Meus Trabalhos" o número de visualizações e downloads do seu projeto. Para que o seu trabalho seja publicado é
+                    necessário a aprovação de algum professor, não necessariamente do seu curso, é possível verificar o status do trabalho também na guia "Meus trabalhos", os 
+                    trabalhos com o fundo verde já foram aceitos e com fundo amarelo estão aguardando aprovação.</h6>
                 </div>
         </div>
     </div>
 @endsection
+
