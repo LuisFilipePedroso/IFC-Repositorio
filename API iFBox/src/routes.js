@@ -2,6 +2,7 @@ import express from 'express'
 import multer from 'multer'
 import multerConfig from './config/multer'
 
+import SessionController from './app/controllers/SessionController'
 import UserController from './app/controllers/UserController'
 import ArticleController from './app/controllers/ArticleController'
 import CourseController from './app/controllers/CourseController'
@@ -26,6 +27,9 @@ import TopTagsUsedInArticlesController from './app/controllers/TopTagsUsedInArti
 const router = express.Router()
 
 const upload = multer(multerConfig)
+
+// Session
+router.post('/session', SessionController.store)
 
 // Users
 router.get('/users', UserController.index)

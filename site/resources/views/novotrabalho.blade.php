@@ -21,13 +21,13 @@
                     <form action="" method="POST">
                         <h3 align="center">Preencha os campos abaixo para submeter um novo trabalho.</h3>
                         <p id="textoEnv">Titulo</p>
-                        <input type="text" id="campoEnv" placeholder="Titulo do trabalho" required>
+                        <input class="form-control" type="text" id="campoEnv" placeholder="Titulo do trabalho" required>
 
                         <p id="textoEnv">Idioma</p>
-                        <input type="text" id="campoEnv" placeholder="Idioma do trabalho" required>
+                        <input class="form-control" type="text" id="campoEnv" placeholder="Idioma do trabalho" required>
 
                         <p id="textoEnv">Tipo do trabalho</p>
-                        <input type="text" id="campoEnv" placeholder="Insira o tipo do trabalho (ex: TCC)" required>
+                        <input class="form-control" type="text" id="campoEnv" placeholder="Insira o tipo do trabalho (ex: TCC)" required>
 
                         <p id="textoEnv">Selecione a qual curso o trabalho se refere</p>
                         <select class="custom-select" id="campoEnv" required>
@@ -40,19 +40,19 @@
                         </select>
                         
                         <p id="textoEnv">Palavras chave</p>
-                        <input type="text" id="campoEnv" placeholder="Palavras chave do trabalho" required>
+                        <input class="form-control" type="text" id="campoEnv" placeholder="Palavras chave do trabalho" required>
                         
                         <p id="textoEnv">Tags</p>
-                        <input type="text" id="campoEnv" placeholder="Tags do trabalho">
+                        <input class="form-control" type="text" id="campoEnv" placeholder="Tags do trabalho">
                         
                         <p id="textoEnv">Abstract</p>
-                        <textarea  id="campoEnv" placeholder="Abstract do trabalho" rows="5" required> </textarea>
+                        <textarea class="form-control" id="campoEnv" placeholder="Abstract do trabalho" rows="5" required> </textarea>
                         
                         <p id="textoEnv"> Data do trabalho</p>
-                        <input type="date" id="campoEnv" required>
+                        <input class="form-control" type="date" id="campoEnv" required>
 
                         <p id="textoEnv"> Selecione o trabalho</p>
-                        <input name="userfile" id="campoEnv" type="file" />
+                        <input class="form-control" name="userfile" id="campoEnv" type="file" />
 
                         
 
