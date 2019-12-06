@@ -36,6 +36,16 @@ Para esse projeto, está sendo utilizado o banco de dados Postgres.
     </thead>
     <tbody>
         <tr>
+            <td>Session</td>
+            <td>POST</td>
+            <td>/session</td>
+        </tr>
+        <tr>
+            <td>---------------</td>
+            <td>---------</td>
+            <td>------------------</td>
+        </tr>
+        <tr>
             <td>User</td>
             <td>GET</td>
             <td>/users</td>
