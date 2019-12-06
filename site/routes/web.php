@@ -16,6 +16,9 @@ Route::get('/', 'HomeController@index')->name('home');
 // Sobre
 Route::get('/sobre', 'SobreController@index')->name('sobre');
 
+// Pesquisa
+Route::get('/pesquisa', 'PesquisaController@pesquisar')->name('pesquisar');
+
 // Trabalho
 Route::get('/trabalho/{id}', 'TrabalhoController@index')->name('trabalho');
 

@@ -70,11 +70,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // dd($data);
         $client = new \GuzzleHttp\Client([
             'base_uri' => 'localhost:3333',
             'timeout'  => 2.0,
         ]);
-        
+
         $response = $client->request('POST', '/users', [
             \GuzzleHttp\RequestOptions::JSON => [
                 "registration_id" => $data['registration_id'],
@@ -83,7 +84,7 @@ class RegisterController extends Controller
                 "firstname" => $data['firstname'],
                 "lastname" => $data['lastname'], 
                 "type" => $data['type'],
-                "siape" => intval($data['siape']),
+                "siape" => 123,
                 "lattes" => $data['lattes'],
                 "email" => $data['email'],
                 "birthday" => $data['birthday'],
