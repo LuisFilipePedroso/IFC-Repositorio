@@ -53,7 +53,7 @@
                         <input class="form-control" type="date" id="campoEnv" name="data" required>
 
                         <p id="textoEnv"> Selecione o trabalho</p>
-                        <input class="form-control" name="userfile" id="campoEnv" name="trabalho" type="file" />
+                        <input name="userfile" id="campoEnv" name="trabalho" type="file" />
 
                         
 
