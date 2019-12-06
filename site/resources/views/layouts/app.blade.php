@@ -49,12 +49,20 @@
         <header>           
             <div id="menu">
                 <div class="container mt-1">
-                    <div class="row">
-                        <div class="col-md-8"></div>
-                        <div class="col-md-4 pl-170">
-                            <a href="{{ route('login') }}" id="botao-login">Login</a>
-                            <a href="{{ route('register') }}" id="botao-cadastro">Cadastre-se</a>
-                        </div>
+                    <div class="row" id="row-menu">
+                            @auth
+                                <div class="col-md-7"></div>
+                                <div class="col-md-5 pl-170 d-inline-flex">
+                                    <p id="texto-bem-vindo">Bem vindo! {{ auth()->user()->username }}</p>
+                                    <a href="{{ route('logout') }}" id="botao-logout">Sair</a>
+                                </div>
+                            @else
+                                <div class="col-md-8"></div>
+                                <div class="col-md-4 pl-170">
+                                    <a href="{{ route('login') }}" id="botao-login">Login</a>
+                                    <a href="{{ route('register') }}" id="botao-cadastro">Cadastre-se</a>
+                                </div>
+                            @endauth
                     </div>
                 </div>
                 <div class="container">
@@ -79,11 +87,19 @@
                                 <div class="col-md-1">
                                     <a target="_blank" href="//github.com/LuisFilipePedroso/IFC-Repositorio" title="Github"><i class="fab fa-github icone-navbar"></i></a>
                                 </div>
-                                <div class="col-md-4 col-xs-12 col-sm-12">                                   
-                                    <a href="#" title="Guarde Seus Trabalhos" id="link-home-upload" class="btn borda hover mr-3">
-                                        <i class="fas fa-cloud-upload-alt"></i>
-                                        UPLOAD
-                                    </a>
+                                <div class="col-md-4 col-xs-12 col-sm-12">
+                                    @auth
+                                        <a href="/upload" title="Guarde Seus Trabalhos" id="link-home-upload" class="btn borda hover mr-3">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            UPLOAD
+                                        </a>
+                                    @else
+                                        <a href="/login" title="Guarde Seus Trabalhos" id="link-home-upload" class="btn borda hover mr-3">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            UPLOAD
+                                        </a>
+                                    @endauth
+
                                     <a href="#" title="Conheça nossa Dashboard" id="link-home-dashboard" class="btn borda hover">
                                         <i class="fas fa-chart-line mr-2"></i>
                                         DASHBOARD

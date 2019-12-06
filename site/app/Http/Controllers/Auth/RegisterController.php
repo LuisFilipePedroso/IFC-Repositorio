@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -49,9 +50,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'lattes' => ['required', 'string', 'max:255'],
+            'birthday' => ['required'],
+            'type' => ['required'],
+            'registration_id' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:5', 'confirmed'],
         ]);
     }
 
@@ -63,10 +70,33 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        $client = new \GuzzleHttp\Client([
+            'base_uri' => 'localhost:3333',
+            'timeout'  => 2.0,
         ]);
+        
+        $response = $client->request('POST', '/users', [
+            \GuzzleHttp\RequestOptions::JSON => [
+                "registration_id" => $data['registration_id'],
+                "username"=> $data['username'],
+                "password" => $data['password'],
+                "firstname" => $data['firstname'],
+                "lastname" => $data['lastname'], 
+                "type" => $data['type'],
+                "siape" => intval($data['siape']),
+                "lattes" => $data['lattes'],
+                "email" => $data['email'],
+                "birthday" => $data['birthday'],
+            ]
+        ]);
+
+        // $credenciais = [
+        //     "email" =>  $data['email'],
+        //     "password" => $data['password']
+        // ];
+
+        $user = User::where('email', '=', $data['email'])->first();
+
+        return Auth::login($user);
     }
 }
