@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/upload/trabalhos', 'TrabalhosController@index')->name('trabalhos');
     // Enviar novo trabalho
     Route::get('/upload/novotrabalho', 'NovoTrabalhoController@index')->name('novotrabalho');
+    // Salvar novo trabalho
+    Route::post('/upload/novotrabalho', 'NovoTrabalhoController@store')->name('novotrabalho.store');
     // Aceitar novo Usuário
     Route::get('/upload/novocadastro', 'NovoCadastroController@index')->name('aceitarnovocadastro');
     // Aceitar novo trabalho

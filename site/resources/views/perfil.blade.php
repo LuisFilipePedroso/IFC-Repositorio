@@ -26,22 +26,22 @@
                 <div class="col-md-8" id="campos">
                     <form action="" method="POST">
                         <p id="texto"> Nome</p>
-                        <input class="form-control" type="text" id="campoProf" readonly placeholder="Nome do usuário" required>
+                        <input class="form-control" type="text" id="campoProf" readonly placeholder="Nome do usuário" value="{{ $usuario->firstname . ' ' . $usuario->lastname }}" required>
 
                         <p id="texto"> Matricula</p>
-                        <input class="form-control" type="text" id="campoProf" readonly placeholder="Matricula do usuário" required>
+                        <input class="form-control" type="text" id="campoProf" readonly placeholder="Matricula do usuário" value="{{ $usuario->registration_id }}" required>
                         
                         <p id="texto"> Email</p>
-                        <input class="form-control" type="email" id="campoProf" placeholder="Email do usuário" required>
+                        <input class="form-control" type="email" id="campoProf" placeholder="Email do usuário" value="{{ $usuario->email }}" required>
 
                         <p id="texto"> Data de nascimento</p>
-                        <input class="form-control" type="date" id="campoProf" readonly required>
+                        <input class="form-control" type="text" id="campoProf" readonly value="{{ substr($usuario->birthday, 0, 10) }}" required>
 
                         <p id="texto"> Siape</p>
-                        <input class="form-control" type="text" id="campoProf" placeholder="Siape do usuário">
+                        <input class="form-control" type="text" id="campoProf" placeholder="Siape do usuário" value="{{ $usuario->siape }}">
                         
                         <p id="texto"> Lattes</p>
-                        <input class="form-control" type="text" id="campoProf" placeholder="Lattes do usuário">
+                        <input class="form-control" type="text" id="campoProf" placeholder="Lattes do usuário" value="{{ $usuario->lattes }}">
 
                         <p id="texto"> Artigos publicados</p>
                         <input class="form-control" type="text" id="campoProf" readonly placeholder="Número de artigos publicados">
