@@ -7,7 +7,7 @@ const INITIAL_STATE = []
 /**
  * Alerts reducer
  *
- * @param {object} state
+ * @param {array} state
  * @param {object} action
  */
 export default (state = INITIAL_STATE, action) => {

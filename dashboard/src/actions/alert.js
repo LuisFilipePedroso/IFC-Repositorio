@@ -2,7 +2,7 @@
 import { SET_ALERT, REMOVE_ALERT, REMOVE_ALERTS } from './types'
 
 // Others
-import uuid from 'uuid'
+import { uniqueId } from 'lodash'
 
 /**
  * Set alert
@@ -12,7 +12,7 @@ import uuid from 'uuid'
  * @param {number} timeout
  */
 export const setAlert = (message, type, timeout) => dispatch => {
-  const id = uuid.v4()
+  const id = uniqueId('id-')
   dispatch({
     type: SET_ALERT,
     payload: {
