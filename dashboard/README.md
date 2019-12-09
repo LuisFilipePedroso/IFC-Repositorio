@@ -5,12 +5,8 @@
   </small>
 </p>
 
-----------
-
 ## Sobre o Dashboard 📊
 Seu objetivo é fornecer para os visitantes, dados acerca dos recursos que estão disponíveis no repositório de trabalhos/artigos acadêmicos IFBox, através de uma maneira elegante e concisa.
-
-----------
 
 ## Frameworks/Bibliotecas Utilizadas 👨‍💻
 - React
@@ -23,8 +19,6 @@ Seu objetivo é fornecer para os visitantes, dados acerca dos recursos que estã
 - Axios
 - CanvasJS
 - Lodash
-
-----------
 
 ## Como Instalar e Utilizar 🛠
 Usando npm:
