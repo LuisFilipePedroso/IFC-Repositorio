@@ -13,4 +13,4 @@ Seu principal objetivo é ser a porta de entrada para a publicação de novos tr
 ## Aplicações Produzidas no Projeto 🔨
 - Dashboard
 - Site
-- Webservice
+- API
