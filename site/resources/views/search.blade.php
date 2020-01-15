@@ -1,6 +1,6 @@
 <div class="container-fluid" id="container-search">
   <div class="container">
-    <form action="#" method="GET">
+    <form action="{{ route('pesquisar') }}" method="GET">
       <div class="row">
         <div class="col-md-12">
           <img id="caixa-roxa" src="{{ asset('img/New_Box1.png') }}" alt="Ifbox" class="img-responsive">
