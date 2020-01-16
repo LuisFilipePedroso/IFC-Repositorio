@@ -25,6 +25,7 @@
     margin-top: 100px;
 }
 
+
 .site #container-trabalho .titulo-pagina {
     margin: 150px 0px 20px 0px;
 }
@@ -535,4 +536,8 @@ div.chosen-container a.chosen-single {
     cursor: pointer;
     opacity: 0;
     filter: alpha(opacity=0);
+}
+
+.site #container-pesquisa {
+    margin-top: 135px;
 }
