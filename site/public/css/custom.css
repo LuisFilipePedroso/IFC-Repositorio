@@ -541,3 +541,7 @@ div.chosen-container a.chosen-single {
 .site #container-pesquisa {
     margin-top: 135px;
 }
+
+.site #container-pesquisa #container-filtros {
+    margin: 5px;
+}
