@@ -545,3 +545,7 @@ div.chosen-container a.chosen-single {
 .site #container-pesquisa #container-filtros {
     margin: 5px;
 }
+
+.site #container-pesquisa .titulo-resultados {
+    margin-top: 50px;
+}

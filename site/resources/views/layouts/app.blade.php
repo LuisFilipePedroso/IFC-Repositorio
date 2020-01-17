@@ -32,6 +32,8 @@
 
         <link rel="shortcut icon" href="{{ asset('img/fav.png') }}">
 
+        <script type="text/javascript" src="{{ asset('js/view_pesquisa.js') }}"></script>
+
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/custom.css?v=').time() }}" rel="stylesheet">
