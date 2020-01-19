@@ -11,8 +11,58 @@
             <form action="pesquisa" method="get" class="border border-gray">
                 <div id="container-filtros">
                     <h4>Filtros</h4>
-                    <table class="table" id="tabela_filtros">
+                    <table class="table" id="tabela_filtros_pesquisa_trabalho">
                         <tbody>
+                            <tr>
+                                <td>
+                                    <select class="custom-select mr-sm-2" name="filtro_campo">
+                                        <option value="titulo">Título</option>
+                                        <option value="autor">Autor</option>
+                                        <option value="assunto">Assunto</option>
+                                        <option value="data_publicacao">Data de publicação</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="custom-select mr-sm-2" name="filtro_comparacao">
+                                        <option value="contem">Contém</option>
+                                        <option value="igual">Igual</option>
+                                        <option value="nao_contem">Não contém</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input class="form-control mb-2 mr-sm-2" name="filtro_texto" type="text" autocomplete="off"/>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" type="button" onclick="deleteRow(this)">
+                                        <i class="fas fa-minus-circle"></i> Remover Filtro
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="custom-select mr-sm-2" name="filtro_campo">
+                                        <option value="titulo">Título</option>
+                                        <option value="autor">Autor</option>
+                                        <option value="assunto">Assunto</option>
+                                        <option value="data_publicacao">Data de publicação</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="custom-select mr-sm-2" name="filtro_comparacao">
+                                        <option value="contem">Contém</option>
+                                        <option value="igual">Igual</option>
+                                        <option value="nao_contem">Não contém</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input class="form-control mb-2 mr-sm-2" name="filtro_texto" type="text" autocomplete="off"/>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" type="button" onclick="deleteRow(this)">
+                                        <i class="fas fa-minus-circle"></i> Remover Filtro
+                                    </button>
+                                </td>
+                            </tr>
                             <tr>
                                 <td>
                                     <select class="custom-select mr-sm-2" name="filtro_campo">
