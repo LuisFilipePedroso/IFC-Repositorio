@@ -543,9 +543,26 @@ div.chosen-container a.chosen-single {
 }
 
 .site #container-pesquisa #container-filtros {
-    margin: 5px;
+    margin: 7px;
 }
 
 .site #container-pesquisa .titulo-resultados {
     margin-top: 50px;
+}
+
+.site #container-pesquisa #botoes {
+    margin-top: -90px;
+    text-align:right;
+}
+
+@media (max-width: 991px) {
+    .site #container-pesquisa {
+        margin-top: 180px;
+    }
+}
+
+@media (max-width: 767px) {
+    .site #container-pesquisa {
+        margin-top: 250px;
+    }
 }

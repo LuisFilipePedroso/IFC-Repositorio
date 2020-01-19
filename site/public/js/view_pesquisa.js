@@ -94,7 +94,7 @@ function gerarFiltros()
     let request = getRequestGet();
     // Validar se veio vazio ou apenas com o 'nome'
     if (typeof request[0] != "undefined" && typeof request[0]["nome"] != "undefined") {
-        return request;
+        return [1, request];
     }
     
     let filtros = montaFiltros(request);
@@ -105,7 +105,7 @@ function gerarFiltros()
     if (!validaFiltros(filtros)) {
         return false;
     }
-    return filtros;
+    return [2, filtros];
 }
 
 /**
@@ -119,29 +119,73 @@ function deleteRow(button)
     row.parentNode.removeChild(row);
 }
 
-function addRow(tableID) 
+/**
+ * Método responsável por adicionar uma nova linha na tabela
+ * 
+ * @param {string} tabelaID 
+ * @param {array} filtros 
+ */
+function addRow(tabelaID, filtros = null) 
 {
     // Busca a tabela pelo id
-    let table = document.getElementById(tableID);
-    // Insere uma nova linha no fim da tabela
-    let novaLinha = table.insertRow(-1);
-    // Insert a cell in the row at index 0
-    let newCell = novaLinha.insertCell(0);
-    // var x = row.insertCell(2);
-    // x.innerHTML = "New cell";
-  
-    // Append a text node to the cell
-    let newText = document.createTextNode('New bottom row');
-    newCell.appendChild(newText);
+    let tabela = document.getElementById(tabelaID);
+    
+    if (!filtros) {
+        filtros = [{
+            campo: "",
+            comparacao: "",
+            texto: ""
+        }]
+    }
+
+    let novaLinha = null;
+    filtros.forEach(element => {
+        // Insere uma nova linha no fim da tabela
+        novaLinha = tabela.insertRow(-1);
+
+        // Insere as novas células
+        let celulaCampo = novaLinha.insertCell(0);
+        celulaCampo.innerHTML = ""
+            + "<select class=\"custom-select mr-sm-2\" name=\"filtro_campo\">"
+            + "<option value=\"titulo\" "          + ((element["campo"] == "titulo") ? "selected" : "") + ">Título</option>"
+            + "<option value=\"autor\" "           + ((element["campo"] == "autor") ? "selected" : "") + ">Autor</option>"
+            + "<option value=\"assunto\" "         + ((element["campo"] == "assunto") ? "selected" : "") + ">Assunto</option>"
+            + "<option value=\"data_publicacao\" " + ((element["campo"] == "data_publicacao") ? "selected" : "") + ">Data de publicação</option>"
+            + "</select>";
+
+        let celulaComparacao = novaLinha.insertCell(1);
+        celulaComparacao.innerHTML = ""
+            + "<select class=\"custom-select mr-sm-2\" name=\"filtro_comparacao\">"
+            + "<option value=\"contem\""     + ((element["comparacao"] == "contem") ? "selected" : "") + ">Contém</option>"
+            + "<option value=\"igual\""      + ((element["comparacao"] == "igual") ? "selected" : "") + ">Igual</option>"
+            + "<option value=\"nao_contem\"" + ((element["comparacao"] == "nao_contem") ? "selected" : "") + ">Não contém</option>"
+            + "</select>";
+        
+        let celulaTexto = novaLinha.insertCell(2)
+        celulaTexto.innerHTML = "<input class=\"form-control mb-2 mr-sm-2\" name=\"filtro_texto\" type=\"text\" value=\"" 
+                                + ((element["texto"] != "") ? element["texto"] : "") + "\" autocomplete=\"off\"/>";
+
+        let celulaBotao = novaLinha.insertCell(3)
+        celulaBotao.innerHTML = ""
+            + "<button class=\"btn btn-danger\" type=\"button\" onclick=\"deleteRow(this)\">"
+            + "<i class=\"fas fa-minus-circle\"></i> Remover Filtro"
+            + "</button>";
+    });
 }
 
 window.onload = function() {
-    let table = document.getElementById("tabela_filtros_pesquisa_trabalho");
-    if (!table) {
+    tabelaID = "tabela_filtros_pesquisa_trabalho";
+    let tabela = document.getElementById(tabelaID);
+    if (!tabela) {
         return;
     }
     let filtros = gerarFiltros();
+    if (filtros && filtros[0] == 2) {
+        addRow(tabelaID, filtros[1]);
+    } else {
+        addRow(tabelaID);
+    }
 };
 
 // EXEMPLO URL:
-// http://localhost:8000/pesquisa?filtro_campo=titulo&filtro_comparacao=contem&filtro_texto=Intelig%C3%AAncia+Artificial&filtro_campo=autor&filtro_comparacao=igual&filtro_texto=Mathias+Artur+Schulz
+// http://localhost:8000/pesquisa?filtro_campo=autor&filtro_comparacao=igual&filtro_texto=Mathias+Artur+Schulz&filtro_campo=titulo&filtro_comparacao=contem&filtro_texto=Intelig%C3%AAncia+Artificial&filtro_campo=data_publicacao&filtro_comparacao=contem&filtro_texto=2017-2019
