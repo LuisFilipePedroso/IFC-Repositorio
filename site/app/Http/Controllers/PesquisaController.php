@@ -14,7 +14,7 @@ class PesquisaController extends Controller
     const REQUEST_INVALIDO = 3;
     const REQUEST_VAZIO = 4;
 
-    public function pesquisar(Request $request)
+    public function pesquisar()
     {
         $client = new \GuzzleHttp\Client([
             'base_uri' => 'localhost:3333',
@@ -36,41 +36,28 @@ class PesquisaController extends Controller
             echo 'ERRO AO MONTAR FILTROS';
         }
 
-        // foreach($cod_deptos as $cod_depto){
-        //     echo $cod_depto . "<br />";
-        // }
+        $tabela = self::montarFiltros($result[1]);
 
-        // parse_str($request->all(), $output);
-
-        // //Exibe o resultado
-        // print_r($output);
-
-        // Pega o request get 'nome'
-        // $pesquisa = $request->input('nome');
 
         // // Busca os trabalhos
-        // $response = $client->request('GET', '/articles');
-        // $trabalhos = json_decode($response->getBody(), true);
-
+        $response = $client->request('GET', '/articles');
+        $trabalhos = json_decode($response->getBody(), true);
         // // APLICAR OS FILTROS DE BUSCA
-
-        
         // // Busca os usuários de cada artigo
         // foreach ($trabalhos as &$trabalho) {
         //     $trabalho['usuarios'] = $this->getUsersFromArticle($client, $trabalho['id']);
         // }
-
         // var_dump($trabalhos);
-        
         // // Não encontrou trabalho com o id determinado
         // if (is_null($trabalho)) {
         //     return view('home');
         // }
+        $pesquisa = "TESTE";
 
-        // return view(
-        //     'pesquisa', 
-        //     compact('pesquisa', 'trabalhos')
-        // );
+        return view(
+            'pesquisa', 
+            compact('pesquisa', 'tabela', 'trabalhos')
+        );
     }
 
     /**
@@ -97,7 +84,7 @@ class PesquisaController extends Controller
     /**
      * Método responsável por montar os filtros e verificar se estão montados corretamente
      */
-    public function gerarFiltros()
+    private function gerarFiltros()
     {
         $request = self::getRequestGet();
         
@@ -126,7 +113,7 @@ class PesquisaController extends Controller
     /**
      * Método responsável por ler o request GET e retornar os parâmetros
      */
-    public function getRequestGet()
+    private function getRequestGet()
     {
         if (!isset($_SERVER['QUERY_STRING'])) {
             return false;
@@ -145,7 +132,7 @@ class PesquisaController extends Controller
      * Método responsável por verificar se o request possui filtros válidos
      * e montar os filtros
      */
-    public function montaFiltros($request)
+    private function montaFiltros($request)
     {
         $filtros = [];
         for ($i = 0; $i < count($request); $i++) { 
@@ -181,7 +168,7 @@ class PesquisaController extends Controller
     /**
      * Método responsável por validar se cada filtro foi preenchido corretamente
      */
-    public function validaFiltros($filtros)
+    private function validaFiltros($filtros)
     {
         $tiposFiltrosCampo = ["titulo", "autor", "assunto", "data_publicacao"];
         $tiposFiltrosComparacao = ["contem", "igual", "nao_contem"];
@@ -206,5 +193,43 @@ class PesquisaController extends Controller
             }
         };
         return [true, ''];
+    }
+
+    /**
+     * Método responsável por montar a tabela de filtros da página
+     */
+    private function montarFiltros($filtros)
+    {
+        var_dump($filtros);
+        $tabela = "";
+        foreach ($filtros as $key => $filtro) {
+            $tabela .= ""
+                . "\n<tr>"
+                . "\n\t<td>"
+                . "\n\t\t<select class=\"custom-select mr-sm-2\" name=\"filtro_campo\">"
+                . "\n\t\t<option value=\"titulo\" "          . (($filtro["campo"] == "titulo") ? "selected" : "") . ">Título</option>"
+                . "\n\t\t<option value=\"autor\" "           . (($filtro["campo"] == "autor") ? "selected" : "") . ">Autor</option>"
+                . "\n\t\t<option value=\"assunto\" "         . (($filtro["campo"] == "assunto") ? "selected" : "") . ">Assunto</option>"
+                . "\n\t\t<option value=\"data_publicacao\" " . (($filtro["campo"] == "data_publicacao") ? "selected" : "") . ">Data de publicação</option>"
+                . "\n\t\t</select>"
+                . "\n\t</td>"
+                . "\n\t<td>"
+                . "\n\t\t<select class=\"custom-select mr-sm-2\" name=\"filtro_comparacao\">"
+                . "\n\t\t<option value=\"contem\""     . (($filtro["comparacao"] == "contem") ? "selected" : "") . ">Contém</option>"
+                . "\n\t\t<option value=\"igual\""      . (($filtro["comparacao"] == "igual") ? "selected" : "") . ">Igual</option>"
+                . "\n\t\t<option value=\"nao_contem\"" . (($filtro["comparacao"] == "nao_contem") ? "selected" : "") . ">Não contém</option>"
+                . "\n\t\t</select>"
+                . "\n\t</td>"
+                . "\n\t<td>"
+                . "\n\t\t<input class=\"form-control mb-2 mr-sm-2\" name=\"filtro_texto\" type=\"text\" value=\"" 
+                    . (($filtro["texto"] != "") ? $filtro["texto"] : "") . "\" autocomplete=\"off\"/>"
+                . "\n\t</td>"
+                . "\n\t<td>"
+                . "\n\t\t<button class=\"btn btn-danger\" type=\"button\" onclick=\"deleteRow(this)\">"
+                . "\n\t\t<i class=\"fas fa-minus-circle\"></i> Remover Filtro"
+                . "\n\t\t</button>"
+                . "\n\t</td>";
+        }
+        return $tabela;
     }
 }

@@ -173,19 +173,19 @@ function addRow(tabelaID, filtros = null)
     });
 }
 
-window.onload = function() {
-    tabelaID = "tabela_filtros_pesquisa_trabalho";
-    let tabela = document.getElementById(tabelaID);
-    if (!tabela) {
-        return;
-    }
-    let filtros = gerarFiltros();
-    if (filtros && filtros[0] == 2) {
-        addRow(tabelaID, filtros[1]);
-    } else {
-        addRow(tabelaID);
-    }
-};
+// window.onload = function() {
+//     tabelaID = "tabela_filtros_pesquisa_trabalho";
+//     let tabela = document.getElementById(tabelaID);
+//     if (!tabela) {
+//         return;
+//     }
+//     let filtros = gerarFiltros();
+//     if (filtros && filtros[0] == 2) {
+//         addRow(tabelaID, filtros[1]);
+//     } else {
+//         addRow(tabelaID);
+//     }
+// };
 
 // EXEMPLO URL:
 // http://localhost:8000/pesquisa?filtro_campo=autor&filtro_comparacao=igual&filtro_texto=Mathias+Artur+Schulz&filtro_campo=titulo&filtro_comparacao=contem&filtro_texto=Intelig%C3%AAncia+Artificial&filtro_campo=data_publicacao&filtro_comparacao=contem&filtro_texto=2017-2019

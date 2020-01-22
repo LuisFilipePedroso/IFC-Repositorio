@@ -15,6 +15,7 @@
                     <h5>Busca Avançada</h5>
                     <table class="table" id="tabela_filtros_pesquisa_trabalho">
                         <tbody>
+                            <?= $tabela ?>
                         </tbody>
                     </table>​​​​
                     <div id="botoes">
