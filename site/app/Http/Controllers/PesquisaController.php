@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 
 class PesquisaController extends Controller
 {
+    /**
+     * Tipos de requests possíveis
+     */
+    const REQUEST_NOME = 1;
+    const REQUEST_FILTRO = 2;
+    const REQUEST_INVALIDO = 3;
+    const REQUEST_VAZIO = 4;
+
     public function pesquisar(Request $request)
     {
         $client = new \GuzzleHttp\Client([
@@ -13,21 +21,20 @@ class PesquisaController extends Controller
             'timeout'  => 2.0,
         ]);
 
-        // Pegar todo o request
-        // foreach ($request->all() as $a) {
-        //     echo $a;
-        // }
-        // foreach($request->all() as $key => $val) {
-        //     echo $key. ': ' .$val;
-        // }
-        // var_dump($request);
-        // var_dump($_GET);
-
-        // $cod_deptos = $_GET['mathias'];
-        // var_dump($cod_deptos);
-
         $result = self::gerarFiltros();
-        var_dump($result);
+
+        // Request apenas com o paramêtro nome
+        if ($result[0] === self::REQUEST_NOME) {
+            echo 'APENAS O NOME';
+        }
+        // Request vazio
+        if ($result[0] === self::REQUEST_VAZIO) {
+            echo 'VAZIO';
+        }
+        // Erro ao montar filtros
+        if ($result[0] === self::REQUEST_INVALIDO) {
+            echo 'ERRO AO MONTAR FILTROS';
+        }
 
         // foreach($cod_deptos as $cod_depto){
         //     echo $cod_depto . "<br />";
@@ -87,25 +94,33 @@ class PesquisaController extends Controller
         return $usuarios;
     }
 
+    /**
+     * Método responsável por montar os filtros e verificar se estão montados corretamente
+     */
     public function gerarFiltros()
     {
         $request = self::getRequestGet();
-        // var_dump($request);
+        
+        // Request proveniente de busca, com apenas request 'nome'
+        if ($request[0][0] === "nome") {
+            return [self::REQUEST_NOME, ['nome' => $request[0][1]]];
+        }
 
-        // VALIDAR QUANDO FOR APENAS O NOME
+        // Nenhum paramêtro na requisição
         if (!$request) {
-            return [1, request];
+            return [self::REQUEST_VAZIO, ''];
         }
         
         $filtros = self::montaFiltros($request);
-        if (!$filtros) {
-            return false;
+        if ($filtros[0] === self::REQUEST_INVALIDO) {
+            return $filtros;
         }
-
-        if (!self::validaFiltros($filtros)) {
-            return false;
+        
+        $result = self::validaFiltros($filtros[1]);
+        if ($result[0] === self::REQUEST_INVALIDO) {
+            return $result;
         }
-        return [2, $filtros];
+        return [self::REQUEST_FILTRO, $filtros[1]];
     }
 
     /**
@@ -154,11 +169,13 @@ class PesquisaController extends Controller
                     'texto'      => $request[$i+2][1]
                 ];
             } else {
-                return false;
+                return [
+                    self::REQUEST_INVALIDO, 'Não foi possível realizar a montagem dos filtros. Filtros incorretos!'
+                ];
             }
             $i = $i + 2;
         }
-        return $filtros;
+        return [true, $filtros];
     }
 
     /**
@@ -176,7 +193,7 @@ class PesquisaController extends Controller
                 !in_array($element["campo"], $tiposFiltrosCampo) ||
                 !in_array($element["comparacao"], $tiposFiltrosComparacao)
             ) {
-                return false;
+                return [self::REQUEST_INVALIDO, 'Não foi possível realizar a montagem dos filtros. Tipo campo ou comparação inválido!'];
             }
             // Validação especial para o tipo data
             if ($element["campo"] === $tiposFiltrosCampo[3]) {
@@ -184,10 +201,10 @@ class PesquisaController extends Controller
                 $pattern = "/^[0-9]{4}(\-[0-9]{4}|)$/";
                 $resultado = preg_match($pattern, $element["texto"], $matches);
                 if (!$resultado) {
-                    return false;
+                    return [self::REQUEST_INVALIDO, 'Não foi possível realizar a montagem dos filtros. Data incorreta!'];
                 }
             }
         };
-        return true;
+        return [true, ''];
     }
 }
