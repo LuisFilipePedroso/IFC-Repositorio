@@ -21,43 +21,63 @@ class PesquisaController extends Controller
             'timeout'  => 2.0,
         ]);
 
-        $result = self::gerarFiltros();
+        // Gera os filtros
+        $filtros = self::gerarFiltros();
 
         // Request apenas com o paramêtro nome
-        if ($result[0] === self::REQUEST_NOME) {
+        if ($filtros[0] === self::REQUEST_NOME) {
             echo 'APENAS O NOME';
         }
         // Request vazio
-        if ($result[0] === self::REQUEST_VAZIO) {
+        if ($filtros[0] === self::REQUEST_VAZIO) {
             echo 'VAZIO';
         }
         // Erro ao montar filtros
-        if ($result[0] === self::REQUEST_INVALIDO) {
+        if ($filtros[0] === self::REQUEST_INVALIDO) {
             echo 'ERRO AO MONTAR FILTROS';
         }
 
-        $tabela = self::montarFiltros($result[1]);
+        // Monta a tabela de filtros
+        $filtros = $filtros[1];
+        $tabela = self::montarFiltros($filtros);
 
-
-        // // Busca os trabalhos
+        // Organiza os filtros de acordo com prioridade de busca
+        $filtros = self::organizaFiltros($filtros);
+        
+        // Busca todos os trabalhos
         $response = $client->request('GET', '/articles');
         $trabalhos = json_decode($response->getBody(), true);
-        // // APLICAR OS FILTROS DE BUSCA
+
+        // Aplica o filtro de titulo se existir e depois e filtro de data se existir
+        $trabalhos = self::aplicaFiltrosTituloData($filtros, $trabalhos);
+
         // // Busca os usuários de cada artigo
         // foreach ($trabalhos as &$trabalho) {
-        //     $trabalho['usuarios'] = $this->getUsersFromArticle($client, $trabalho['id']);
+        //     $trabalho['usuarios'] = self::getUsersFromArticle($client, $trabalho['id']);
         // }
+        
+        
+        // Aplicar os filtros nos trabalhos
         // var_dump($trabalhos);
-        // // Não encontrou trabalho com o id determinado
-        // if (is_null($trabalho)) {
-        //     return view('home');
+                // // Exemplo de busca com case insensitive
+        // $a = "Mathias Artur Schulz";
+        // $b = "m";
+        // if (stripos($a, $b) !== false) {
+        //     echo "nice one";
+        //     echo stripos($a, $b);
         // }
-        $pesquisa = "TESTE";
+        
+        
+        
+        // $pesquisa = "TESTE";
+        // return view(
+            //     'pesquisa', 
+        //     compact('pesquisa', 'tabela', 'trabalhos')
+        // );
 
-        return view(
-            'pesquisa', 
-            compact('pesquisa', 'tabela', 'trabalhos')
-        );
+        // EXEMPLO URL:
+        // http://localhost:8000/pesquisa?filtro_campo=autor&filtro_comparacao=igual&filtro_texto=Mathias+Artur+Schulz&filtro_campo=titulo&filtro_comparacao=contem&filtro_texto=Intelig%C3%AAncia+Artificial&filtro_campo=data_publicacao&filtro_comparacao=contem&filtro_texto=2017-2019
+        
     }
 
     /**
@@ -200,7 +220,6 @@ class PesquisaController extends Controller
      */
     private function montarFiltros($filtros)
     {
-        var_dump($filtros);
         $tabela = "";
         foreach ($filtros as $key => $filtro) {
             $tabela .= ""
@@ -231,5 +250,84 @@ class PesquisaController extends Controller
                 . "\n\t</td>";
         }
         return $tabela;
+    }
+
+    /**
+     * Método responsável por organizar os filtros de acordo com a prioridade de busca
+     * Prioridade: titulo, data_publicacao, autor, assunto
+     */
+    private function organizaFiltros($filtros)
+    {
+        $novosFiltros = [
+            'titulo'          => [],
+            'data_publicacao' => [],
+            'autor'           => [],
+            'assunto'         => []
+        ];
+        foreach ($filtros as $key => $filtro) {
+            switch ($filtro['campo']) {
+                case 'titulo':
+                    $novosFiltros['titulo'][] = $filtro;
+                    break;
+                case 'data_publicacao':
+                    $novosFiltros['data_publicacao'][] = $filtro;
+                    break;
+                case 'autor':
+                    $novosFiltros['autor'][] = $filtro;
+                    break;
+                case 'assunto':
+                    $novosFiltros['assunto'][] = $filtro;
+                    break;
+            }
+        }
+        return $novosFiltros;
+    }
+
+    /**
+     * Método responsável por buscar os trabalhos com titulo e data desejados
+     */
+    private function aplicaFiltrosTituloData($filtros, $trabalhos) {
+        var_dump($filtros);
+        foreach ($filtros['titulo'] as $key => $filtro) {
+            $trabalhos = self::aplicaFiltroTitulo($filtro, $trabalhos);
+        }
+        foreach ($filtros['data_publicacao'] as $key => $filtro) {
+            $trabalhos = self::aplicaFiltroData($filtro, $trabalhos);
+        }
+
+    }
+
+    /**
+     * Método responsável por buscar os trabalhos com titulo desejado
+     */
+    private function aplicaFiltroTitulo($filtro, $trabalhos)
+    {
+        $trabalhosFiltrados = [];
+        switch ($filtro['comparacao']) {
+            case 'contem':
+                foreach ($trabalhos as $key => $trabalho)
+                    if (stripos($trabalho['title'], $filtro['texto']) !== false)
+                        $trabalhosFiltrados[] = $trabalho;
+                break;
+            case 'igual':
+                foreach ($trabalhos as $key => $trabalho)
+                    if (strcmp($trabalho['title'], $filtro['texto']) === 0)
+                        $trabalhosFiltrados[] = $trabalho;
+                break;
+            case 'nao_contem':
+                foreach ($trabalhos as $key => $trabalho)
+                    if (stripos($trabalho['title'], $filtro['texto']) === false)
+                        $trabalhosFiltrados[] = $trabalho;
+                break;
+        }
+        return $trabalhosFiltrados;
+    }
+
+    /**
+     * Método responsável por buscar os trabalhos com a data desejada
+     */
+    private function aplicaFiltroData($filtro, $trabalhos)
+    {
+        
     }
 }
