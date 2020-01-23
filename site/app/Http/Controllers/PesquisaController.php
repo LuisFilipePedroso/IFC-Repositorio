@@ -261,7 +261,7 @@ class PesquisaController extends Controller
                     . (($filtro["texto"] != "") ? $filtro["texto"] : "") . "\" autocomplete=\"off\"/>"
                 . "\n\t</td>"
                 . "\n\t<td>"
-                . "\n\t\t<button class=\"btn btn-danger\" type=\"button\" onclick=\"deleteRow(this)\">"
+                . "\n\t\t<button class=\"btn btn-danger\" type=\"button\" onclick=\"deleteRow(this, 'tabela_filtros_pesquisa_trabalho')\">"
                 . "\n\t\t<i class=\"fas fa-minus-circle\"></i> Remover Filtro"
                 . "\n\t\t</button>"
                 . "\n\t</td>";

@@ -35,17 +35,33 @@
             <div class="titulo-resultados"> 
                 <h2>Resultados</h2>
             </div>
-
-            @if($trabalhos)
-                @foreach ($trabalhos as $trabalho)
-                    <div>
-                        <p><a href="/trabalho/{{$trabalho['id']}}">{{$trabalho['title']}}</a></p>
-                        <p>{{$trabalho['abstract']}}</p>
-                    </div>
-                @endforeach
-            @else
-                <h6>Nenhum trabalho encontrado com os filtros fornecidos! </h6>
-            @endif
+            <table class="table">
+                <tbody>
+                    @if($trabalhos)
+                        @foreach ($trabalhos as $trabalho)
+                            <tr>
+                                <td>
+                                <a id="trabalho" href="/trabalho/{{$trabalho['id']}}">
+                                    <h5>{{$trabalho['title']}}</h5>
+                                    @if($trabalho['usuarios'])
+                                        <p>
+                                        @foreach ($trabalho['usuarios'] as $usuario)
+                                            {{$usuario}}
+                                        @endforeach
+                                        </p>
+                                    @endif
+                                    <p>{{$trabalho['abstract']}}</p>
+                                </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td>Nenhum trabalho encontrado com os filtros fornecidos! </td>
+                        </tr>
+                    @endif
+                </tbody>
+            </table>​​​​
         </div>
         <br><br><br><br><br>
     </div>

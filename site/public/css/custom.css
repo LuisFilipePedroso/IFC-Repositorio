@@ -555,6 +555,10 @@ div.chosen-container a.chosen-single {
     text-align:right;
 }
 
+.site #container-pesquisa #trabalho {
+    color: #222222;
+}
+
 @media (max-width: 991px) {
     .site #container-pesquisa {
         margin-top: 180px;
