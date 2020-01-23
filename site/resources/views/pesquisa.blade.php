@@ -14,6 +14,9 @@
                 <div id="container-filtros">
                     <h5>Busca Avançada</h5>
                     <table class="table" id="tabela_filtros_pesquisa_trabalho">
+                        @if($mensagemErroFiltro)
+                            <h6>{{$mensagemErroFiltro}}</h6>
+                        @endif
                         <tbody>
                             <?= $tabela ?>
                         </tbody>
@@ -33,12 +36,16 @@
                 <h2>Resultados</h2>
             </div>
 
-            @foreach ($trabalhos as $trabalho)
-                <div>
-                    <p><a href="/trabalho/{{$trabalho['id']}}">{{$trabalho['title']}}</a></p>
-                    <p>{{$trabalho['abstract']}}</p>
-                </div>
-            @endforeach
+            @if($trabalhos)
+                @foreach ($trabalhos as $trabalho)
+                    <div>
+                        <p><a href="/trabalho/{{$trabalho['id']}}">{{$trabalho['title']}}</a></p>
+                        <p>{{$trabalho['abstract']}}</p>
+                    </div>
+                @endforeach
+            @else
+                <h6>Nenhum trabalho encontrado com os filtros fornecidos! </h6>
+            @endif
         </div>
         <br><br><br><br><br>
     </div>

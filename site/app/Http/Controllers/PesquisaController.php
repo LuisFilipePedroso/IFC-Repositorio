@@ -24,34 +24,57 @@ class PesquisaController extends Controller
         // Gera os filtros
         $filtros = self::gerarFiltros();
 
-        // Request apenas com o paramêtro nome
-        if ($filtros[0] === self::REQUEST_NOME) {
-            echo 'APENAS O NOME';
-        }
-        // Request vazio
-        if ($filtros[0] === self::REQUEST_VAZIO) {
-            echo 'VAZIO';
-        }
-        // Erro ao montar filtros
-        if ($filtros[0] === self::REQUEST_INVALIDO) {
-            echo 'ERRO AO MONTAR FILTROS';
+        // Busca todos os trabalhos
+        $response = $client->request('GET', '/articles');
+        $trabalhos = json_decode($response->getBody(), true);
+        $pesquisa = '';
+        $mensagemErroFiltro = '';
+
+        // Verifica se possui filtros
+        if ($filtros[0] !== self::REQUEST_FILTRO) {
+            $tabela = self::montarFiltros();
+
+            // Request apenas com o paramêtro nome
+            if ($filtros[0] === self::REQUEST_NOME) {
+                $pesquisa = $filtros[1]['nome'];
+                $novosFiltros = [
+                    'comparacao' => 'contem', 
+                    'texto'      => $pesquisa
+                ];
+                // Busca trabalhos com o nome no titulo
+                $trabalhos = self::aplicaFiltroTitulo($novosFiltros, $trabalhos);
+                // Busca trabalhos com o nome no resumo
+                $trabalhos = self::aplicaFiltroResumo($novosFiltros, $trabalhos);
+                
+                // BUSCA POR TITULO OU POR RESUMO
+
+            }
+            
+            // Erro ao montar filtros
+            if ($filtros[0] === self::REQUEST_INVALIDO) {
+                $mensagemErroFiltro = $filtros[1];
+            }
+
+            // Busca os usuários de cada artigo
+            foreach ($trabalhos as &$trabalho) {
+                $trabalho['usuarios'] = self::getUsersFromArticle($client, $trabalho['id']);
+            }
+
+            return view(
+                'pesquisa', 
+                compact('pesquisa', 'tabela', 'trabalhos', 'mensagemErroFiltro')
+            );
         }
 
-        // Monta a tabela de filtros
+        // Possui filtros e estão corretor - Monta a tabela de filtros
         $filtros = $filtros[1];
         $tabela = self::montarFiltros($filtros);
 
         // Organiza os filtros de acordo com prioridade de busca
         $filtros = self::organizaFiltros($filtros);
-        
-        // Busca todos os trabalhos
-        $response = $client->request('GET', '/articles');
-        $trabalhos = json_decode($response->getBody(), true);
 
         // Aplica o filtro de titulo se existir e depois e filtro de data se existir
         $trabalhos = self::aplicaFiltrosTituloData($filtros, $trabalhos);
-
-        // VERIFICAR SE EXISTEM TRABALHOS
 
         // Busca os usuários de cada artigo
         foreach ($trabalhos as &$trabalho) {
@@ -61,18 +84,10 @@ class PesquisaController extends Controller
         // Aplica o filtro de autor se existir e depois e filtro de resumo se existir
         $trabalhos = self::aplicaFiltrosAutorResumo($filtros, $trabalhos);
         
-        
-        
-        
-        // $pesquisa = "TESTE";
-        // return view(
-            //     'pesquisa', 
-        //     compact('pesquisa', 'tabela', 'trabalhos')
-        // );
-
-        // EXEMPLO URL:
-        // http://localhost:8000/pesquisa?filtro_campo=autor&filtro_comparacao=igual&filtro_texto=Mathias+Artur+Schulz&filtro_campo=titulo&filtro_comparacao=contem&filtro_texto=Intelig%C3%AAncia+Artificial&filtro_campo=data_publicacao&filtro_comparacao=contem&filtro_texto=2017-2019
-        
+        return view(
+            'pesquisa', 
+            compact('pesquisa', 'tabela', 'trabalhos', 'mensagemErroFiltro')
+        );
     }
 
     /**
@@ -213,9 +228,16 @@ class PesquisaController extends Controller
     /**
      * Método responsável por montar a tabela de filtros da página
      */
-    private function montarFiltros($filtros)
+    private function montarFiltros($filtros = null)
     {
         $tabela = "";
+        if (!$filtros) {
+            $filtros = [[
+                'campo'      => '', 
+                'comparacao' => '', 
+                'texto'      => ''
+            ]];
+        }
         foreach ($filtros as $key => $filtro) {
             $tabela .= ""
                 . "\n<tr>"
