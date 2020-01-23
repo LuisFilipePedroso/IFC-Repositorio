@@ -51,21 +51,16 @@ class PesquisaController extends Controller
         // Aplica o filtro de titulo se existir e depois e filtro de data se existir
         $trabalhos = self::aplicaFiltrosTituloData($filtros, $trabalhos);
 
-        // // Busca os usuários de cada artigo
-        // foreach ($trabalhos as &$trabalho) {
-        //     $trabalho['usuarios'] = self::getUsersFromArticle($client, $trabalho['id']);
-        // }
+        // VERIFICAR SE EXISTEM TRABALHOS
+
+        // Busca os usuários de cada artigo
+        foreach ($trabalhos as &$trabalho) {
+            $trabalho['usuarios'] = self::getUsersFromArticle($client, $trabalho['id']);
+        }
         
+        // Aplica o filtro de autor se existir e depois e filtro de resumo se existir
+        $trabalhos = self::aplicaFiltrosAutorResumo($filtros, $trabalhos);
         
-        // Aplicar os filtros nos trabalhos
-        // var_dump($trabalhos);
-                // // Exemplo de busca com case insensitive
-        // $a = "Mathias Artur Schulz";
-        // $b = "m";
-        // if (stripos($a, $b) !== false) {
-        //     echo "nice one";
-        //     echo stripos($a, $b);
-        // }
         
         
         
@@ -287,14 +282,13 @@ class PesquisaController extends Controller
      * Método responsável por buscar os trabalhos com titulo e data desejados
      */
     private function aplicaFiltrosTituloData($filtros, $trabalhos) {
-        var_dump($filtros);
         foreach ($filtros['titulo'] as $key => $filtro) {
             $trabalhos = self::aplicaFiltroTitulo($filtro, $trabalhos);
         }
         foreach ($filtros['data_publicacao'] as $key => $filtro) {
             $trabalhos = self::aplicaFiltroData($filtro, $trabalhos);
         }
-
+        return $trabalhos;
     }
 
     /**
@@ -328,6 +322,113 @@ class PesquisaController extends Controller
      */
     private function aplicaFiltroData($filtro, $trabalhos)
     {
-        
+        $anos = explode('-', $filtro['texto']);
+        $trabalhosFiltrados = [];
+        switch ($filtro['comparacao']) {
+            case 'contem':
+            case 'igual':
+                if (strlen($filtro['texto']) === 4) {
+                    foreach ($trabalhos as $trabalho)
+                        if ($trabalho['year'] == $filtro['texto'])
+                            $trabalhosFiltrados[] = $trabalho;
+                } else {
+                    foreach ($trabalhos as $trabalho)
+                        if ($anos[0] <= $trabalho['year'] && $anos[1] >= $trabalho['year'])
+                            $trabalhosFiltrados[] = $trabalho;
+                }
+                break;
+            case 'nao_contem':
+                if (strlen($filtro['texto']) === 4) {
+                    foreach ($trabalhos as $trabalho)
+                        if ($trabalho['year'] != $filtro['texto'])
+                            $trabalhosFiltrados[] = $trabalho;
+                } else {
+                    foreach ($trabalhos as $trabalho)
+                        if ($anos[0] >= $trabalho['year'] || $anos[1] <= $trabalho['year'])
+                            $trabalhosFiltrados[] = $trabalho;
+                }
+                break;
+        }
+        return $trabalhosFiltrados;
+    }
+
+    /**
+     * Método responsável por buscar os trabalhos com autor e resumo desejados
+     */
+    private function aplicaFiltrosAutorResumo($filtros, $trabalhos) {
+        foreach ($filtros['autor'] as $key => $filtro) {
+            $trabalhos = self::aplicaFiltroAutor($filtro, $trabalhos);
+        }
+        foreach ($filtros['assunto'] as $key => $filtro) {
+            $trabalhos = self::aplicaFiltroResumo($filtro, $trabalhos);
+        }
+        return $trabalhos;
+    }
+
+    /**
+     * Método responsável por buscar os trabalhos com autor desejado
+     */
+    private function aplicaFiltroAutor($filtro, $trabalhos)
+    {
+        $trabalhosFiltrados = [];
+        switch ($filtro['comparacao']) {
+            case 'contem':
+                foreach ($trabalhos as $trabalho) {
+                    foreach ($trabalho['usuarios'] as $usuario) {
+                        if (stripos($usuario, $filtro['texto']) !== false) {
+                            $trabalhosFiltrados[] = $trabalho;
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 'igual':
+                foreach ($trabalhos as $trabalho) {
+                    foreach ($trabalho['usuarios'] as $usuario) {
+                        if (strcmp($usuario, $filtro['texto']) === 0) {
+                            $trabalhosFiltrados[] = $trabalho;
+                            break;
+                        }
+                    }
+                }
+                break;
+            case 'nao_contem':
+                foreach ($trabalhos as $trabalho) {
+                    foreach ($trabalho['usuarios'] as $usuario) {
+                        if (stripos($usuario, $filtro['texto']) === false) {
+                            $trabalhosFiltrados[] = $trabalho;
+                            break;
+                        }
+                    }
+                }
+                break;
+        }
+        return $trabalhosFiltrados;
+    }
+
+    /**
+     * Método responsável por buscar os trabalhos com resumo desejado
+     */
+    private function aplicaFiltroResumo($filtro, $trabalhos)
+    {
+        $trabalhosFiltrados = [];
+        switch ($filtro['comparacao']) {
+            case 'contem':
+                foreach ($trabalhos as $key => $trabalho)
+                    if (stripos($trabalho['abstract'], $filtro['texto']) !== false)
+                        $trabalhosFiltrados[] = $trabalho;
+                break;
+            case 'igual':
+                foreach ($trabalhos as $key => $trabalho)
+                    if (strcmp($trabalho['abstract'], $filtro['texto']) === 0)
+                        $trabalhosFiltrados[] = $trabalho;
+                break;
+            case 'nao_contem':
+                foreach ($trabalhos as $key => $trabalho)
+                    if (stripos($trabalho['abstract'], $filtro['texto']) === false)
+                        $trabalhosFiltrados[] = $trabalho;
+                break;
+        }
+        return $trabalhosFiltrados;
     }
 }
