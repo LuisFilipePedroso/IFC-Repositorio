@@ -36,18 +36,7 @@ class PesquisaController extends Controller
 
             // Request apenas com o paramêtro nome
             if ($filtros[0] === self::REQUEST_NOME) {
-                $pesquisa = $filtros[1]['nome'];
-                $novosFiltros = [
-                    'comparacao' => 'contem', 
-                    'texto'      => $pesquisa
-                ];
-                // Busca trabalhos com o nome no titulo
-                $trabalhos = self::aplicaFiltroTitulo($novosFiltros, $trabalhos);
-                // Busca trabalhos com o nome no resumo
-                $trabalhos = self::aplicaFiltroResumo($novosFiltros, $trabalhos);
-                
-                // BUSCA POR TITULO OU POR RESUMO
-
+                $trabalhos = self::aplicaFiltroTituloOuResumo($filtros[1]['nome'], $trabalhos);
             }
             
             // Erro ao montar filtros
@@ -452,5 +441,29 @@ class PesquisaController extends Controller
                 break;
         }
         return $trabalhosFiltrados;
+    }
+
+    /**
+     * Método responsável por realizar a busca de uma pesquisa, 
+     * verificando titulos ou resumos, por fim somando as duas buscas
+     */
+    private function aplicaFiltroTituloOuResumo($pesquisa, $trabalhos)
+    {
+        $novosFiltros = [
+            'comparacao' => 'contem', 
+            'texto'      => $pesquisa
+        ];
+        // Busca trabalhos com o nome no resumo
+        $trabalhosResumo = self::aplicaFiltroResumo($novosFiltros, $trabalhos);
+        // Busca trabalhos com o nome no titulo
+        $trabalhosTitulo = self::aplicaFiltroTitulo($novosFiltros, $trabalhos);
+
+        // Soma os trabalhos das duas buscas, mas tirando repetidos
+        foreach ($trabalhosTitulo as $trabalho) {
+            if (!in_array($trabalho, $trabalhosResumo)) {
+                $trabalhosResumo[] = $trabalho;
+            }
+        }
+        return $trabalhosResumo;
     }
 }
