@@ -207,7 +207,7 @@ class PesquisaController extends Controller
                 $pattern = "/^[0-9]{4}(\-[0-9]{4}|)$/";
                 $resultado = preg_match($pattern, $element["texto"], $matches);
                 if (!$resultado) {
-                    return [self::REQUEST_INVALIDO, 'Não foi possível realizar a montagem dos filtros. Data incorreta!'];
+                    return [self::REQUEST_INVALIDO, 'Não foi possível realizar a montagem dos filtros. Data incorreta! Utilize o formato XXXX ou XXXX-XXXX'];
                 }
             }
         };
@@ -307,6 +307,9 @@ class PesquisaController extends Controller
      */
     private function aplicaFiltroTitulo($filtro, $trabalhos)
     {
+        if (!$filtro['texto']) {
+            return $trabalhos;
+        }
         $trabalhosFiltrados = [];
         switch ($filtro['comparacao']) {
             case 'contem':
@@ -381,6 +384,9 @@ class PesquisaController extends Controller
      */
     private function aplicaFiltroAutor($filtro, $trabalhos)
     {
+        if (!$filtro['texto']) {
+            return $trabalhos;
+        }
         $trabalhosFiltrados = [];
         switch ($filtro['comparacao']) {
             case 'contem':
@@ -422,6 +428,9 @@ class PesquisaController extends Controller
      */
     private function aplicaFiltroResumo($filtro, $trabalhos)
     {
+        if (!$filtro['texto']) {
+            return $trabalhos;
+        }
         $trabalhosFiltrados = [];
         switch ($filtro['comparacao']) {
             case 'contem':
