@@ -46,9 +46,12 @@
                                     @if($trabalho['usuarios'])
                                         <p>
                                         @foreach ($trabalho['usuarios'] as $usuario)
-                                            {{$usuario}}
+                                            {{$usuario}} |
                                         @endforeach
+                                        Publicação: {{$trabalho['year']}}
                                         </p>
+                                    @else
+                                        <p>Publicação: {{$trabalho['year']}}</p>
                                     @endif
                                     <p>{{$trabalho['abstract']}}</p>
                                 </a>
