@@ -23,14 +23,16 @@
             <form action="pesquisa" method="get" class="border border-gray">
                 <div id="container-filtros">
                     <h5>Busca Avançada</h5>
-                    <table class="table" id="tabela_filtros_pesquisa_trabalho">
-                        @if($mensagemErroFiltro)
-                            <h6>{{$mensagemErroFiltro}}</h6>
-                        @endif
-                        <tbody>
-                            <?= $tabela ?>
-                        </tbody>
-                    </table>​​​​
+                    <div class="table-responsive">
+                        <table class="table" id="tabela_filtros_pesquisa_trabalho">
+                            @if($mensagemErroFiltro)
+                                <h6>{{$mensagemErroFiltro}}</h6>
+                            @endif
+                            <tbody>
+                                <?= $tabela ?>
+                            </tbody>
+                        </table>​​​​
+                    </div>
                     <div id="botoes">
                         <button class="btn btn-primary" type="button" onclick="addRow('tabela_filtros_pesquisa_trabalho')">
                             <i class="fas fa-plus-circle"></i> Novo Filtro

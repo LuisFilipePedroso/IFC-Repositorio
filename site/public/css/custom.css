@@ -558,7 +558,7 @@ div.chosen-container a.chosen-single {
 
 .site #container-pesquisa #botoes {
     margin-top: -90px;
-    text-align:right;
+    text-align: right;
 }
 
 .site #container-pesquisa #trabalho {
@@ -569,10 +569,33 @@ div.chosen-container a.chosen-single {
     .site #container-pesquisa {
         margin-top: 180px;
     }
+    .site #container-pesquisa #botoes {
+        margin-top: 0px;
+    }
 }
 
 @media (max-width: 767px) {
     .site #container-pesquisa {
         margin-top: 250px;
     }
+}
+
+.site #container-pesquisa #celula-campo {
+    width: 150px;
+    min-width: 150px;
+}
+
+.site #container-pesquisa #celula-comparacao {
+    width: 150px;
+    min-width: 150px;
+}
+
+.site #container-pesquisa #celula-texto {
+    width: 300px;
+    min-width: 300px;
+}
+
+.site #container-pesquisa #celula-botao {
+    width: 140px;
+    min-width: 140px;
 }
