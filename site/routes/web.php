@@ -19,9 +19,6 @@ Route::get('/sobre', 'SobreController@index')->name('sobre');
 // Pesquisa
 Route::get('/pesquisa', 'PesquisaController@pesquisar')->name('pesquisar');
 
-// Teste
-Route::get('/teste', 'PesquisaController@teste')->name('teste');
-
 // Trabalho
 Route::get('/trabalho/{id}', 'TrabalhoController@index')->name('trabalho');
 
