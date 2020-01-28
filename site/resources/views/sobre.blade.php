@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <img id="dev-team" src="{{ asset('img/icon-devs/devs.png') }}" alt="Dev Team">
+                <img id="logo-ifc" src="{{ asset('img/logo-ifc.png') }}" alt="Logo IFC">
             </div>
             <div id='sobre' class="col-md-6">
                 <p>
