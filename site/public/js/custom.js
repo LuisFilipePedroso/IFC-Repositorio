@@ -11,18 +11,18 @@ $(document).ready(function() {
 
   $(window).scroll(function() {
     var scroll = $(window).scrollTop();
-    
-    if (scroll >= $('div#container-search').offset().top-130) {
+
+    if ($('div#container-search').offset() && (scroll >= $('div#container-search').offset().top-130)) {
         $(".site header div#menu ul li a").removeClass("ativo");
         $('a#menu-pesquisar').addClass('ativo');
     }
 
-    if (scroll >= $('div#container-sobre-nos').offset().top-140) {
+    if ($('div#container-sobre-nos').offset() && (scroll >= $('div#container-sobre-nos').offset().top-140)) {
         $(".site header div#menu ul li a").removeClass("ativo");
         $('a#menu-sobre-nos').addClass('ativo');
     }
 
-    if (scroll >= $('div#container-time').offset().top-150) {
+    if ($('div#container-time').offset() && (scroll >= $('div#container-time').offset().top-150)) {
         $(".site header div#menu ul li a").removeClass("ativo");
         $('a#menu-a-equipe').addClass('ativo');
     }
