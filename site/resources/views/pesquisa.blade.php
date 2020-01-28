@@ -1,6 +1,16 @@
 @extends('layouts.app')
 @section('content')
 
+@push('head')
+    <!-- DATATABLE CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <!-- DATATABLE SCRIPTS -->
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js" defer></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" defer></script>
+    <!-- HELPERS PESQUISA -->
+    <script type="text/javascript" src="{{ asset('js/view_pesquisa.js') }}" defer></script>
+@endpush
+
 <div id="container-pesquisa" class="container-fluid">
     <div class='container'>
         <div class="titulo-pagina"> 
@@ -35,7 +45,7 @@
             <div class="titulo-resultados"> 
                 <h2>Resultados</h2>
             </div>
-            <table class="table">
+            <table id="tabela_trabalhos" class="table">
                 <tbody>
                     @if($trabalhos)
                         @foreach ($trabalhos as $trabalho)

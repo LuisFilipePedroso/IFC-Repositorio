@@ -14,6 +14,11 @@ class PesquisaController extends Controller
     const REQUEST_INVALIDO = 3;
     const REQUEST_VAZIO = 4;
 
+    public function teste()
+    {
+        return view('teste');
+    }
+
     public function pesquisar()
     {
         $client = new \GuzzleHttp\Client([

@@ -32,7 +32,7 @@
 
         <link rel="shortcut icon" href="{{ asset('img/fav.png') }}">
 
-        <script type="text/javascript" src="{{ asset('js/view_pesquisa.js') }}"></script>
+        @stack('head')
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">

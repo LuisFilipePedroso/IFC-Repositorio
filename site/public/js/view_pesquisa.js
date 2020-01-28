@@ -1,6 +1,11 @@
 
 // JAVASCRIPT UTILIZADO NA TELA DE PESQUISA DE TRABALHOS
 
+// Formata a tabela
+$(document).ready(function() {
+    $('#tabela_trabalhos').DataTable();
+} );
+
 /**
  * Método responsável por remover uma linha da tabela de id deteminado
  * 
