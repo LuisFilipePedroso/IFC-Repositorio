@@ -13,6 +13,11 @@
             value="{{old('nome')}}" class="form-control borda" name="nome"/>
             <button type="submit" id="icone-search"><i class="fas fa-search"></i></button>     
         </div>
+        <div id="div-busca-avancada">
+          <a href="/pesquisa">
+            <span id="label-busca-avancada">Busca Avançada</span>
+          </a>
+        </div>
       </div>
     </form>
   </div>

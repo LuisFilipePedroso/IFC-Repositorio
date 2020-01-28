@@ -4,7 +4,7 @@
 
 @media (max-width: 767px) {
     .site #caixa-roxa {
-        margin-top: 140px;
+        margin-top: 180px;
     }
 }
 
@@ -598,4 +598,19 @@ div.chosen-container a.chosen-single {
 .site #container-pesquisa #celula-botao {
     width: 140px;
     min-width: 140px;
+}
+
+.site #div-busca-avancada {
+    width: 100%;
+    margin-top: -15px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.site #label-busca-avancada {
+    color: #222222;
+}
+
+.site #label-busca-avancada:hover {
+    text-decoration: underline;
 }
