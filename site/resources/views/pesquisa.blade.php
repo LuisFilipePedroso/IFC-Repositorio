@@ -46,6 +46,11 @@
                 <h2>Resultados</h2>
             </div>
             <table id="tabela_trabalhos" class="table">
+                <thead>
+                    <tr>
+                        <th>Trabalhos</th>
+                    </tr>
+                </thead>
                 <tbody>
                     @if($trabalhos)
                         @foreach ($trabalhos as $trabalho)
